@@ -1,0 +1,90 @@
+{
+    "menu": {
+        "items": [
+            {
+                "name": "cafe americano",
+                "category": "bebidas",
+                "service": "desayuno",
+                "price": 5
+            },
+            {
+                "name": "cafe con leche",
+                "category": "bebidas",
+                "service": "desayuno",
+                "price": 7
+            },
+            {
+                "name": "sandwich de jamon y queso",
+                "category": "platos",
+                "service": "desayuno",
+                "price": 10
+            },
+            {
+                "name": "jugo de frutas natural",
+                "category": "bebidas",
+                "service": "desayuno",
+                "price": 7
+            },
+            {
+                "name": "hamburguesa simple",
+                "category": "platos",
+                "service": "regular",
+                "price": 10
+            },
+            {
+                "name": "hamburguesa doble",
+                "category": "platos",
+                "service": "regular",
+                "price": 15
+            },
+            {
+                "name": "papas fritas",
+                "category": "extras",
+                "service": "regular",
+                "price": 5
+            },
+            {
+                "name": "aros de cebolla",
+                "category": "extras",
+                "service": "regular",
+                "price": 5
+            },
+            {
+                "name": "agua 500 ml",
+                "category": "bebidas",
+                "service": "regular",
+                "price": 5
+            },
+            {
+                "name": "agua 750ml",
+                "category": "bebidas",
+                "service": "regular",
+                "price": 7
+            },
+            {
+                "name": "gaseosa 500ml",
+                "category": "bebidas",
+                "service": "regular",
+                "price": 7
+            },
+            {
+                "name": "gaseosa 750ml",
+                "category": "bebidas",
+                "service": "regular",
+                "price": 10
+            },
+            {
+                "name": "queso",
+                "category": "extras",
+                "service": "regular",
+                "price": 1
+            },
+            {
+                "name": "huevo",
+                "category": "extras",
+                "service": "regular",
+                "price": 1
+            }
+        ]
+    }
+}
