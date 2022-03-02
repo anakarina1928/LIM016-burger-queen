@@ -1,5 +1,6 @@
 import React from "react"
-import InputForm from "./login.js"
+import InputForm from "./input.js"
+import Button from "./button.js"
 //import loginWithEmailAndPassword from "../../firebase/auth"
 /*const regex = {
     password: /^.{8,15}$/,
@@ -9,8 +10,21 @@ import InputForm from "./login.js"
 
 
 function Login () {
-return(
-    <InputForm/>
+return(<form>
+    <InputForm
+    type="email"
+    label="correo electronico"
+    placeholder="ingresa correo"
+    name="correo"
+    />
+    <InputForm
+    type="password"
+    label="contraseña"
+    placeholder=""
+    name="password"
+    />
+    <Button/>
+    </form>
     )
 };
 
