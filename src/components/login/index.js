@@ -10,21 +10,22 @@ import Button from "./button.js"
 
 
 function Login () {
-return(<form>
-    <InputForm
-    type="email"
-    label="correo electronico"
-    placeholder="ingresa correo"
-    name="correo"
-    />
-    <InputForm
-    type="password"
-    label="contraseña"
-    placeholder=""
-    name="password"
-    />
-    <Button/>
-    </form>
+return(
+  <form>
+      <InputForm
+      type="email"
+      label="correo electronico"
+      placeholder="ingresa correo"
+      name="correo"
+      />
+      <InputForm
+      type="password"
+      label="contraseña"
+      placeholder=""
+      name="password"
+      />
+      <Button/>
+  </form>
     )
 };
 
