@@ -1,12 +1,14 @@
 import { app , db} from "./config.js";
 import {signInWithEmailAndPassword, getAuth} from "@firebase/auth"
-import {collection, doc, getDoc} from "@firebase/firestore"
+import {collection, doc, getDoc, query} from "@firebase/firestore"
 
-const auth = getAuth(app);
+export const auth = getAuth(app);
 export const collectionUser = collection(db, 'usuarios');
 //Ingreso de usuario con email y contraseña
 export const loginWithEmailAndPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
+
+//Poner en firestore
 export const findingUser = async (userId, colllection) => {
     console.log("buscando al usuario: ", userId);
     try {
