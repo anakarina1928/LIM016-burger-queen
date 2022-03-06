@@ -1,4 +1,5 @@
 import {React, useState} from "react"
+import './addSubButton.css'
 
 function AddSubButton () {
     const [counter, setCounter] = useState(1)
@@ -10,10 +11,10 @@ function AddSubButton () {
     // }
 
     return(
-        <div style={{visibility: counter<1 ? 'hidden' : 'visible'}}>
-            <button onClick={decrement}>-</button>
-            <input type='number' min="0" value={counter}></input>
-            <button onClick={increment}>+</button>
+        <div className={`addSubDiv ${counter<1 && 'addSubDiv--inv'}`}>
+            <button onClick={decrement} className={`addSubBut red`}>-</button>
+            <input type='text' value={counter} className="addSubInp"></input>
+            <button onClick={increment} className={`addSubBut green`}>+</button>
         </div>
     )
 }

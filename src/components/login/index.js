@@ -3,6 +3,7 @@ import InputForm from "./input.js"
 import Button from "./button.js"
 import { auth, loginWithEmailAndPassword, findingUser, collectionUser } from "../../firebase/auth.js"
 import AddSubButton from "../vistaMesero/addSubButton.js"
+import CheckTable from "../vistaMesero/checkTable.js"
 
 // const regex = {
 //   password: /^.{8,15}$/,
@@ -73,6 +74,7 @@ function Login () {
       />
       <Button/>
       <AddSubButton/>
+      <CheckTable/>
     </form>
     )
 };
