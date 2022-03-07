@@ -19,4 +19,4 @@ function AddSubButton () {
     )
 }
 
-export default AddSubButton
+export { AddSubButton }
