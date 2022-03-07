@@ -1,0 +1,23 @@
+[
+    {
+        "categoryName": "hamburguesa",
+        "categoryText": "HAMBURGUESAS"
+    },
+    {
+        "categoryName": "cafes",
+        "categoryText": "CAFES"
+    },
+    {
+        "categoryName": "postres",
+        "categoryText": "POSTRES"
+    },
+    {
+        "categoryName": "bebidas",
+        "categoryText": "BEBIDAS"
+    },
+    {
+        "categoryName": "extras",
+        "categoryText": "EXTRAS"
+    }
+    
+]
