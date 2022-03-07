@@ -5,8 +5,6 @@ import { findingUser, collectionUser } from "../../firebase/firestore";
 import { loginWithEmailAndPassword } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
-import { AddSubButton } from "../waiterView/addSubButton/addSubButton"
-import { CheckTable } from "../waiterView/checkTable/checkTable"
 
 /*const regex = {
     password: /^.{8,15}$/,
