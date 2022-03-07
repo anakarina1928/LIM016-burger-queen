@@ -6,8 +6,12 @@ import Login from '../src/components/login/index.js';
 
 ReactDOM.render(
   //<React.StrictMode>
+  
     <Login/>
- // </React.StrictMode>,
+    
+  
+   
+ //</React.StrictMode>,
   ,
   document.getElementById('root')
 );
