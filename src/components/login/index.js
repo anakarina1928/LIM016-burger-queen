@@ -2,8 +2,8 @@ import {React, useState} from "react"
 import InputForm from "./input.js"
 import Button from "./button.js"
 import { auth, loginWithEmailAndPassword, findingUser, collectionUser } from "../../firebase/auth.js"
-import AddSubButton from "../vistaMesero/addSubButton.js"
-import CheckTable from "../vistaMesero/checkTable.js"
+import AddSubButton from "../vistaMesero/addSubButton/addSubButton"
+import CheckTable from "../vistaMesero/checkTable/checkTable"
 
 // const regex = {
 //   password: /^.{8,15}$/,
