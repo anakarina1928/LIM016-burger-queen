@@ -68,10 +68,7 @@ function Login() {
         name="password"
         onChange={changeInputsHandler}
       />
-<<<<<<< HEAD
-=======
       { errMsg ? <Error msg={errMsg} /> : null }
->>>>>>> lapatrona/loginFuncional
       <Button />
     </form>
   );
