@@ -12,8 +12,8 @@ export function Button (){
 
 
 
-export function Error(){
+export function Error({msg}){
     return(
-    <p className="error">Datos ingresados no son validos</p>
+    <p className="error">Datos ingresados no son validos, falta: {msg}</p>
     )
 }
