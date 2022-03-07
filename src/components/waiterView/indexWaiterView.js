@@ -3,6 +3,8 @@ import { MenuBar } from './menu.js'
 import { Products } from "./products.js"
 import { Product } from "./product.js"
 //import { useNavigate } from "react-router-dom";
+import { AddSubButton } from "../waiterView/addSubButton/addSubButton"
+import { CheckTable } from "../waiterView/checkTable/checkTable"
 
 const MenuForAllMeals = () => {
    // let Navigate = useNavigate();
@@ -23,11 +25,9 @@ const MenuForAllMeals = () => {
                         />
                     )}
                 </Products>
-
+                <AddSubButton/>
+                <CheckTable/>
             </section>
-      
-
-
     )
 
 }

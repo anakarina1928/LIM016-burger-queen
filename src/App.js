@@ -1,6 +1,6 @@
 import './App.css';
 import Login from '../src/components/login/index.js';
-import {MenuForAllMeals} from '../src/components/menu/index_menu.js';
+import {MenuForAllMeals} from '../src/components/waiterView/indexWaiterView';
 import { Route, Routes } from 'react-router-dom';
 
 
