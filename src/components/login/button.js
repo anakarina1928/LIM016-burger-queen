@@ -1,10 +1,19 @@
+
 import React from "react"
 
-function Button (){
+export function Button (){
     
     return(
-        <button type="submit">INGRESAR </button>
+        
+        <button type="submit"> INGRESAR </button>
+    
     )
 }
 
-export default Button
+
+
+export function Error(){
+    return(
+    <p className="error">Datos ingresados no son validos</p>
+    )
+}
