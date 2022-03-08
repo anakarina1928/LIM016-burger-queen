@@ -23,7 +23,8 @@ const MenuBar = ({ setMenuValue }) => {
                             key={index}
                             className={"btnMenuOption"}
                             value={category.categoryName}
-                            onClick={onSearchValueChange} text={category.categoryText}
+                            onClick={onSearchValueChange} 
+                            text={category.categoryText}
                             src={category.photo}
                         />
                     })
