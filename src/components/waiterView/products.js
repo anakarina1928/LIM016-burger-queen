@@ -8,8 +8,6 @@ return(
 <section>
    {props.children}
 </section>
-    
-
 </>
 )
 

@@ -1,15 +1,14 @@
 import React from "react";
 
 
-const Product = (props ) => {
+const Product = (props) => {
     console.log("recibiendo producto: ", props);
     return (
-        <>
-            <span>{props.item.name}</span>;
-            <br></br>
-        </>     
+        <button>
+            <span>{props.item.name}</span>
+        </button>  
     )
 
 }
 
-export { Product };
+export { Product }
