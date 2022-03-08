@@ -12,6 +12,7 @@
 }
 .checkTableP{
     color: #ffff;
+    align-self: center;
 }
 .checkTableInp{
     border: none;

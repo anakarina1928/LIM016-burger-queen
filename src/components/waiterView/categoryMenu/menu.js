@@ -1,9 +1,8 @@
 import React from "react";
 import './menu.css'
-import { Button } from '../waiterView/button';
-import { filterMenuByCategory, getAllCategories } from "../../api/api";
+import { Button } from './button';
+import { filterMenuByCategory, getAllCategories } from "../../../api/api";
 
-// <img src={logo} className="App-logo" alt="logo" />
 const MenuBar = ({ setMenuValue }) => {
 
     const onSearchValueChange = (event) => {
@@ -23,7 +22,10 @@ const MenuBar = ({ setMenuValue }) => {
                             key={index}
                             className={"btnMenuOption"}
                             value={category.categoryName}
-                            onClick={onSearchValueChange} text={category.categoryText}
+                            onClick={onSearchValueChange} 
+                            text={category.categoryText}
+                            src={category.photo}
+                            alt={category.categoryName}
                         />
                     })
                 }
