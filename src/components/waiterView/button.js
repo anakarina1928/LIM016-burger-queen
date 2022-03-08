@@ -1,10 +1,12 @@
 import React from "react";
 
-const Button = ({ className, text, onClick, value}) => {/*este boton lo puedo reutilizar las veces que desee, 
+const Button = ({ className, text, onClick, value, src, alt}) => {/*este boton lo puedo reutilizar las veces que desee, 
 le paso la clase, el evento y el texto que quiero que lleve*/
+
   return (
     <>
-      <button className={className}  onClick={onClick} value={value}>
+      <button className={className} onClick={onClick} value={value}>
+        <img src={process.env.PUBLIC_URL + src} alt={alt}/>
         {text}
       </button>
     </>

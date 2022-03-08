@@ -5,7 +5,9 @@ export function Button (){
     
     return(
         
-        <button type="submit"> INGRESAR </button>
+        <button type="submit">
+            INGRESAR 
+        </button>
     
     )
 }
