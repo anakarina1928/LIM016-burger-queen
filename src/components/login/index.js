@@ -43,32 +43,32 @@ function Login() {
       sessionStorage.setItem("user", JSON.stringify(userToCreate));
       Navigate("/main");
     } catch (error) {
-      setErrMsg(JSON.stringify(error))
+      setErrMsg("Datos ingresados incorrectos")
     }
   };
 
   useEffect(() => {
     setErrMsg(null)
   }, [data])
-  return (
+  return (<div className="div-form">
     <form onSubmit={submitHandler}>
+      <p className="p-form">Formulario de ingreso</p>
       <InputForm
         type="email"
-        label="correo electronico"
-        placeholder="ingresa correo"
+        placeholder="IngresaTu@correo.com"
         name="email"
         onChange={changeInputsHandler}
       />
       <InputForm
         type="password"
-        label="contraseña"
-        placeholder=""
+        placeholder="Password"
         name="password"
         onChange={changeInputsHandler}
       />
       { errMsg ? <Error msg={errMsg} /> : null }
-      <Button />
+      <Button/>
     </form>
+    </div>
   );
 }
 
