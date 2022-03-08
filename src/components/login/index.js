@@ -68,6 +68,7 @@ function Login() {
       { errMsg ? <Error msg={errMsg} /> : null }
       <Button/>
     </form>
+    <h1> &lt;BurguerLab/&gt; </h1>
     </div>
   );
 }
