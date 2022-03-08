@@ -1,0 +1,9 @@
+.product{
+    color:white;
+    background: linear-gradient(180deg, #5B0579 31.25%, #8E0B97 100%);
+    border-radius: 4px;
+    border: none;
+    height: 100px;
+    width: 115px;
+    font-weight: bold;
+}
