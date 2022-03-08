@@ -1,18 +1,18 @@
 import React from "react";
 
 
-const Products = (props) =>{
+const Products = (props) => {
 
-return(
-<>
-<section>
-   {props.children}
-</section>
-    
+   return (
+      <>
+         <section>
+            {props.children}
+         </section>
 
-</>
-)
+
+      </>
+   )
 
 }
 
-export {Products}
+export { Products }

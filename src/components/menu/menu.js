@@ -24,6 +24,7 @@ const MenuBar = ({ setMenuValue }) => {
                             className={"btnMenuOption"}
                             value={category.categoryName}
                             onClick={onSearchValueChange} text={category.categoryText}
+                            src={category.photo}
                         />
                     })
                 }
