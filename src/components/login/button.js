@@ -1,19 +1,20 @@
 
 import React from "react"
+import "./login.css"
 
 export function Button (){
     
     return(
         
-        <button type="submit"> INGRESAR </button>
+        <button className="button-login" type="submit"> INGRESAR </button>
     
     )
 }
 
 
 
-export function Error(){
+export function Error({msg}){
     return(
-    <p className="error">Datos ingresados no son validos</p>
+    <p className="error"> {msg}</p>
     )
 }

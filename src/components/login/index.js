@@ -1,6 +1,6 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import InputForm from "./input.js";
-import {Button, Error} from "./button.js";
+import { Button, Error } from "./button.js";
 import { findingUser, collectionUser } from "../../firebase/firestore";
 import { loginWithEmailAndPassword } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -18,51 +18,57 @@ function Login() {
     email: "",
     password: "",
   });
-  const onChangeInputs = (e) => {
+
+  const [errMsg, setErrMsg] = useState(null)
+  const changeInputsHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-  const eventButton = async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      let userFirebase = await loginWithEmailAndPassword(
+      if(!data.email || !data.password) setErrMsg(data.email? 'Email' : 'Password')
+      //chequear que no esten vacios
+      const userFirebase = await loginWithEmailAndPassword(
         data.email,
         data.password
       );
-      let dataUser = await findingUser(userFirebase.user.uid, collectionUser);
-      if (dataUser.exists()) {
-        console.log("que retorna ? : ", dataUser.data());
-        const userToCreate = {
-          nombre: dataUser.data().nombre,
-          correo: dataUser.data().correo,
-          id: dataUser.data().id,
-        };
-        sessionStorage.clear();
-        sessionStorage.setItem("user", JSON.stringify(userToCreate));
-        Navigate("/main");
-      }
+      const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
+      console.log("que retorna ? : ", dataUser.data());
+      const userToCreate = {
+        nombre: dataUser.data().nombre,
+        correo: dataUser.data().correo,
+        id: dataUser.data().id,
+      };
+      sessionStorage.clear();
+      sessionStorage.setItem("user", JSON.stringify(userToCreate));
+      Navigate("/main");
     } catch (error) {
-     
+      setErrMsg("Datos ingresados incorrectos")
     }
   };
-  return (
-    <form onSubmit={eventButton}>
+
+  useEffect(() => {
+    setErrMsg(null)
+  }, [data])
+  return (<div className="div-form">
+    <form onSubmit={submitHandler}>
+      <p className="p-form">Formulario de ingreso</p>
       <InputForm
         type="email"
-        label="correo electronico"
-        placeholder="ingresa correo"
+        placeholder="IngresaTu@correo.com"
         name="email"
-        onChange={onChangeInputs}
+        onChange={changeInputsHandler}
       />
       <InputForm
         type="password"
-        label="contraseña"
-        placeholder=""
+        placeholder="Password"
         name="password"
-        onChange={onChangeInputs}
+        onChange={changeInputsHandler}
       />
-      <Error/>
-      <Button />
+      { errMsg ? <Error msg={errMsg} /> : null }
+      <Button/>
     </form>
+    </div>
   );
 }
 

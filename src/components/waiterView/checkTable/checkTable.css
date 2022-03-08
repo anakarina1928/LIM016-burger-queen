@@ -1,0 +1,39 @@
+.checkTableDiv{
+    background-color: black;
+    width: 425px;
+}
+.checkTableTitle{
+    background-color: #2E2C2C;
+    border-radius: 2px;
+    box-shadow: 0px -1px 117px 0px rgba(90, 12, 108, 1) inset;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 15px;
+}
+.checkTableP{
+    color: #ffff;
+}
+.checkTableInp{
+    border: none;
+    width: 50px;
+    height: 35px;
+    margin-left: 5px;
+    text-align: center;
+    font-size: 20px;
+}
+.checkTableInnerDiv{
+    display: flex;
+    align-items: center;
+}
+th{
+    color: white;
+    font-weight: normal;
+    border-bottom: 1px solid #840A91;
+}
+table{
+    width: 100%;
+    background-color: #2E2C2C;
+    border-collapse: collapse;
+    box-shadow: 0px 6px 23px -7px rgba(51, 51, 51, 0.25);
+    border-radius: 2px;
+}
