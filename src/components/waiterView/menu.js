@@ -1,6 +1,6 @@
 import React from "react";
 import './menu.css'
-import { Button } from './button';
+import { Button } from '../waiterView/button';
 import { filterMenuByCategory, getAllCategories } from "../../api/api";
 
 // <img src={logo} className="App-logo" alt="logo" />
@@ -24,6 +24,7 @@ const MenuBar = ({ setMenuValue }) => {
                             className={"btnMenuOption"}
                             value={category.categoryName}
                             onClick={onSearchValueChange} text={category.categoryText}
+                            src={category.photo}
                         />
                     })
                 }

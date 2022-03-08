@@ -1,23 +1,28 @@
 [
     {
         "categoryName": "hamburguesa",
-        "categoryText": "HAMBURGUESAS"
+        "categoryText": "HAMBURGUESAS",
+        "photo":""
     },
     {
         "categoryName": "cafes",
-        "categoryText": "CAFES"
+        "categoryText": "CAFES",
+        "photo":""
     },
     {
         "categoryName": "postres",
-        "categoryText": "POSTRES"
+        "categoryText": "POSTRES",
+        "photo":""
     },
     {
         "categoryName": "bebidas",
-        "categoryText": "BEBIDAS"
+        "categoryText": "BEBIDAS",
+        "photo":""
     },
     {
         "categoryName": "extras",
-        "categoryText": "EXTRAS"
+        "categoryText": "EXTRAS",
+        "photo":""
     }
-    
+
 ]

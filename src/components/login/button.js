@@ -1,11 +1,12 @@
 
 import React from "react"
+import "./login.css"
 
 export function Button (){
     
     return(
         
-        <button type="submit"> INGRESAR </button>
+        <button className="button-login" type="submit"> INGRESAR </button>
     
     )
 }
@@ -14,6 +15,6 @@ export function Button (){
 
 export function Error({msg}){
     return(
-    <p className="error">Datos ingresados no son validos, falta: {msg}</p>
+    <p className="error"> {msg}</p>
     )
 }
