@@ -1,7 +1,7 @@
 import React from "react";
 import './menu.css'
-import { Button } from '../waiterView/button';
-import { filterMenuByCategory, getAllCategories } from "../../api/api";
+import { Button } from './button';
+import { filterMenuByCategory, getAllCategories } from "../../../api/api";
 
 const MenuBar = ({ setMenuValue }) => {
 
