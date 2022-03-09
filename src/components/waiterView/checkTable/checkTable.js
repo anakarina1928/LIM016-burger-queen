@@ -9,8 +9,7 @@ const orders = [
     {producto: "Hamburguesa", cantidad: 3, precio: 15.00},
     {producto: "Helado", cantidad: 1, precio: 8.00},
     {producto: "Agua", cantidad: 2, precio: 5.00},
-    {producto: "Agua", cantidad: 2, precio: 5.00},
-    {producto: "Agua", cantidad: 2, precio: 5.00}
+    
 ]
 
 function CheckTable () {
@@ -25,15 +24,20 @@ function CheckTable () {
             </div>
             <table>
                 <TableHeader/>
-                {orders.map(order => (
-                <TableRowFood
-                    producto={order.producto}
-                    cantidad={order.cantidad}
-                    precio={order.precio}
-                />
-                ))}
-                <TableFooter/>
-                <TablePrice/>
+                <tbody>
+                    {orders.map((order, index) => (
+                    <TableRowFood
+                        key={index}
+                        producto={order.producto}
+                        cantidad={order.cantidad}
+                        precio={order.precio}
+                    />
+                    ))}
+                </tbody>
+                <tfoot>
+                    <TableFooter/>
+                    <TablePrice/>
+                </tfoot>
             </table>
         </div>
     )

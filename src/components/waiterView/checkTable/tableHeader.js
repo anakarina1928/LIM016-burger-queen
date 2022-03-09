@@ -3,11 +3,13 @@ import './checkTable.css'
 
 function TableHeader () {
     return(
-        <tr>
-            <th>PRODUCTO</th>
-            <th>CANTIDAD</th>
-            <th>PRECIO</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>PRODUCTO</th>
+                <th>CANTIDAD</th>
+                <th>PRECIO</th>
+            </tr>
+        </thead>
     )
 }
 
