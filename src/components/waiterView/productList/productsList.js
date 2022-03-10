@@ -11,4 +11,6 @@ const ProductsList = (props) =>{
    )
 }
 
+
 export {ProductsList}
+

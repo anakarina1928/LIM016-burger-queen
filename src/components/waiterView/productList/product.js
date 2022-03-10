@@ -16,3 +16,4 @@ const Product = (props) => {
 }
 
 export { Product }
+

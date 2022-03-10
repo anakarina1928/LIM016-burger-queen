@@ -7,11 +7,13 @@ import { AddSubButton } from "../waiterView/addSubButton/addSubButton"
 import { CheckTable } from "../waiterView/checkTable/checkTable"
 import './indexWaiterView.css'
 import { auth } from '../../firebase/auth.js'
-import { findingUser, collectionUser } from '../../firebase/firestore'
+import { findingUser, collectionUser} from '../../firebase/firestore'
+
 
 
 const MenuForAllMeals = () => {
     const userId = auth.currentUser.uid;
+
     findingUser(userId, collectionUser)
         .then((res) =>
             console.log(res, "data user")
