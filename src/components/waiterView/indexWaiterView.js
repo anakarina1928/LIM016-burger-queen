@@ -1,12 +1,8 @@
 import {React , useState} from 'react'
 //import { useNavigate } from "react-router-dom";
 import { MenuBar } from './categoryMenu/menu'
-<<<<<<< HEAD
-import { Products } from "./productList/productsList.js"
-=======
-import { ProductsList } from "./productList/productsList.js"
->>>>>>> burger/vistaMesero
-import { Product } from "./productList/product.js"
+import { ProductsList } from "./productList/productsList"
+import { Product } from "./productList/product"
 import { AddSubButton } from "../waiterView/addSubButton/addSubButton"
 import { CheckTable } from "../waiterView/checkTable/checkTable"
 import './indexWaiterView.css'

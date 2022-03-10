@@ -29,12 +29,7 @@ const MenuBar = ({ setMenuValue }) => {
                             onClick={onSearchValueChange} 
                             key={index}
                             className={"btnMenuOption"}
-<<<<<<< HEAD:src/components/waiterView/categoryMenu/menu.js
-                            value={category.categoryName}
-                            onClick={valueOnClick} 
-=======
                             value={category.categoryName}                            
->>>>>>> burger/vistaMesero:src/components/waiterView/menu.js
                             text={category.categoryText}
                             src={category.photo}
                             alt={category.categoryName}
