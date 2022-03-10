@@ -8,6 +8,9 @@
 h1{
   text-align:center;
   color: #fff;
+  position: absolute;
+  width: 100%;
+ margin-top: 75%;
   text-shadow:
       0 0 7px #fff,
       0 0 10px #fff,
@@ -17,7 +20,7 @@ h1{
       0 0 92px #5271ff,
       0 0 102px #5271ff,
       0 0 151px #5271ff;
-      font-size: 12vmin;
+      font-size: 10vmin;
   animation: flicker 1.5s infinite alternate;
   font-family: 'Codystar', cursive;
 }
@@ -54,14 +57,13 @@ h1{
 }
 
 form {
-  width: 35%;
-  height: 20%;
   width: 50%;
   position: absolute;
   height: 30%;
   top: 100px;
   left: 25%;
-  background-color: rgb(68 8 80 / 63%);
+  background-color: rgb(120 33 169 / 27%);
+  backdrop-filter: blur(4px);
   border-radius: 13px;
   box-shadow: inset 0 0 8px #220230;
   text-align: center;

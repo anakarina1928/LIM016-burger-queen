@@ -31,6 +31,12 @@ th{
     font-weight: normal;
     border-bottom: 1px solid #840A91;
 }
+td{
+    color: white;
+    font-weight: normal;
+    border-bottom: 1px solid #840A91;
+    text-align: center;
+}
 table{
     width: 100%;
     background-color: #2E2C2C;
