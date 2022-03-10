@@ -5,7 +5,7 @@ import { filterMenuByCategory, getAllCategories } from "../../../api/api";
 
 const MenuBar = ({ setMenuValue }) => {
 
-    const onSearchValueChange = (event) => {
+    const valueOnClick = (event) => {
         //Prevenimos el comportamiento por defecto del button
         event.preventDefault();
         const newMenu = filterMenuByCategory(event.target.value);
@@ -22,15 +22,15 @@ const MenuBar = ({ setMenuValue }) => {
                             key={index}
                             className={"btnMenuOption"}
                             value={category.categoryName}
-                            onClick={onSearchValueChange} 
+                            onClick={valueOnClick} 
                             text={category.categoryText}
                             src={category.photo}
                             alt={category.categoryName}
                         />
+                        
                     })
                 }
-                
-
+              
             </section>
         </>
     );

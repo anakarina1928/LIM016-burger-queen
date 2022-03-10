@@ -10,19 +10,23 @@ import './indexWaiterView.css'
 const MenuForAllMeals = () => {
    // let Navigate = useNavigate();
     const [menuValue, setMenuValue] = useState([]);//vamos a compartir nuestro estado en varios componenetes
+    
+     
+
     return (
         <section className="container">
         <MenuBar
             setMenuValue={setMenuValue}
         />
         <Products>
+
             {menuValue.map((product, index) =>
                 <div className='productDiv'>
                     <Product
                         key={index}
                         item={product}
                     />
-                    <AddSubButton/>
+                    <AddSubButton />
                 </div>
             )}
         </Products>
