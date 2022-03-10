@@ -2,27 +2,27 @@
     {
         "categoryName": "hamburguesa",
         "categoryText": "HAMBURGUESAS",
-        "photo":""
+        "photo": "/images/hamburguesas.svg"
     },
     {
         "categoryName": "cafes",
         "categoryText": "CAFES",
-        "photo":""
+        "photo": "/images/cafes.svg"
     },
     {
         "categoryName": "postres",
         "categoryText": "POSTRES",
-        "photo":""
+        "photo": "/images/postres.svg"
     },
     {
         "categoryName": "bebidas",
         "categoryText": "BEBIDAS",
-        "photo":""
+        "photo": "/images/bebidas.svg"
     },
     {
         "categoryName": "extras",
         "categoryText": "EXTRAS",
-        "photo":""
+        "photo": "/images/extras.svg"
     }
 
 ]
