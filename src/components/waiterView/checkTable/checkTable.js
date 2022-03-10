@@ -14,7 +14,7 @@ const orders = [
     {producto: "Agua", cantidad: 2, precio: 5.00}
 ]
 
-function CheckTable () {
+function CheckTable ({productSelect}) {
     return(
         <div className="checkTableDiv">
             <div className="checkTableTitle">
@@ -27,12 +27,14 @@ function CheckTable () {
             <table>
                 <TableHeader/>
                 <tbody>
-                    {orders.map((order, index) => (
+                    {productSelect.map((order, index) => (
                     <TableRowFood
                         key={index}
-                        producto={order.producto}
+                        producto={order.name}
                         cantidad={order.cantidad}
-                        precio={order.precio}
+                        precio={order.total}
+                        
+                    
                     />
                     ))}
                 </tbody>
@@ -43,6 +45,7 @@ function CheckTable () {
             </table>
         </div>
     )
+    
 }
 
 export { CheckTable }
