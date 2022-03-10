@@ -26,15 +26,20 @@ function CheckTable () {
             </div>
             <table>
                 <TableHeader/>
-                {orders.map(order => (
-                <TableRowFood
-                    producto={order.producto}
-                    cantidad={order.cantidad}
-                    precio={order.precio}
-                />
-                ))}
-                <TableFooter/>
-                <TablePrice/>
+                <tbody>
+                    {orders.map((order, index) => (
+                    <TableRowFood
+                        key={index}
+                        producto={order.producto}
+                        cantidad={order.cantidad}
+                        precio={order.precio}
+                    />
+                    ))}
+                </tbody>
+                <tfoot>
+                    <TableFooter/>
+                    <TablePrice/>
+                </tfoot>
             </table>
         </div>
     )

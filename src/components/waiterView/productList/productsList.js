@@ -8,7 +8,7 @@ const Products = (props) =>{
          {props.children}
       </section>
    </>
-)
+   )
 }
 
 export {Products}
