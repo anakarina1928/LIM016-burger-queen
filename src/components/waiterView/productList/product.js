@@ -2,14 +2,19 @@ import React from "react";
 import './product.css'
 
 
-const Product = (props) => {
-    console.log("recibiendo producto: ", props);
+const Product = ({item, onClick}) => {
+// const Product = ({onClick, props}) => {
+
+    // console.log("recibiendo producto: ", props);
     return (
-        <button className="product">
-            <span>{props.item.name}</span>
+        <button 
+        className="product"
+        onClick={onClick}
+        >
+            <span>{item.name}</span>
             <br></br>
             <br></br>
-            <span>S./ {props.item.price}</span>
+            <span>S./ {item.price}</span>
         </button>  
     )
 

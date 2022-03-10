@@ -13,18 +13,24 @@ import "./login.css";
 */
 
 function Login() {
+
   let Navigate = useNavigate();
+
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
   const [errMsg, setErrMsg] = useState(null)
+
   const changeInputsHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
   const submitHandler = async (e) => {
+
     e.preventDefault();
+
     try {
       if(!data.email || !data.password) setErrMsg(data.email? 'Email' : 'Password')
       //chequear que no esten vacios
@@ -32,16 +38,21 @@ function Login() {
         data.email,
         data.password
       );
+
       const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
+
       console.log("que retorna ? : ", dataUser.data());
+
       const userToCreate = {
         nombre: dataUser.data().nombre,
         correo: dataUser.data().correo,
         id: dataUser.data().id,
       };
+
       sessionStorage.clear();
       sessionStorage.setItem("user", JSON.stringify(userToCreate));
       Navigate("/main");
+      
     } catch (error) {
       setErrMsg("Datos ingresados incorrectos")
     }
@@ -50,6 +61,7 @@ function Login() {
   useEffect(() => {
     setErrMsg(null)
   }, [data])
+
   return (<div className="div-form">
     <form onSubmit={submitHandler}>
       <p className="p-form">Formulario de ingreso</p>
