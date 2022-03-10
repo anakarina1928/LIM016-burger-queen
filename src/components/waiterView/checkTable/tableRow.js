@@ -5,8 +5,8 @@ function TableRowFood (props) {
     return(
         <tr>
             <th>{props.producto}</th>
-            <th>{props.cantidad}</th>
-            <th>{props.precio}</th>
+            <td>{props.cantidad}</td>
+            <td>{props.precio}</td>
         </tr>
     )
 }

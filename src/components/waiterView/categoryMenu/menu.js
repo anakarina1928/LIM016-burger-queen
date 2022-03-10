@@ -5,10 +5,16 @@ import { filterMenuByCategory, getAllCategories } from "../../../api/api";
 
 const MenuBar = ({ setMenuValue }) => {
 
-    const valueOnClick = (event) => {
+    const onSearchValueChange = (event) => {
+        let element;
+        if (event.target.nodeName ==="IMG"){
+            element = event.target.parentNode
+         } else{
+            element = event.target
+        }
         //Prevenimos el comportamiento por defecto del button
         event.preventDefault();
-        const newMenu = filterMenuByCategory(event.target.value);
+        const newMenu = filterMenuByCategory(element.value);
 
         //Notificamos al componente padre una actualizacion de estado
         setMenuValue(newMenu);
@@ -18,11 +24,17 @@ const MenuBar = ({ setMenuValue }) => {
             <section className="menu-container-father">
                 {
                     getAllCategories().map((category, index) => {
+                        console.log(index)
                         return <Button
+                            onClick={onSearchValueChange} 
                             key={index}
                             className={"btnMenuOption"}
+<<<<<<< HEAD:src/components/waiterView/categoryMenu/menu.js
                             value={category.categoryName}
                             onClick={valueOnClick} 
+=======
+                            value={category.categoryName}                            
+>>>>>>> burger/vistaMesero:src/components/waiterView/menu.js
                             text={category.categoryText}
                             src={category.photo}
                             alt={category.categoryName}

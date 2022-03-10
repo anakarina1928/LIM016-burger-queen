@@ -4,6 +4,8 @@
     border-radius: 4px;
     font-size: 10px;
     color: white;
-    /*position: relative;*/
 }
-
+img{
+    height: 50%;
+    width: 100%;
+}
