@@ -14,7 +14,8 @@ const MenuForAllMeals = () => {
     const [selectedButton, setSelectedButton] = useState(false)
     
     const handleClick = () => {
-        setSelectedButton(true)
+        // setSelectedButton(item !== selectedButton ? item : null)
+        setSelectedButton((prevCheck) => !prevCheck)
     }
 
     console.log(selectedButton)
@@ -31,8 +32,9 @@ const MenuForAllMeals = () => {
                         key={index}
                         item={product}
                         onClick={handleClick}
-                    />
-                    {selectedButton === true ? <AddSubButton /> :null}
+                    >
+                    </Product>
+                    {selectedButton === true && <AddSubButton />}
                 </div>
             )}
         </Products>
