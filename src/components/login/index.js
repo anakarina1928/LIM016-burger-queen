@@ -38,21 +38,15 @@ function Login() {
         data.email,
         data.password
       );
-
-      const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
-
-      console.log("que retorna ? : ", dataUser.data());
-
-      const userToCreate = {
-        nombre: dataUser.data().nombre,
-        correo: dataUser.data().correo,
-        id: dataUser.data().id,
-      };
-
-      sessionStorage.clear();
-      sessionStorage.setItem("user", JSON.stringify(userToCreate));
-      Navigate("/main");
-      
+      // const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
+      // const userToCreate = {
+      //   nombre: dataUser.nombre,
+      //   correo: dataUser.correo,
+      //   id: dataUser.id,
+      // };
+      // sessionStorage.clear();
+      // sessionStorage.setItem("user", JSON.stringify(userToCreate));
+       Navigate("/main");
     } catch (error) {
       setErrMsg("Datos ingresados incorrectos")
     }

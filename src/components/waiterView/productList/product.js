@@ -21,3 +21,4 @@ const Product = ({item, onClick}) => {
 }
 
 export { Product }
+

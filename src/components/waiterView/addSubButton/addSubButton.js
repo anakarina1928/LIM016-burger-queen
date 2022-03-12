@@ -1,9 +1,13 @@
 import {React, useState} from "react"
 import './addSubButton.css'
 
-function AddSubButton ({className}) {
+function AddSubButton ({addProduct, item}) {
     const [counter, setCounter] = useState(1)
-    let increment = () => setCounter(counter + 1)
+    let increment = (item) => {
+        
+        setCounter(counter + 1)
+        addProduct(item)}
+
     let decrement = () => setCounter(counter - 1)
 
     return(
@@ -11,7 +15,7 @@ function AddSubButton ({className}) {
          {/* <div className={className}> */}
             <button onClick={decrement} className={`addSubBut red`}>-</button>
             <input type='text' value={counter} className="addSubInp"></input>
-            <button onClick={increment} className={`addSubBut green`}>+</button>
+            <button onClick={() =>increment(item)} className={`addSubBut green`}>+</button>
         </div>
     )
 }
