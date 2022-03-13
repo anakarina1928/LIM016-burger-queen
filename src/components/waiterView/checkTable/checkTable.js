@@ -33,7 +33,6 @@ function CheckTable ({productSelect}) {
                         producto={order.name}
                         cantidad={order.cantidad}
                         precio={order.total}
-                      
                     />
                     ))}
                 </tbody>

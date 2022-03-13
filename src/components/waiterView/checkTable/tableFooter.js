@@ -7,6 +7,7 @@ function TableFooter () {
             <th></th>
             <th></th>
             <th>TOTAL</th>
+            <th></th>
         </tr>
     )
 }

@@ -5,9 +5,10 @@ function TableHeader () {
     return(
         <thead>
             <tr>
-                <th>PRODUCTO</th>
-                <th>CANTIDAD</th>
+                <th className="productColumn">PRODUCTO</th>
+                <th>CANT.</th>
                 <th>PRECIO</th>
+                <th></th>
             </tr>
         </thead>
     )

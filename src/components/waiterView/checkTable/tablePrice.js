@@ -10,6 +10,7 @@ function TablePrice () {
                 <span>S./</span>
                 <span>Preciazo</span>
             </th>
+            <th></th>
         </tr>
     )
 }
