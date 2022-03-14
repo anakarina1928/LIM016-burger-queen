@@ -10,11 +10,11 @@ import { User } from "../nameUser/nameUser";
 
 const MenuForAllMeals = () => {
   
-    
   // let Navigate = useNavigate();
   const [menuValue, setMenuValue] = useState([]); //vamos a compartir nuestro estado en varios componenetes
-
   const [productSelect, setProductSelect] = useState([]);
+
+  const[productActual, setProductActual] = useState("HAMBURGUESA CLASICA POLLO")
 
   const addProduct = (product) => {
     let productParaSaberSiExiste = false;
@@ -44,12 +44,12 @@ const MenuForAllMeals = () => {
   return (
     <section className="container">
       <User/>
-      <MenuBar setMenuValue={setMenuValue} />
+      <MenuBar setMenuValue={setMenuValue}/>
       <ProductsList>
         {menuValue.map((product, index) => (
           <div className="productDiv">
-            <Product key={index} item={product} />
-            <AddSubButton item={product} addProduct={addProduct} />
+            <Product key={index} item={product}/>
+          {productActual=== product.name && <AddSubButton item={product} addProduct={addProduct}/>}
           </div>
         ))}
       </ProductsList>
