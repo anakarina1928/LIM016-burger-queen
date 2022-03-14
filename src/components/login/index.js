@@ -6,12 +6,6 @@ import { loginWithEmailAndPassword } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 
-/*const regex = {
-    password: /^.{8,15}$/,
-    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  };
-*/
-
 function Login() {
 
   let Navigate = useNavigate();
@@ -56,26 +50,33 @@ function Login() {
     setErrMsg(null)
   }, [data])
 
-  return (<div className="div-form">
-    <form onSubmit={submitHandler}>
-      <p className="p-form">Formulario de ingreso</p>
-      <InputForm
-        type="email"
-        placeholder="IngresaTu@correo.com"
-        name="email"
-        onChange={changeInputsHandler}
-      />
-      <InputForm
-        type="password"
-        placeholder="Password"
-        name="password"
-        onChange={changeInputsHandler}
-      />
-      { errMsg ? <Error msg={errMsg} /> : null }
-      <Button/>
-    </form>
-    <h1> &lt;BurguerLab/&gt; </h1>
-    </div>
+  return (
+
+    <div className="div-form">
+      
+      <form onSubmit={submitHandler}>
+      <p className="p-form">Bienvenidx de vuelta!</p>
+        <div className="input-container">
+          <InputForm
+            label="Correo"
+            type="email"
+            placeholder="Correo"
+            name="email"
+            onChange={changeInputsHandler}
+          />
+          <InputForm
+            label="Contraseña"
+            type="password"
+            placeholder="Contraseña"
+            name="password"
+            onChange={changeInputsHandler}
+          />
+        </div> 
+        { errMsg ? <Error msg={errMsg} /> : null }
+        <Button/>
+      </form>
+      <h1> &lt;BurgerLab/&gt; </h1>
+      </div>
   );
 }
 
