@@ -28,18 +28,10 @@ function Login() {
     try {
       if(!data.email || !data.password) setErrMsg(data.email? 'Email' : 'Password')
       //chequear que no esten vacios
-      const userFirebase = await loginWithEmailAndPassword(
+      await loginWithEmailAndPassword(
         data.email,
         data.password
       );
-      // const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
-      // const userToCreate = {
-      //   nombre: dataUser.nombre,
-      //   correo: dataUser.correo,
-      //   id: dataUser.id,
-      // };
-      // sessionStorage.clear();
-      // sessionStorage.setItem("user", JSON.stringify(userToCreate));
        Navigate("/main");
     } catch (error) {
       setErrMsg("Datos ingresados incorrectos")
@@ -67,7 +59,7 @@ function Login() {
       { errMsg ? <Error msg={errMsg} /> : null }
       <Button/>
     </form>
-    <h1> &lt;BurguerLab/&gt; </h1>
+    <h1> &lt;/BurguerLab&gt; </h1>
     </div>
   );
 }
