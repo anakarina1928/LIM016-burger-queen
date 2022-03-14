@@ -24,7 +24,6 @@ const MenuBar = ({ setMenuValue }) => {
             <section className="menu-container-father">
                 {
                     getAllCategories().map((category, index) => {
-                        console.log(index)
                         return <Button
                             onClick={onSearchValueChange} 
                             key={index}
