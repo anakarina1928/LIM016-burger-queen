@@ -1,118 +1,78 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from "react";
 //import { useNavigate } from "react-router-dom";
-import { MenuBar } from './categoryMenu/menu'
-import { ProductsList } from "./productList/productsList.js"
-import { Product } from "./productList/product.js"
-import { AddSubButton } from "../waiterView/addSubButton/addSubButton"
-import { CheckTable } from "../waiterView/checkTable/checkTable"
-import './indexWaiterView.css'
-import { auth } from '../../firebase/auth.js'
-import { findingUser, collectionUser} from '../../firebase/firestore'
+import { MenuBar } from "./categoryMenu/menu";
+import { ProductsList } from "./productList/productsList.js";
+import { Product } from "./productList/product.js";
+import { AddSubButton } from "../waiterView/addSubButton/addSubButton";
+import { CheckTable } from "../waiterView/checkTable/checkTable";
+import "./indexWaiterView.css";
+import { User } from "../nameUser/nameUser";
 
 const MenuForAllMeals = () => {
+  
+  // let Navigate = useNavigate();
+  const [menuValue, setMenuValue] = useState([]); //vamos a compartir nuestro estado en varios componenetes
+  const [productSelect, setProductSelect] = useState([]);
 
-//    // let Navigate = useNavigate();
-//     const [menuValue, setMenuValue] = useState([]);//vamos a compartir nuestro estado en varios componenetes
-//     const [selectedButton, setSelectedButton] = useState(false)
-    
-//     const handleClick = () => {
-//         // setSelectedButton(item !== selectedButton ? item : null)
-//         setSelectedButton((prevCheck) => !prevCheck)
-//     }
+  const[productActual, setProductActual] = useState("HAMBURGUESA CLASICA POLLO")
 
-//     console.log(selectedButton)
+  const addProduct = (product) => {
+    let productParaSaberSiExiste = false;
 
-//     return (
-//         <section className="container">
-//         <MenuBar
-//             setMenuValue={setMenuValue}
-//         />
-//         <Products>
-//             {menuValue.map((product, index) =>
-//                 <div className='productDiv'>
-//                     <Product
-//                         key={index}
-//                         item={product}
-//                         onClick={handleClick}
-//                     >
-//                     </Product>
-//                     {selectedButton === true && <AddSubButton />}
-//                 </div>
-//             )}
-//         </Products>
-//         <CheckTable/>
-//     </section>
+    const nuevoProduct = productSelect.map((element) => {
+      if (element.name === product.name) {
+        productParaSaberSiExiste = true; /* verifico si el producto existe por eso cambio el valor
+            - mi valor booleano pasa por aqui primero */
+        element.cantidad = element.cantidad + 1;
+        element.total = element.cantidad * element.price; // agarro el total que ya tenia y le agrego el nuevo total
+      }
 
-
-
-
-    // const userId = auth.currentUser.uid;
-    // console.log(auth.currentUser)
-
-    // findingUser(userId, collectionUser)
-    //     .then((res) =>
-    //         console.log(res, "data user")
-    //     )
-
-    // let Navigate = useNavigate();
-    const [menuValue, setMenuValue] = useState([]);//vamos a compartir nuestro estado en varios componenetes
-    const [productSelect, setProductSelect] = useState([]);
-
-    const addProduct = (product) => {
-
-        let productParaSaberSiExiste = false;
-
-        const nuevoProduct = productSelect.map(element => {
-
-            if (element.name === product.name) {
-                productParaSaberSiExiste = true; /* verifico si el producto existe por eso cambio el valor
-                - mi valor booleano pasa por aqui primero */
-                element.cantidad = element.cantidad + 1;
-                element.total = element.cantidad * element.price;// agarro el total que ya tenia y le agrego el nuevo total
-
-            }
-            
-            return element;
-
-        })
-        //como el valor es falso se convierte en verdadero y si el valor es verdadero se convierte en falso.
-        if (!productParaSaberSiExiste) {
-
-            nuevoProduct.push(
-
-                {
-                    name: product.name,
-                    price: product.price,
-                    cantidad: 1,
-                    total: product.price
-                }
-
-            )
-        }
-        setProductSelect(nuevoProduct);
+      return element;
+    });
+    //como el valor es falso se convierte en verdadero y si el valor es verdadero se convierte en falso.
+    if (!productParaSaberSiExiste) {
+      nuevoProduct.push({
+        name: product.name,
+        price: product.price,
+        cantidad: 1,
+        total: product.price,
+      });
     }
+    setProductSelect(nuevoProduct);
+  };
+  const subProduct = (product) => {
+    const nuevoProduct = productSelect.reduce((acum, element) => {
+      if (element.name === product.name) {
+        /* verifico si el producto existe por eso cambio el valor
+            - mi valor booleano pasa por aqui primero */
+        element.cantidad = element.cantidad - 1;
+        element.total = element.cantidad * element.price; // agarro el total que ya tenia y le agrego el nuevo total
+      }
+      if(element.cantidad > 0) acum.push(element);
+      return acum;
+    },[]);
+    
+    setProductSelect(nuevoProduct);
+  };
 
-    return (
-        <section className="container">
-            <MenuBar
-                setMenuValue={setMenuValue}
-            />
-            <ProductsList>
-                {menuValue.map((product, index) =>
-                    <div className='productDiv'>
-                        <Product
-                            key={index}
-                            item={product}
-                        />
-                        <AddSubButton />
-                    </div>
-                )}
-            </ProductsList>
-            <CheckTable
-                productSelect={productSelect}
-            />
-        </section>
-    )
-}
+  return (
+    <section className="container">
+      <User/>
+      <MenuBar setMenuValue={setMenuValue}/>
+      <ProductsList>
+        {menuValue.map((product, index) => {
+          const cant= productSelect.find((el)=>el.name === product.name)?.cantidad;
+          return(
+          <div className="productDiv">
+            <Product key={index} item={product}/>
+          {productActual=== product.name && <AddSubButton item={product} addProduct={addProduct} subProduct={subProduct} cant={cant}/>}
+          </div>)
+        })}
+      </ProductsList>
+      <CheckTable productSelect={productSelect} />
+      {productSelect.map((el) => <div> {JSON.stringify(el)}</div>)}
+    </section>
+  );
+};
 
 export { MenuForAllMeals };
