@@ -45,6 +45,7 @@ const MenuForAllMeals = () => {
 //         <CheckTable/>
 //     </section>
     const userId = auth.currentUser.uid;
+    console.log(auth.currentUser)
 
     findingUser(userId, collectionUser)
         .then((res) =>

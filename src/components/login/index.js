@@ -21,27 +21,36 @@ function Login() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
 
     e.preventDefault();
 
     if(!data.email || !data.password){
       return setErrMsg(data.email? 'Ingrese su contraseña' : 'Ingrese su correo')
     }
+
+    return loginWithEmailAndPassword(data.email, data.password)
     
-    try {
-      const userFirebase = await loginWithEmailAndPassword(
-        data.email,
-        data.password
-      );
-        Navigate("/main");
-    } catch (error) {
-      setErrMsg("Datos ingresados incorrectos")
-    }    
+    .then(() => {
+      Navigate("/main");
+    }) 
+    .catch((error) => {
+      const errorCode = error.code
+      switch (errorCode) {
+        case 'auth/user-not-found':
+          setErrMsg('Usuario no registrado')
+          break;
+        case 'auth/wrong-password':
+          setErrMsg('Contraseña inválida')
+          break;
+        default:
+          setErrMsg(`Estamos teniendo dificultades, intente nuevamente`)
+      }
+    })    
   };
 
   // useEffect(() => {
-  //   setErrMsg(null)
+  //   setErrMsg(null)`
   // }, [data])
 
   return (
