@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState} from "react";
 //import { useNavigate } from "react-router-dom";
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
@@ -14,9 +14,22 @@ const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]); //vamos a compartir nuestro estado en varios componenetes
   const [productSelect, setProductSelect] = useState([]);
 
-  const[productActual, setProductActual] = useState("HAMBURGUESA CLASICA POLLO")
+  const[productActual, setProductActual] = useState("")
+
+  const onClick=(event)=>{
+    let element;
+    if (event.target.nodeName ==="SPAN"){
+        element = event.target.parentNode
+     } else{
+        element = event.target
+    }
+    setProductActual(element.dataset.name)
+    //console.log(element,"que me traes")
+    console.log(element.dataset.name,"nombre")
+  }
 
   const addProduct = (product) => {
+    //console.log("produc", product)
     let productParaSaberSiExiste = false;
 
     const nuevoProduct = productSelect.map((element) => {
@@ -64,13 +77,12 @@ const MenuForAllMeals = () => {
           const cant= productSelect.find((el)=>el.name === product.name)?.cantidad;
           return(
           <div className="productDiv">
-            <Product key={index} item={product}/>
-          {productActual=== product.name && <AddSubButton item={product} addProduct={addProduct} subProduct={subProduct} cant={cant}/>}
+            <Product key={index} item={product} onClick={onClick}/>
+            {productActual=== product.name && <AddSubButton item={product} addProduct={addProduct} subProduct={subProduct} cant={cant}/>}
           </div>)
         })}
       </ProductsList>
       <CheckTable productSelect={productSelect} />
-      {productSelect.map((el) => <div> {JSON.stringify(el)}</div>)}
     </section>
   );
 };
