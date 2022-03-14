@@ -25,30 +25,24 @@ function Login() {
 
     e.preventDefault();
 
+    if(!data.email || !data.password){
+      return setErrMsg(data.email? 'Ingrese su contraseña' : 'Ingrese su correo')
+    }
+    
     try {
-      if(!data.email || !data.password) setErrMsg(data.email? 'Email' : 'Password')
-      //chequear que no esten vacios
       const userFirebase = await loginWithEmailAndPassword(
         data.email,
         data.password
       );
-      // const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
-      // const userToCreate = {
-      //   nombre: dataUser.nombre,
-      //   correo: dataUser.correo,
-      //   id: dataUser.id,
-      // };
-      // sessionStorage.clear();
-      // sessionStorage.setItem("user", JSON.stringify(userToCreate));
-       Navigate("/main");
+        Navigate("/main");
     } catch (error) {
       setErrMsg("Datos ingresados incorrectos")
-    }
+    }    
   };
 
-  useEffect(() => {
-    setErrMsg(null)
-  }, [data])
+  // useEffect(() => {
+  //   setErrMsg(null)
+  // }, [data])
 
   return (
 
