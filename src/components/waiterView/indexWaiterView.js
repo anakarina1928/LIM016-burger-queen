@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 //import { useNavigate } from "react-router-dom";
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
@@ -40,20 +40,37 @@ const MenuForAllMeals = () => {
     }
     setProductSelect(nuevoProduct);
   };
+  const subProduct = (product) => {
+    const nuevoProduct = productSelect.reduce((acum, element) => {
+      if (element.name === product.name) {
+        /* verifico si el producto existe por eso cambio el valor
+            - mi valor booleano pasa por aqui primero */
+        element.cantidad = element.cantidad - 1;
+        element.total = element.cantidad * element.price; // agarro el total que ya tenia y le agrego el nuevo total
+      }
+      if(element.cantidad > 0) acum.push(element);
+      return acum;
+    },[]);
+    
+    setProductSelect(nuevoProduct);
+  };
 
   return (
     <section className="container">
       <User/>
       <MenuBar setMenuValue={setMenuValue}/>
       <ProductsList>
-        {menuValue.map((product, index) => (
+        {menuValue.map((product, index) => {
+          const cant= productSelect.find((el)=>el.name === product.name)?.cantidad;
+          return(
           <div className="productDiv">
             <Product key={index} item={product}/>
-          {productActual=== product.name && <AddSubButton item={product} addProduct={addProduct}/>}
-          </div>
-        ))}
+          {productActual=== product.name && <AddSubButton item={product} addProduct={addProduct} subProduct={subProduct} cant={cant}/>}
+          </div>)
+        })}
       </ProductsList>
       <CheckTable productSelect={productSelect} />
+      {productSelect.map((el) => <div> {JSON.stringify(el)}</div>)}
     </section>
   );
 };
