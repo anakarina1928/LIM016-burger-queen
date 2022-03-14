@@ -9,8 +9,6 @@ import './indexWaiterView.css'
 import { auth } from '../../firebase/auth.js'
 import { findingUser, collectionUser} from '../../firebase/firestore'
 
-
-
 const MenuForAllMeals = () => {
 
 //    // let Navigate = useNavigate();
@@ -44,13 +42,17 @@ const MenuForAllMeals = () => {
 //         </Products>
 //         <CheckTable/>
 //     </section>
-    const userId = auth.currentUser.uid;
-    console.log(auth.currentUser)
 
-    findingUser(userId, collectionUser)
-        .then((res) =>
-            console.log(res, "data user")
-        )
+
+
+
+    // const userId = auth.currentUser.uid;
+    // console.log(auth.currentUser)
+
+    // findingUser(userId, collectionUser)
+    //     .then((res) =>
+    //         console.log(res, "data user")
+    //     )
 
     // let Navigate = useNavigate();
     const [menuValue, setMenuValue] = useState([]);//vamos a compartir nuestro estado en varios componenetes
@@ -102,12 +104,7 @@ const MenuForAllMeals = () => {
                             key={index}
                             item={product}
                         />
-                        <AddSubButton
-                            item={product}
-                            addProduct={addProduct}
-
-                        />
-
+                        <AddSubButton />
                     </div>
                 )}
             </ProductsList>

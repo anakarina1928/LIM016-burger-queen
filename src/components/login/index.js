@@ -1,7 +1,7 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, /*useEffect*/ } from "react";
 import InputForm from "./input.js";
 import { Button, Error } from "./button.js";
-import { findingUser, collectionUser } from "../../firebase/firestore";
+// import { findingUser, collectionUser } from "../../firebase/firestore";
 import { loginWithEmailAndPassword } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
@@ -48,10 +48,6 @@ function Login() {
       }
     })    
   };
-
-  // useEffect(() => {
-  //   setErrMsg(null)`
-  // }, [data])
 
   return (
 
