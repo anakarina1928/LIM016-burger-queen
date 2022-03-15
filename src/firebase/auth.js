@@ -1,11 +1,24 @@
 import { app } from "./config.js";
-import {signInWithEmailAndPassword, getAuth, onAuthStateChanged} from "@firebase/auth"
-
+import {
+  signInWithEmailAndPassword,
+  getAuth,
+  setPersistence,
+  signOut,
+  browserSessionPersistence,
+} from "@firebase/auth";
 
 export const auth = getAuth(app);
 
-//Ingreso de usuario con email y contraseña
-export const loginWithEmailAndPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);
+export const loginWithEmailAndPassword = (email, password) =>
+  signInWithEmailAndPassword(auth, email, password);
 
-export {onAuthStateChanged}
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    
+  })
+  .catch((error) => {
+    console.log(error)
+  });
 
+  export const logOut = (auth) => signOut(auth);
+    
