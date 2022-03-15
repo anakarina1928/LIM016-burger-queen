@@ -69,7 +69,6 @@ const MenuForAllMeals = () => {
     
     setProductSelect(nuevoProduct);
   };
-       
   const sendTheOrder = () =>{
        
     if (productSelect.length === 0) {
@@ -79,8 +78,8 @@ const MenuForAllMeals = () => {
         const newOrderFirebase = {
             order: productSelect,
             init_time: new Date().toLocaleString("es-PE"),
-            
             state: "pedido pendiente",
+            /*todavia faltan campos*/ 
             }
         orderToSaveInFarebase(newOrderFirebase)
     }
