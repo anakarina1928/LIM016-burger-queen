@@ -2,17 +2,17 @@
     "menu": {
         "items": [
             {
-                "name": "CAFE AMERICANO",
+                "name": "CAFÉ AMERICANO",
                 "category": "cafes",
                 "price": 5
             },
             {
-                "name": "CAPUCHINO",
+                "name": "CAPUCCINO",
                 "category": "cafes",
                 "price": 7
             },
             {
-                "name": "MOCHA CHINO",
+                "name": "MOCACCINO",
                 "category": "cafes",
                 "price": 10
             },
@@ -22,17 +22,17 @@
                 "price": 15
             },
             {
-                "name": "FRAPUCCHINO CLASICO",
+                "name": "FRAPPUCCINO CLÁSICO",
                 "category": "cafes",
                 "price": 18
             },
             {
-                "name": "FRAPUCCHINO CARAMEL",
+                "name": "FRAPPUCCINO CARAMEL",
                 "category": "cafes",
                 "price": 18
             },
             {
-                "name": "CAFE LATTE",
+                "name": "CAFÉ LATTE",
                 "category": "cafes",
                 "price": 7
             },
@@ -67,7 +67,7 @@
                 "price": 15
             },
             {
-                "name": "JARRA MARACUYA",
+                "name": "JARRA MARACUYÁ",
                 "category": "bebidas",
                 "price": 15
             },
@@ -82,7 +82,7 @@
                 "price": 5
             },
             {
-                "name": "COPA MARACUYA",
+                "name": "COPA MARACUYÁ",
                 "category": "bebidas",
                 "price": 5
             },
@@ -92,27 +92,27 @@
                 "price": 5
             },
             {
-                "name": "MILK SHAKE FRESA",
+                "name": "MILKSHAKE FRESA",
                 "category": "bebidas",
                 "price": 15
             },
             {
-                "name": "MILK SHAKE CHOCOLATE",
+                "name": "MILKSHAKE CHOCOLATE",
                 "category": "bebidas",
                 "price": 15
             },
             {
-                "name": "MILK SHAKE OREO",
+                "name": "MILKSHAKE OREO",
                 "category": "bebidas",
                 "price": 15
             },
             {
-                "name": "HAMBURGUESA CLASICA CARNE",
+                "name": "HAMBURGUESA CLÁSICA CARNE",
                 "category": "hamburguesa",
                 "price": 15
             },
             {
-                "name": "HAMBURGUESA CLASICA POLLO",
+                "name": "HAMBURGUESA CLÁSICA POLLO",
                 "category": "hamburguesa",
                 "price": 15
             },
@@ -137,7 +137,7 @@
                 "price": 25
             },
             {
-                "name": "HAMBURGUESA POLLO CRYSPI",
+                "name": "HAMBURGUESA POLLO CRISPY",
                 "category": "hamburguesa",
                 "price": 20
             },
@@ -167,12 +167,12 @@
                 "price": 3
             },
             {
-                "name": "PORCION DE PAPAS",
+                "name": "PORCIÓN PAPAS",
                 "category": "extras",
                 "price": 10
             },
             {
-                "name": "PORCION DE CAMOTE FRITO",
+                "name": "PORCIÓN CAMOTE FRITO",
                 "category": "extras",
                 "price": 10
             },
@@ -197,7 +197,7 @@
                 "price": 15
             },
             {
-                "name": "PIE DE LIMON",
+                "name": "PIE DE LIMÓN",
                 "category": "postres",
                 "price": 15
             },
