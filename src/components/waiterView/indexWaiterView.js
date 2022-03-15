@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import {ButtonOrder} from './categoryMenu/buttonOrder'
 //import { useNavigate } from "react-router-dom";
 import { MenuBar } from './categoryMenu/menu'
 import { ProductsList } from "./productList/productsList.js"
@@ -7,8 +8,7 @@ import { AddSubButton } from "../waiterView/addSubButton/addSubButton"
 import { CheckTable } from "../waiterView/checkTable/checkTable"
 import './indexWaiterView.css'
 import { auth } from '../../firebase/auth.js'
-import { findingUser, collectionUser} from '../../firebase/firestore'
-
+import { findingUser, collectionUser, orderToSaveInFarebase} from '../../firebase/firestore'
 
 
 const MenuForAllMeals = () => {
@@ -19,6 +19,7 @@ const MenuForAllMeals = () => {
             console.log(res, "data user")
         )
 
+        
     // let Navigate = useNavigate();
     const [menuValue, setMenuValue] = useState([]);//vamos a compartir nuestro estado en varios componenetes
     const [productSelect, setProductSelect] = useState([]);
@@ -51,12 +52,25 @@ const MenuForAllMeals = () => {
                     cantidad: 1,
                     total: product.price
                 }
-
             )
         }
         setProductSelect(nuevoProduct);
     }
-
+        
+    const sendTheOrder = () =>{
+       
+        if (productSelect.length === 0) {
+            alert("tu pedido esta vacio");
+            return
+        }
+        
+            const newOrderFirebase = {
+                order: productSelect,
+                state: "pedido pendiente",
+                }
+            orderToSaveInFarebase(newOrderFirebase)
+        
+        }
     return (
         <section className="container">
             <MenuBar
@@ -81,6 +95,13 @@ const MenuForAllMeals = () => {
             <CheckTable
                 productSelect={productSelect}
             />
+            <ButtonOrder
+             onClick ={sendTheOrder}
+             text ={'enviar'}
+
+            />
+               
+            
         </section>
     )
 }
