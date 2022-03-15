@@ -19,7 +19,7 @@ function AddSubButton ({addProduct,subProduct, item, cant}) {
     return(
         <div className="addSubDiv">
             <button onClick={()=>decrement(item)} className={`addSubBut red`}>-</button>
-            <span type='number' className="addSubInp">{cant}</span>
+            <span className="addSubSpan">{cant}</span>
             <button onClick={() =>increment(item)} className={`addSubBut green`}>+</button>
         </div>
     )

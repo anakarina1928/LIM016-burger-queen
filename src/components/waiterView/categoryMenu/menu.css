@@ -1,7 +1,6 @@
 .menu-container-father {
     display: flex;
     flex-direction: column;
-    position: absolute;
     width: 106px;
     height: 92px;
     left: 26px;

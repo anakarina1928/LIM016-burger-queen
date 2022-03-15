@@ -7,6 +7,7 @@ import { AddSubButton } from "../waiterView/addSubButton/addSubButton";
 import { CheckTable } from "../waiterView/checkTable/checkTable";
 import "./indexWaiterView.css";
 import { User } from "../nameUser/nameUser";
+import { WaiterNavBar } from './sectionTabs/waiterNavBar'
 
 const MenuForAllMeals = () => {
   
@@ -20,7 +21,7 @@ const MenuForAllMeals = () => {
     let element;
     if (event.target.nodeName ==="SPAN"){
         element = event.target.parentNode
-     } else{
+      } else{
         element = event.target
     }
     setProductActual(element.dataset.name)
@@ -71,6 +72,7 @@ const MenuForAllMeals = () => {
   return (
     <section className="container">
       <User/>
+      <WaiterNavBar/>
       <MenuBar setMenuValue={setMenuValue}/>
       <ProductsList>
         {menuValue.map((product, index) => {
