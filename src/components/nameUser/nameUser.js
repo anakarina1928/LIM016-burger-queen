@@ -2,6 +2,8 @@ import {React, useState, useEffect} from "react";
 import { auth } from "../../firebase/auth.js";
 import { findingUser, collectionUser } from "../../firebase/firestore";
 import "./nameUser.css"
+import { ButtonClose } from "../waiterView/categoryMenu/buttonClose.js";
+import {logOut} from "../../firebase/auth.js";
 
 
 
@@ -22,10 +24,22 @@ export function User(){
             setUserCargo(res.cargo)
         )
       }, [])
+      
+      const logOutSesion=()=>{
+        console.log('a ver');
+        logOut(auth).then(()=>{
+          console.log('log out');
+        }).catch((error) => {
+          console.log(error);
+        });
+        
+      }
     return(
         <div className="navUser">
     <p className="dataUser">{userName}</p>
     <p className="dataUser">{userCargo}</p>
+    {console.log(auth)}
+    <ButtonClose className={"btnMenuOption"} src={'/images/cerrarSesion.svg'} onClick={logOutSesion}  alt="cerrar sesion" />
     </div>
     )
 }
