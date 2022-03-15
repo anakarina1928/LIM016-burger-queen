@@ -1,9 +1,7 @@
 .menu-container-father {
-    display: flex;
-    flex-direction: column;
-    width: 106px;
-    height: 92px;
-    left: 26px;
-    top: 200px;
-
+    display: grid;
+    grid-column: 1/1;
+    grid-row: 2/7;
+    margin-left: 4vh;
+    gap:10px;
 }

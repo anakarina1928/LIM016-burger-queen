@@ -1,6 +1,12 @@
 .productsSection{
-    display: flex;
-    flex-wrap: wrap;
+    
     width: 580px;
     height: fit-content;
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 3/7;
+}
+.productFlex{
+    display: flex;
+    flex-wrap: wrap;
 }

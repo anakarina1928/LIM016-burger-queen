@@ -1,7 +1,12 @@
 .waiterNavBar{
+    grid-row: 2/2;
+    display: grid;
+    grid-column: 2/3;
+}
+.waiterFlex{
     display: flex;
-    flex-direction: row;
-    height: fit-content;
+    align-items: center;
+
 }
 .navButton{
     white-space: nowrap;

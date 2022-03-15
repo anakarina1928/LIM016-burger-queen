@@ -5,10 +5,12 @@
 .container{
     height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 10vw 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     background-color: #230D2D;
 }
+
 .addSubDiv{
     width: 115px;
     height: 30px;

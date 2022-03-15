@@ -36,10 +36,12 @@ export function User(){
       }
     return(
         <div className="navUser">
+          <div className="navFlex">
     <p className="dataUser">{userName}</p>
     <p className="dataUser">{userCargo}</p>
     {console.log(auth)}
     <ButtonClose className={"btnMenuOption"} src={'/images/cerrarSesion.svg'} onClick={logOutSesion}  alt="cerrar sesion" />
+    </div>
     </div>
     )
 }

@@ -1,5 +1,8 @@
 .checkTableDiv{
-    width: 425px;
+    width: 450px;
+    display: grid;
+    grid-column: 3/3;
+    grid-row: 3/6;
 }
 .checkTableTitle{
     background-color: #2E2C2C;

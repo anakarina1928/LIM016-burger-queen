@@ -2,12 +2,12 @@
     background: #2E2C2C;
     box-shadow: 0px 6px 23px -7px rgba(51, 51, 51, 0.25);
     border-radius: 4px;
-    font-size: 10px;
+    font-size: 1rem;
     color: white;
 }
 img{
     height: 50%;
-    width: 100%;
+    width: 60%;
 
 }
 
