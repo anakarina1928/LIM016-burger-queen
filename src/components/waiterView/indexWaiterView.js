@@ -1,109 +1,115 @@
-import { React, useState } from 'react'
-import {ButtonOrder} from './categoryMenu/buttonOrder'
-//import { useNavigate } from "react-router-dom";
-import { MenuBar } from './categoryMenu/menu'
-import { ProductsList } from "./productList/productsList.js"
-import { Product } from "./productList/product.js"
-import { AddSubButton } from "../waiterView/addSubButton/addSubButton"
-import { CheckTable } from "../waiterView/checkTable/checkTable"
-import './indexWaiterView.css'
-import { auth } from '../../firebase/auth.js'
-import { findingUser, collectionUser, orderToSaveInFarebase} from '../../firebase/firestore'
-
+import { React, useState} from "react";
+import {ButtonOrder} from './categoryMenu/buttonOrder';
+import { MenuBar } from "./categoryMenu/menu";
+import { ProductsList } from "./productList/productsList.js";
+import { Product } from "./productList/product.js";
+import { AddSubButton } from "../waiterView/addSubButton/addSubButton";
+import { CheckTable } from "../waiterView/checkTable/checkTable";
+import "./indexWaiterView.css";
+import { User } from "../nameUser/nameUser";
+import { WaiterNavBar } from './sectionTabs/waiterNavBar'
+import {orderToSaveInFarebase} from '../../firebase/firestore'
 
 const MenuForAllMeals = () => {
-    const userId = auth.currentUser.uid;
+  
+  // let Navigate = useNavigate();
+  const [menuValue, setMenuValue] = useState([]); //vamos a compartir nuestro estado en varios componenetes
+  const [productSelect, setProductSelect] = useState([]);
 
-    findingUser(userId, collectionUser)
-        .then((res) =>
-            console.log(res, "data user")
-        )
+  const[productActual, setProductActual] = useState("")
 
-        
-    // let Navigate = useNavigate();
-    const [menuValue, setMenuValue] = useState([]);//vamos a compartir nuestro estado en varios componenetes
-    const [productSelect, setProductSelect] = useState([]);
-
-    const addProduct = (product) => {
-
-        let productParaSaberSiExiste = false;
-
-        const nuevoProduct = productSelect.map(element => {
-
-            if (element.name === product.name) {
-                productParaSaberSiExiste = true; /* verifico si el producto existe por eso cambio el valor
-                - mi valor booleano pasa por aqui primero */
-                element.cantidad = element.cantidad + 1;
-                element.total = element.cantidad * element.price;// agarro el total que ya tenia y le agrego el nuevo total
-
-            }
-            
-            return element;
-
-        })
-        //como el valor es falso se convierte en verdadero y si el valor es verdadero se convierte en falso.
-        if (!productParaSaberSiExiste) {
-
-            nuevoProduct.push(
-
-                {
-                    name: product.name,
-                    price: product.price,
-                    cantidad: 1,
-                    total: product.price
-                }
-            )
-        }
-        setProductSelect(nuevoProduct);
+  const onClick=(event)=>{
+    let element;
+    if (event.target.nodeName ==="SPAN"){
+        element = event.target.parentNode
+      } else{
+        element = event.target
     }
-        
-    const sendTheOrder = () =>{
+    setProductActual(element.dataset.name)
+    //console.log(element,"que me traes")
+    console.log(element.dataset.name,"nombre")
+  }
+
+  const addProduct = (product) => {
+    //console.log("produc", product)
+    let productParaSaberSiExiste = false;
+
+    const nuevoProduct = productSelect.map((element) => {
+      if (element.name === product.name) {
+        productParaSaberSiExiste = true; /* verifico si el producto existe por eso cambio el valor
+            - mi valor booleano pasa por aqui primero */
+        element.cantidad = element.cantidad + 1;
+        element.total = element.cantidad * element.price; // agarro el total que ya tenia y le agrego el nuevo total
+      }
+
+      return element;
+    });
+    //como el valor es falso se convierte en verdadero y si el valor es verdadero se convierte en falso.
+    if (!productParaSaberSiExiste) {
+      nuevoProduct.push({
+        name: product.name,
+        price: product.price,
+        cantidad: 1,
+        total: product.price,
+      });
+    }
+    setProductSelect(nuevoProduct);
+  };
+  const subProduct = (product) => {
+    const nuevoProduct = productSelect.reduce((acum, element) => {
+      if (element.name === product.name) {
+        /* verifico si el producto existe por eso cambio el valor
+            - mi valor booleano pasa por aqui primero */
+        element.cantidad = element.cantidad - 1;
+        element.total = element.cantidad * element.price; // agarro el total que ya tenia y le agrego el nuevo total
+      }
+      if(element.cantidad > 0) acum.push(element);
+      return acum;
+    },[]);
+    
+    setProductSelect(nuevoProduct);
+  };
        
-        if (productSelect.length === 0) {
-            alert("tu pedido esta vacio");
-            return
-        }
+  const sendTheOrder = () =>{
+       
+    if (productSelect.length === 0) {
+        alert("tu pedido esta vacio");
         
-            const newOrderFirebase = {
-                order: productSelect,
-                state: "pedido pendiente",
-                }
-            orderToSaveInFarebase(newOrderFirebase)
-        
-        }
-    return (
-        <section className="container">
-            <MenuBar
-                setMenuValue={setMenuValue}
-            />
-            <ProductsList>
-                {menuValue.map((product, index) =>
-                    <div className='productDiv'>
-                        <Product
-                            key={index}
-                            item={product}
-                        />
-                        <AddSubButton
-                            item={product}
-                            addProduct={addProduct}
+    }else{
+        const newOrderFirebase = {
+            order: productSelect,
+            init_time: new Date().toLocaleString("es-PE"),
+            
+            state: "pedido pendiente",
+            }
+        orderToSaveInFarebase(newOrderFirebase)
+    }
+       
+    }
 
-                        />
-
-                    </div>
-                )}
-            </ProductsList>
-            <CheckTable
-                productSelect={productSelect}
-            />
-            <ButtonOrder
+  return (
+    <section className="container">
+      <User/>
+      <WaiterNavBar/>
+      <MenuBar setMenuValue={setMenuValue}/>
+      <ProductsList>
+        {menuValue.map((product, index) => {
+          const cant= productSelect.find((el)=>el.name === product.name)?.cantidad;
+          return(
+          <div className="productDiv">
+            <Product key={index} item={product} onClick={onClick}/>
+            {productActual=== product.name && <AddSubButton item={product} addProduct={addProduct} subProduct={subProduct} cant={cant}/>}
+          </div>)
+        })}
+      </ProductsList>
+      <CheckTable productSelect={productSelect} />
+      <ButtonOrder
              onClick ={sendTheOrder}
              text ={'enviar'}
 
             />
-               
-            
-        </section>
-    )
-}
+    </section>
+  );
+};
 
 export { MenuForAllMeals };

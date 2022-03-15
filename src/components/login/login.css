@@ -10,7 +10,7 @@ h1{
   color: #fff;
   position: absolute;
   width: 100%;
- margin-top: 75%;
+  margin-top: 80vh;
   text-shadow:
       0 0 7px #fff,
       0 0 10px #fff,
@@ -46,31 +46,32 @@ h1{
   }    
 }
 
-
 .div-form{
   height: 100%;
   width: 100%;
   background-image: url("./fontLogin.png");
-  background-position: center center;
   background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
 }
 
 form {
-  width: 50%;
+  width: 80vw;
   position: absolute;
-  height: 30%;
-  top: 100px;
-  left: 25%;
+  /* height: 25vh; */
+  top: 5vh;
   background-color: rgb(120 33 169 / 27%);
   backdrop-filter: blur(4px);
   border-radius: 13px;
   box-shadow: inset 0 0 8px #220230;
   text-align: center;
-  padding-top: 3%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  padding-top: 2vh;
+  /* justify-content: space-evenly; */
+  /* display: block;
+  overflow: auto; */
+  padding-bottom: 3vh;
 }
 .form-input{
   position: relative;
@@ -80,7 +81,8 @@ form {
   border: 5px;
   height: 5vmin;
   width: 36vmin;
-  text-align: center;
+  /* text-align: center; */
+  text-indent: 1vw;
   margin: 2%;
   font-size: 2.6vmin;
 }
@@ -93,26 +95,71 @@ form {
 .button-login{
   background-color: #8000802b;
   color: #fff;
-  border-radius: 5px;
   font-size: 1.6vmax;
   padding: 1.2% 1%;
   width: 30%;
-  margin-left: 35%;
-  margin-bottom: 5%;
+  /* margin-left: 35%;
+  margin-bottom: 5%; */
   cursor: pointer;
   font-family: sans-serif;
   border: 2.5px solid #bc10df;
   box-sizing: border-box;
   border-radius: 8px;
+  margin-top: 2vh;
 }
 
 .p-form{
-  font-size: 2.5vmax;
+  /* font-size: 2.5vmax; */
+  font-size: 3vw;
   text-align: center;
   position: relative;
   color: #fff;
   font-family: sans-serif;
+  padding-bottom: 3vh;
 }
 ::placeholder{
   color:rgb(0, 0, 0);
+}
+.form-div{
+  display: flex;
+  flex-direction: column;
+}
+.form-label{
+  text-align: left;
+  margin-left: 1vh;
+  color: whitesmoke;
+  font-size: 1.5vw;
+}
+.input-container{
+  justify-items: center;
+  display: grid;
+  grid-gap: 1vh;
+}
+::placeholder {
+  color: rgb(36, 36, 36);
+  /* opacity: 1; Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: rgb(36, 36, 36);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: rgb(36, 36, 36);
+}
+.error{
+    font-size: 2vw;
+    color: mediumvioletred;
+    margin-top: 2vh;
+    /* margin-bottom: 2vh; */
+}
+
+@media only screen and (orientation: landscape) {
+  .input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: auto;
+    grid-gap: 0vh;
+  }
 }

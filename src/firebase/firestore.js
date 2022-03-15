@@ -6,8 +6,7 @@ export const collectionUser = collection(db, 'usuarios');
 const collectionOrder = collection(db, 'order');
 
 export const orderToSaveInFarebase = (newOrder) =>{
-    
-   
+
     addDoc(collectionOrder, newOrder)
 
 }
