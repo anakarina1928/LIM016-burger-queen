@@ -8,10 +8,7 @@ const Product = (props) => {
     // console.log("recibiendo producto: ", props);
     return (
         <button className="product" onClick={props.onClick} data-name={props.item.name} >
-            <span>{props.item.name}</span>
-            <br></br>
-            <br></br>
-            <span>S./ {props.item.price}</span>
+            <span>{props.item.name}{"\n"} <br></br> S./ {props.item.price}</span>
         </button>  
     )
 

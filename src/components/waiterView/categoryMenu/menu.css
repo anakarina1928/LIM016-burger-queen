@@ -1,7 +1,8 @@
 .menu-container-father {
     display: grid;
-    grid-column: 1/1;
-    grid-row: 2/7;
-    margin-left: 4vh;
-    gap:10px;
+    grid-area: category;
+    gap: 6px;
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
 }
