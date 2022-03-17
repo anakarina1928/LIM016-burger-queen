@@ -1,12 +1,11 @@
 import React from "react";
 import './buttonOrder.css'
 
-const ButtonOrder = ({ text, onClick  }) => {
+const ButtonOrder = ({onClick}) => {
   return (
     <>
       <button className="buttonOrder" onClick={onClick} >
-        
-        {text}
+      <img src={process.env.PUBLIC_URL + "/icons/checked.png"} alt={"checked"}/>
       </button>
     </>
   );

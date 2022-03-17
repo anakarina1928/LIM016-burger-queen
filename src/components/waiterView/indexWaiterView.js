@@ -104,8 +104,6 @@ const MenuForAllMeals = () => {
       <CheckTable productSelect={productSelect} />
       <ButtonOrder
              onClick ={sendTheOrder}
-             text ={'enviar'}
-
             />
     </section>
   );
