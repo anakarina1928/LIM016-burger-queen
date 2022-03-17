@@ -1,5 +1,5 @@
 import { React, useState} from "react";
-//import { useNavigate } from "react-router-dom";
+import {ButtonOrder} from './categoryMenu/buttonOrder';
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
@@ -8,6 +8,7 @@ import { CheckTable } from "../waiterView/checkTable/checkTable";
 import "./indexWaiterView.css";
 import { User } from "../nameUser/nameUser";
 import { WaiterNavBar } from './sectionTabs/waiterNavBar'
+import {orderToSaveInFarebase} from '../../firebase/firestore'
 
 const MenuForAllMeals = () => {
   
@@ -68,6 +69,22 @@ const MenuForAllMeals = () => {
     
     setProductSelect(nuevoProduct);
   };
+  const sendTheOrder = () =>{
+       
+    if (productSelect.length === 0) {
+        alert("tu pedido esta vacio");
+        
+    }else{
+        const newOrderFirebase = {
+            order: productSelect,
+            init_time: new Date().toLocaleString("es-PE"),
+            state: "pedido pendiente",
+            /*todavia faltan campos*/ 
+            }
+        orderToSaveInFarebase(newOrderFirebase)
+    }
+       
+    }
 
   return (
     <section className="container">
@@ -85,6 +102,11 @@ const MenuForAllMeals = () => {
         })}
       </ProductsList>
       <CheckTable productSelect={productSelect} />
+      <ButtonOrder
+             onClick ={sendTheOrder}
+             text ={'enviar'}
+
+            />
     </section>
   );
 };
