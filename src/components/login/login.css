@@ -98,14 +98,13 @@ form {
   font-size: 1.6vmax;
   padding: 1.2% 1%;
   width: 30%;
-  /* margin-left: 35%;
-  margin-bottom: 5%; */
   cursor: pointer;
   font-family: sans-serif;
   border: 2.5px solid #bc10df;
   box-sizing: border-box;
   border-radius: 8px;
   margin-top: 2vh;
+  justify-content: space-around;
 }
 
 .p-form{

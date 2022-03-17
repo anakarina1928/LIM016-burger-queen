@@ -40,7 +40,7 @@ export function User(){
     <p className="dataUser">{userName}</p>
     <p className="dataUser">{userCargo}</p>
     {console.log(auth)}
-    <ButtonClose className={"btnMenuOption"} src={'/images/cerrarSesion.svg'} onClick={logOutSesion}  alt="cerrar sesion" />
+    <ButtonClose className="btnLogOut" src={'/icons/stand-by.png'} onClick={logOutSesion}  alt="cerrar sesion" />
     </div>
     </div>
     )
