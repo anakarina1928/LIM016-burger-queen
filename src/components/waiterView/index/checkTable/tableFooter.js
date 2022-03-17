@@ -4,10 +4,10 @@ import './checkTable.css'
 function TableFooter () {
     return(
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>TOTAL</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>TOTAL</td>
         </tr>
     )
 }

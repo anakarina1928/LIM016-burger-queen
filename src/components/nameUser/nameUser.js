@@ -2,7 +2,7 @@ import {React, useState, useEffect} from "react";
 import { auth } from "../../firebase/auth.js";
 import { findingUser, collectionUser } from "../../firebase/firestore";
 import "./nameUser.css"
-import { ButtonClose } from "../waiterView/categoryMenu/buttonClose.js";
+import { ButtonClose } from "./buttonClose";
 import {logOut} from "../../firebase/auth.js";
 
 

@@ -5,7 +5,7 @@ export const collectionUser = collection(db, 'usuarios');
 
 const collectionOrder = collection(db, 'order');
 
-export const orderToSaveInFarebase = async (newOrder) => {
+export const orderToSaveInFirebase = async (newOrder) => {
     try {
         const savingOrder = await addDoc(collectionOrder, newOrder)
         return savingOrder;

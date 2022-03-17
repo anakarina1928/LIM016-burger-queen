@@ -31,7 +31,7 @@ function Login() {
     return loginWithEmailAndPassword(data.email, data.password)
     
     .then(() => {
-      Navigate("/main");
+      Navigate("/waiterMain");
     }) 
     .catch((error) => {
       const errorCode = error.code
