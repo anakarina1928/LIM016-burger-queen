@@ -3,11 +3,11 @@ import { React, useState} from "react";
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
-import { AddSubButton } from "../waiterView/addSubButton/addSubButton";
-import { CheckTable } from "../waiterView/checkTable/checkTable";
+import { AddSubButton } from "./addSubButton/addSubButton";
+import { CheckTable } from "./checkTable/checkTable";
 import "./indexWaiterView.css";
-import { User } from "../nameUser/nameUser";
-import { WaiterNavBar } from './sectionTabs/waiterNavBar'
+import { User } from "../../nameUser/nameUser";
+import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
 
 const MenuForAllMeals = () => {
   
@@ -84,7 +84,7 @@ const MenuForAllMeals = () => {
           </div>)
         })}
       </ProductsList>
-      <CheckTable productSelect={productSelect} />
+        <CheckTable productSelect={productSelect} />
     </section>
   );
 };
