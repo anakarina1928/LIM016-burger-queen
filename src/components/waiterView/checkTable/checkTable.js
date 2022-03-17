@@ -17,6 +17,7 @@ import { TableRowFood } from './tableRow'
 function CheckTable ({productSelect}) {
     return(
         <div className="checkTableDiv">
+            <div className="table-flex">
             <div className="checkTableTitle">
                 <p className="checkTableP">LISTA DE PEDIDO</p>
                 <div className="checkTableInnerDiv">
@@ -41,6 +42,7 @@ function CheckTable ({productSelect}) {
                     <TablePrice/>
                 </tfoot>
             </table>
+            </div>
         </div>
     )
     

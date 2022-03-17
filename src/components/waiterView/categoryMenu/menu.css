@@ -1,9 +1,8 @@
 .menu-container-father {
-    display: flex;
-    flex-direction: column;
-    width: 106px;
-    height: 92px;
-    left: 26px;
-    top: 200px;
-
+    display: grid;
+    grid-area: category;
+    gap: 6px;
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
 }
