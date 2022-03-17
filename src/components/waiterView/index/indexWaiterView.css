@@ -36,3 +36,6 @@
 .addSubDiv--inv{
     visibility: hidden;
 }
+::-webkit-scrollbar {
+    display: none;
+}

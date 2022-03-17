@@ -1,17 +1,31 @@
+<<<<<<< HEAD:src/components/waiterView/indexWaiterView.js
 import { React, useState } from "react";
+=======
+import { React, useState} from "react";
+>>>>>>> 51b3d9b813e4cf39bd9ff197fb4000c9482a1871:src/components/waiterView/index/indexWaiterView.js
 import { ButtonOrder } from './categoryMenu/buttonOrder';
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
-import { AddSubButton } from "../waiterView/addSubButton/addSubButton";
-import { CheckTable } from "../waiterView/checkTable/checkTable";
+import { AddSubButton } from "./addSubButton/addSubButton";
+import { CheckTable } from "./checkTable/checkTable";
 import "./indexWaiterView.css";
+<<<<<<< HEAD:src/components/waiterView/indexWaiterView.js
 import { User } from "../nameUser/nameUser";
 import { WaiterNavBar } from './sectionTabs/waiterNavBar'
 import { Modal } from "./modal/modal"
 import { orderToSaveInFarebase } from "../../firebase/firestore";
 
 const MenuForAllMeals = () => {
+=======
+import { User } from "../../nameUser/nameUser";
+import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
+import {orderToSaveInFirebase} from '../../../firebase/firestore'
+
+export function MenuForAllMeals () {
+  
+  // let Navigate = useNavigate();
+>>>>>>> 51b3d9b813e4cf39bd9ff197fb4000c9482a1871:src/components/waiterView/index/indexWaiterView.js
   const [menuValue, setMenuValue] = useState([]); //vamos a compartir nuestro estado en varios componenetes
   const [productSelect, setProductSelect] = useState([]);
   const [productActual, setProductActual] = useState("")
@@ -67,6 +81,7 @@ const MenuForAllMeals = () => {
 
     setProductSelect(nuevoProduct);
   };
+<<<<<<< HEAD:src/components/waiterView/indexWaiterView.js
   const closeModal = () => setShowModal(false);
   const openModal = () => setShowModal(true);
   const reset = () => {
@@ -78,6 +93,23 @@ const MenuForAllMeals = () => {
       init_time: new Date().toLocaleString("es-PE"),
       state: "PENDIENTE",
       order: productSelect,
+=======
+  const sendTheOrder = () =>{
+       
+    if (productSelect.length === 0) {
+        alert("tu pedido esta vacio");
+        
+    }else{
+        const newOrderFirebase = {
+            order: productSelect,
+            init_time: new Date().toLocaleString("es-PE"),
+            state: "pedido pendiente",
+            /*todavia faltan campos*/ 
+            }
+        orderToSaveInFirebase(newOrderFirebase)
+    }
+       
+>>>>>>> 51b3d9b813e4cf39bd9ff197fb4000c9482a1871:src/components/waiterView/index/indexWaiterView.js
     }
     orderToSaveInFarebase(newOrderFirebase);
     reset();
@@ -88,9 +120,15 @@ const MenuForAllMeals = () => {
 
   return (
     <section className="container">
+<<<<<<< HEAD:src/components/waiterView/indexWaiterView.js
       <User />
       <WaiterNavBar />
       <MenuBar setMenuValue={setMenuValue} />
+=======
+      <User/>
+      <WaiterNavBar onClick={onClick}/>
+      <MenuBar setMenuValue={setMenuValue}/>
+>>>>>>> 51b3d9b813e4cf39bd9ff197fb4000c9482a1871:src/components/waiterView/index/indexWaiterView.js
       <ProductsList>
         {menuValue.map((product, index) => {
           const cant = productSelect.find((el) => el.name === product.name)?.cantidad;
@@ -112,5 +150,3 @@ const MenuForAllMeals = () => {
     </section>
   );
 };
-
-export { MenuForAllMeals };
