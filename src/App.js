@@ -3,7 +3,6 @@ import Login from '../src/components/login/index.js';
 import { MenuForAllMeals } from '../src/components/waiterView/index/indexWaiterView';
 import { PendingOrders } from './components/waiterView/pendingOrders/indexPendingOrders'
 import { DeliveredOrders } from './components/waiterView/deliveredOrders/indexDeliveredOrders';
-import { auth, onAuthStateChanged } from './firebase/auth';
 import { Route, Routes } from 'react-router-dom';
 // import image from './images/hamburguesa.svg'
 

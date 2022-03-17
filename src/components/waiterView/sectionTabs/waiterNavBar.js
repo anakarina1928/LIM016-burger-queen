@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./waiterNavBar.css"
 
-export function WaiterNavBar (props) {
+export function WaiterNavBar () {
 
     const Navigate = useNavigate()
 

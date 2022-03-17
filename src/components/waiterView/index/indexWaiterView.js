@@ -1,18 +1,17 @@
-import { React, useState} from "react";
+import { React, useState } from "react";
 import { ButtonOrder } from './categoryMenu/buttonOrder';
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
-import { AddSubButton } from "./addSubButton/addSubButton";
-import { CheckTable } from "./checkTable/checkTable";
+import { AddSubButton} from "./addSubButton/addSubButton"
+import { CheckTable} from "./checkTable/checkTable"
 import "./indexWaiterView.css";
 import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
-import {orderToSaveInFirebase} from '../../../firebase/firestore'
+import { Modal } from "../modal/modal"
+import { orderToSaveInFarebase } from "../../../firebase/firestore";
 
-export function MenuForAllMeals () {
-  
-  // let Navigate = useNavigate();
+const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]); //vamos a compartir nuestro estado en varios componenetes
   const [productSelect, setProductSelect] = useState([]);
   const [productActual, setProductActual] = useState("")
@@ -80,28 +79,18 @@ export function MenuForAllMeals () {
       state: "PENDIENTE",
       order: productSelect,
     }
-      const sendTheOrder = () =>{
-       
-    if (productSelect.length === 0) {
-        alert("tu pedido esta vacio");
-        
-    }else{
-        const newOrderFirebase = {
-            order: productSelect,
-            init_time: new Date().toLocaleString("es-PE"),
-            state: "pedido pendiente",
-            /*todavia faltan campos*/ 
-            }
-        orderToSaveInFirebase(newOrderFirebase)
-    }
-       
-    }
+    orderToSaveInFarebase(newOrderFirebase);
     reset();
+  }
+
+
+
+
   return (
     <section className="container">
-      <User/>
-      <WaiterNavBar onClick={onClick}/>
-      <MenuBar setMenuValue={setMenuValue}/>
+      <User />
+      <WaiterNavBar />
+      <MenuBar setMenuValue={setMenuValue} />
       <ProductsList>
         {menuValue.map((product, index) => {
           const cant = productSelect.find((el) => el.name === product.name)?.cantidad;
@@ -123,4 +112,5 @@ export function MenuForAllMeals () {
     </section>
   );
 };
-}
+
+export { MenuForAllMeals };
