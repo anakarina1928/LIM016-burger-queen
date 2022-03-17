@@ -1,5 +1,12 @@
 .checkTableDiv{
-    width: 425px;
+    display: grid;
+    grid-area: table;
+    margin-right: 15px;
+
+}
+.table-flex{
+    display: flex;
+    flex-direction: column;
 }
 .checkTableTitle{
     background-color: #2E2C2C;
@@ -14,6 +21,8 @@
 .checkTableP{
     color: #ffff;
     align-self: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5vmin;
 }
 .checkTableInp{
     border: none;
@@ -31,6 +40,9 @@ th{
     color: white;
     font-weight: normal;
     border-bottom: 1px solid #840A91;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5vmin;
+    padding: 2.5px;
 }
 td{
     color: white;
@@ -45,6 +57,11 @@ table{
     box-shadow: 0px 6px 23px -7px rgba(51, 51, 51, 0.25);
     border-radius: 2px;
 }
+tbody{
+    overflow: auto;
+    height: 65vmin;
+    display: block;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -56,4 +73,6 @@ input[type=number] {
 .productColumn{
     text-align: left;
     padding-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5vmin;
 }

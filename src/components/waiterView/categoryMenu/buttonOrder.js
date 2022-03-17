@@ -29,7 +29,7 @@ const ButtonOrder = ({productSelect, openModal}) => {
   return (
     <>
       <button className="buttonOrder" onClick={() => confirmOrder(productSelect)}>
-        enviar
+      <img src={process.env.PUBLIC_URL + "/icons/checked.png"} alt={"checked"}/>
       </button>
       <ToastContainer />
     </>
