@@ -13,7 +13,7 @@ function TableRowFood (props) {
             <td>{props.cantidad}</td>
             <td>{props.precio}</td>
             <td>
-                <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
+                <FontAwesomeIcon onClick={props.close} icon={faTrashCan}></FontAwesomeIcon>
             </td>
         </tr>
     )

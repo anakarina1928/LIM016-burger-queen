@@ -38,7 +38,7 @@ const MenuForAllMeals = () => {
         productParaSaberSiExiste = true; /* verifico si el producto existe por eso cambio el valor
             - mi valor booleano pasa por aqui primero */
         element.cantidad = element.cantidad + 1;
-        element.total = element.cantidad * element.price; // agarro el total que ya tenia y le agrego el nuevo total
+        element.total = element.total + element.price; // agarro el total que ya tenia y le agrego el nuevo total
       }
 
       return element;
@@ -57,8 +57,7 @@ const MenuForAllMeals = () => {
   const subProduct = (product) => {
     const nuevoProduct = productSelect.reduce((acum, element) => {
       if (element.name === product.name) {
-        /* verifico si el producto existe por eso cambio el valor
-            - mi valor booleano pasa por aqui primero */
+
         element.cantidad = element.cantidad - 1;
         element.total = element.cantidad * element.price; // agarro el total que ya tenia y le agrego el nuevo total
       }
@@ -68,24 +67,25 @@ const MenuForAllMeals = () => {
 
     setProductSelect(nuevoProduct);
   };
-
+  const closeModal = () => setShowModal(false);
+  const openModal = () => setShowModal(true);
+  const reset = () => {
+    closeModal();
+    setProductSelect([]);
+  }
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
-      state: "pedido pendiente",
+      state: "PENDIENTE",
       order: productSelect,
     }
     orderToSaveInFarebase(newOrderFirebase);
     reset();
   }
 
-  const reset = () => {
-    closeModal();
-    setProductSelect([]);
-  }
 
-  const closeModal = () => setShowModal(false);
-  const openModal = () => setShowModal(true);
+
+
   return (
     <section className="container">
       <User />

@@ -5,15 +5,6 @@ import { TableFooter } from './tableFooter'
 import { TablePrice } from './tablePrice'
 import { TableRowFood } from './tableRow'
 
-// const orders = [
-//     {producto: "Hamburguesa", cantidad: 3, precio: 15.00},
-//     {producto: "Helado", cantidad: 1, precio: 8.00},
-//     {producto: "Agua", cantidad: 2, precio: 5.00},
-//     {producto: "Agua", cantidad: 2, precio: 5.00},
-//     {producto: "Agua", cantidad: 2, precio: 5.00},
-//     {producto: "Agua", cantidad: 2, precio: 5.00}
-// ]
-
 function CheckTable ({productSelect}) {
     return(
         <div className="checkTableDiv">

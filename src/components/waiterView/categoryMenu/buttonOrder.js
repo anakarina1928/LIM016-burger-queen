@@ -17,7 +17,8 @@ const ButtonOrder = ({productSelect, openModal}) => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        type: "default"
+        type: "default",
+        pading:30
       });
 
     } else{
