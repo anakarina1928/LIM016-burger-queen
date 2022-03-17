@@ -7,10 +7,15 @@ const Modal = ({ sendOrderToFireBase, closeModal }) => {
     return ReactDOM.createPortal(
 
         <section className={'modal-father'}>
-            <div className={'modal-childdren'}>
-                <p>¿confirmaste el pedido del cliente?</p>
-                <button onClick={sendOrderToFireBase}>enviar</button>
-                <button onClick={closeModal}>X</button>
+            <div className={'container-modal'}>
+                <p className='text'>¿enviar pedido a cocina?</p>
+
+                <div className={'button'}>
+
+                    <button onClick={sendOrderToFireBase}> √ </button>
+                        {'\n\n\n'}
+                    <button onClick={closeModal}>X</button>
+                </div>
             </div>
         </section>,
         document.getElementById('modal')
