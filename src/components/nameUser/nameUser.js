@@ -15,10 +15,10 @@ export function User(){
         const userId = auth.currentUser.uid;
         findingUser(userId, collectionUser).then((res) =>
             setUserName(res.nombre)
-        )
+            )
       }, [])
 
-      useEffect(() => {    
+     useEffect(() => {    
         const userId = auth.currentUser.uid;
         findingUser(userId, collectionUser).then((res) =>
             setUserCargo(res.cargo)
