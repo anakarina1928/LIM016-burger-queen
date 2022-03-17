@@ -1,5 +1,5 @@
 import React from "react";
-import './button.css'
+import '../waiterView/index/categoryMenu/button.css'
 
 //
 const ButtonClose = ({ className,onClick, src, alt}) => {/*este boton lo puedo reutilizar las veces que desee, 

@@ -1,24 +1,27 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./waiterNavBar.css"
 
-export function WaiterNavBar () {
+export function WaiterNavBar (props) {
 
-    const onClick = (event) => {
+    const Navigate = useNavigate()
+
+    const viewTab = (event) => {
         const element = event.target
-        Navigate(`/${element.dataset.name}`)
+        const elementPath = element.dataset.name
+        Navigate(elementPath)
     }
 
     return (
         <div className="waiterNavBar">
             <div className="waiterFlex">
-                <button className="navButton" data-name="/waiterMain" onClick={onClick}>
+                <button className="navButton" data-name="/waiterMain" onClick={viewTab}>
                     MENÚ
                 </button>
-                <button className="navButton" data-name="/waiterPending" onClick={onClick}>
+                <button className="navButton" data-name="/waiterPending" onClick={viewTab}>
                     PEDIDOS PENDIENTES
                 </button>
-                <button className="navButton" data-name="/waiterDelivered" onClick={onClick}>
+                <button className="navButton" data-name="/waiterDelivered" onClick={viewTab}>
                     PEDIDOS ENTREGADOS
                 </button>
             </div>

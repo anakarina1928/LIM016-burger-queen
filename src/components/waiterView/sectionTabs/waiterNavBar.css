@@ -1,7 +1,7 @@
 .waiterNavBar{
     grid-area: nav;
     display: grid;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     align-items: baseline;
 }
 

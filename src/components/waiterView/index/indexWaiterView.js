@@ -1,16 +1,16 @@
 import { React, useState} from "react";
-import {ButtonOrder} from './categoryMenu/buttonOrder';
+import { ButtonOrder } from './categoryMenu/buttonOrder';
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
 import { AddSubButton } from "./addSubButton/addSubButton";
 import { CheckTable } from "./checkTable/checkTable";
 import "./indexWaiterView.css";
-import { User } from "../nameUser/nameUser";
-import { WaiterNavBar } from './sectionTabs/waiterNavBar'
-import {orderToSaveInFarebase} from '../../firebase/firestore'
+import { User } from "../../nameUser/nameUser";
+import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
+import {orderToSaveInFirebase} from '../../../firebase/firestore'
 
-const MenuForAllMeals = () => {
+export function MenuForAllMeals () {
   
   // let Navigate = useNavigate();
   const [menuValue, setMenuValue] = useState([]); //vamos a compartir nuestro estado en varios componenetes
@@ -81,7 +81,7 @@ const MenuForAllMeals = () => {
             state: "pedido pendiente",
             /*todavia faltan campos*/ 
             }
-        orderToSaveInFarebase(newOrderFirebase)
+        orderToSaveInFirebase(newOrderFirebase)
     }
        
     }
@@ -89,7 +89,7 @@ const MenuForAllMeals = () => {
   return (
     <section className="container">
       <User/>
-      <WaiterNavBar/>
+      <WaiterNavBar onClick={onClick}/>
       <MenuBar setMenuValue={setMenuValue}/>
       <ProductsList>
         {menuValue.map((product, index) => {
@@ -108,5 +108,3 @@ const MenuForAllMeals = () => {
     </section>
   );
 };
-
-export { MenuForAllMeals };
