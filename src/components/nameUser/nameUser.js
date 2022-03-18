@@ -4,12 +4,14 @@ import { findingUser, collectionUser } from "../../firebase/firestore";
 import "./nameUser.css"
 import {ButtonClose} from "./buttonClose"
 import {logOut} from "../../firebase/auth.js";
+import { useNavigate } from "react-router-dom";
 
 
 
-export function User() {
-  const [userName, setUserName] = useState("");
-  const [userCargo, setUserCargo] = useState("");
+export function User(){
+    const [userName, setUserName] = useState("");
+    const [userCargo, setUserCargo] = useState("");
+    const Navigate = useNavigate()
 
       useEffect(() => {    
         const userId = auth.currentUser.uid;
@@ -26,13 +28,12 @@ export function User() {
       }, [])
       
       const logOutSesion=()=>{
-        console.log('a ver');
         logOut(auth).then(()=>{
-          console.log('log out');
+          Navigate("/")
+          sessionStorage.clear();
         }).catch((error) => {
           console.log(error);
         });
-        
       }
     return(
         <div className="navUser">
