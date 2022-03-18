@@ -46,9 +46,13 @@ const Ticket = () => {
                         <th>PRECIO</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <TicketItems/>
-                </tbody>
+            </table>
+            <table>
+                
+                <TicketItems/>
+
+            </table>
+            <table>
                 <tfoot>
                     <tr>
                         <th></th>

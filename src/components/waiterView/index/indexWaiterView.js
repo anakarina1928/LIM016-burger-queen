@@ -9,7 +9,7 @@ import "./indexWaiterView.css";
 import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
 import { Modal } from "../modal/modal"
-import { orderToSaveInFarebase } from "../../../firebase/firestore";
+import { orderToSaveInFirebase } from "../../../firebase/firestore";
 
 const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]); //vamos a compartir nuestro estado en varios componenetes
@@ -79,7 +79,7 @@ const MenuForAllMeals = () => {
       state: "PENDIENTE",
       order: productSelect,
     }
-    orderToSaveInFarebase(newOrderFirebase);
+    orderToSaveInFirebase(newOrderFirebase);
     reset();
   }
 

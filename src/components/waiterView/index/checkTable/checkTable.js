@@ -16,23 +16,24 @@ function CheckTable ({productSelect}) {
                     <input className="checkTableInp" type='number'></input>
                 </div>
             </div>
-            <table>
-                <TableHeader/>
-                <tbody>
-                    {productSelect.map((order, index) => (
-                    <TableRowFood
-                        key={index}
-                        producto={order.name}
-                        cantidad={order.cantidad}
-                        precio={order.total}
-                    />
-                    ))}
-                </tbody>
-                <tfoot>
-                    <TableFooter/>
-                    <TablePrice/>
-                </tfoot>
-            </table>
+            <div className="tableFixHead">
+                <table>
+                    <TableHeader/>
+                    <tbody>
+                        {productSelect.map((order, index) => (
+                        <TableRowFood
+                            key={index}
+                            producto={order.name}
+                            cantidad={order.cantidad}
+                            precio={order.total}
+                        />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <TableFooter/>
+            </div>
             </div>
         </div>
     )
