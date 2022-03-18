@@ -4,7 +4,10 @@ import { TableHeader } from './tableHeader'
 import { TableFooter } from './tableFooter'
 import { TableRowFood } from './tableRow'
 
-function CheckTable ({productSelect}) {
+function CheckTable ({productSelect, sumProduct}) {
+
+    
+  
     return(
         <div className="checkTableDiv">
             <div className="table-flex">
