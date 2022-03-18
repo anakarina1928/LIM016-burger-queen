@@ -1,13 +1,16 @@
 import {React} from "react"
 import './checkTable.css'
 
-function TablePrice () {
+function TablePrice ({sumProduct}) {
     return(
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>S./ Preciazo</td>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                <span>S./</span>
+                <span>{sumProduct}</span>
+            </th>
         </tr>
     )
 }

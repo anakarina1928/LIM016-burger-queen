@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import { auth } from "../../firebase/auth.js";
 import { findingUser, collectionUser } from "../../firebase/firestore";
 import "./nameUser.css"
@@ -43,5 +43,5 @@ export function User(){
     <ButtonClose className="btnLogOut" src={'/icons/stand-by.png'} onClick={logOutSesion}  alt="cerrar sesion" />
     </div>
     </div>
-    )
+  )
 }
