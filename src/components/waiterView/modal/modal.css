@@ -8,13 +8,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-
   }
 
 .container-modal{
     background: linear-gradient(180deg, #5B0579 31.25%, #8E0B97 100%);
-    padding: 5em;
+    padding: 3.5em;
     border-radius: 16px;
    
 }
@@ -36,4 +34,17 @@
 .button{
     text-align: center;
     justify-content: center;
+}
+.button-modal{
+ 
+    background: #0FC216;
+    border-radius: 10px;
+    width: 11vmin;
+    height: 9vmin;
+    border: none;
+    margin: 30px 30px;
+}
+
+.close{
+    background: red;
 }
