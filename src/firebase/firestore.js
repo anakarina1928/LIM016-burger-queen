@@ -1,5 +1,5 @@
 
-import { collection, doc, getDoc, addDoc } from "@firebase/firestore"
+import { collection, doc, getDoc, addDoc, query, onSnapshot, orderBy } from "@firebase/firestore"
 import { db } from "./config";
 export const collectionUser = collection(db, 'usuarios');
 
@@ -27,3 +27,8 @@ export const findingUser = async (userId, colllection) => {
         throw new Error(error);
     }
 };
+
+export const onDataDocument = async (callback) =>{
+    const q = query(collection(db, "post_user"), orderBy('timestamp',"desc"));
+    await onSnapshot(q, callback)
+} 
