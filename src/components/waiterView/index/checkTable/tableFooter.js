@@ -1,7 +1,7 @@
 import { React } from "react"
 import './checkTable.css'
 
-function TableFooter () {
+function TableFooter ({sumProduct}) {
     return(
         // <tr>
         //     <td></td>
@@ -11,7 +11,7 @@ function TableFooter () {
         // </tr>
         <div className="tableFooter">
             <div>TOTAL</div>
-            <div>S/. Preciazo</div>
+            <div>S/. {sumProduct}</div>
         </div>
     )
 }

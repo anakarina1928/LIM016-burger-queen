@@ -34,7 +34,9 @@ function CheckTable ({productSelect, sumProduct}) {
                 </table>
             </div>
             <div>
-                <TableFooter/>
+                <TableFooter
+                    sumProduct={sumProduct}
+                />
             </div>
             </div>
         </div>
