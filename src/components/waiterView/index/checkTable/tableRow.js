@@ -6,10 +6,10 @@ import {faTrashCan} from '@fortawesome/free-solid-svg-icons'
 function TableRowFood (props) {
     return(
         <tr>
-            <th className="productColumn">
+            <td className="productColumn">
                 {props.producto}
                 <input type="text" />
-            </th>
+            </td>
             <td>{props.cantidad}</td>
             <td>{props.precio}</td>
             <td>

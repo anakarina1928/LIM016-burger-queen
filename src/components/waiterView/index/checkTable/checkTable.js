@@ -26,14 +26,13 @@ function CheckTable ({productSelect, sumProduct}) {
                     <TableRowFood
                         key={index}
                         producto={order.name}
-                        cantidad={order.quantity}
+                        cantidad={order.cantidad}
                         precio={order.total}
                     />
                     ))}
                 </tbody>
                 <tfoot>
-                    <TableFooter                        
-                    />
+                    <TableFooter  />
                     <TablePrice sumProduct={sumProduct} />
                 </tfoot>
             </table>
