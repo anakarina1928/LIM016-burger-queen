@@ -1,7 +1,7 @@
 import {React} from "react"
 import './checkTable.css'
 
-function TablePrice () {
+function TablePrice ({sumProduct}) {
     return(
         <tr>
             <th></th>
@@ -9,7 +9,7 @@ function TablePrice () {
             <th></th>
             <th>
                 <span>S./</span>
-                <span>Preciazo</span>
+                <span>{sumProduct}</span>
             </th>
         </tr>
     )
