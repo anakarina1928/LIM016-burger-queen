@@ -2,7 +2,6 @@ import {React} from "react"
 import './checkTable.css'
 import { TableHeader } from './tableHeader'
 import { TableFooter } from './tableFooter'
-import { TablePrice } from './tablePrice'
 import { TableRowFood } from './tableRow'
 
 function CheckTable ({productSelect}) {
