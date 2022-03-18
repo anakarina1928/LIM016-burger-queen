@@ -5,7 +5,10 @@ import { TableFooter } from './tableFooter'
 import { TablePrice } from './tablePrice'
 import { TableRowFood } from './tableRow'
 
-function CheckTable ({productSelect}) {
+function CheckTable ({productSelect, sumProduct}) {
+
+    
+  
     return(
         <div className="checkTableDiv">
             <div className="table-flex">
@@ -29,8 +32,8 @@ function CheckTable ({productSelect}) {
                     ))}
                 </tbody>
                 <tfoot>
-                    <TableFooter/>
-                    <TablePrice/>
+                    <TableFooter  />
+                    <TablePrice sumProduct={sumProduct} />
                 </tfoot>
             </table>
             </div>
