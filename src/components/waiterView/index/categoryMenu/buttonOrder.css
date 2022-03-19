@@ -16,3 +16,6 @@
     align-items: center; */
     grid-area: 4/3/5/4;
 }
+.buttonOrderDiv{
+    grid-area: 4/3/5/4;
+}
