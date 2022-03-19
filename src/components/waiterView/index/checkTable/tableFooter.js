@@ -10,8 +10,7 @@ function TableFooter ({sumProduct}) {
         //     <td>TOTAL</td>
         // </tr>
         <div className="tableFooter">
-            <div>TOTAL</div>
-            <div>S/. {sumProduct}</div>
+            <div>TOTAL<br></br>S/. {sumProduct}</div>
         </div>
     )
 }

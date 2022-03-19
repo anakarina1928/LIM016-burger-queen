@@ -9,5 +9,5 @@
 .menu-container-father{
     grid-area: 3/1/5/2;
     display: grid;
-    gap: 1%;
+    gap: 1px;
 }

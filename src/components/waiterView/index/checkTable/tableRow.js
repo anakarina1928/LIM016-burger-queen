@@ -8,6 +8,7 @@ function TableRowFood (props) {
         <tr>
             <td className="productColumn">
                 {props.producto}
+                <br></br>
                 <input type="text" />
             </td>
             <td>{props.cantidad}</td>
