@@ -14,10 +14,10 @@
     border-radius: 4px;
     border: none;
     color: whitesmoke;
-    padding: 0.5vw 2vw;
+    padding: 1vmin 0.8vmin;
     margin-right: 0.8vw;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.7vw;
+    font-size: 2vmin;
 }
 button:hover{
     box-shadow: 0px 6px 23px -7px rgba(51, 51, 51, 0.25), inset 0px -1px 117px #50105F;

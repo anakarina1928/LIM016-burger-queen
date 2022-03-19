@@ -4,9 +4,9 @@
     padding: 0;
 }
 .productDiv{
-    margin: 4px;
-    height: 110px;
-    margin-bottom: 70px;
+    margin: 0vw 1vw;
+    height: 13vh;
+    margin-bottom: 12vh;
 }
 
 
@@ -33,7 +33,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 11vw 50vw 1fr;
-    grid-template-rows: 8vh 6vh 66vh 1fr;
+    grid-template-rows: 8vh 6vh 67vh 1fr;
     padding: 1%;
     gap: 1%;
 }

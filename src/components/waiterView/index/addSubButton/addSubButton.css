@@ -5,9 +5,9 @@
 } */
 .addSubDiv{
     height: 5.6vmin;
-    width: 23vmin;
+    width: 18vmin;
     display: flex;
-    margin-top: 10px;
+    margin-top: 2vh;
     background-color: #8000802b;
     color: #fff;
     font-size: 1.6vmax;
@@ -25,7 +25,7 @@
     width: 25px;
     border: none;
     background: none;
-    font-size: 1.8vmax;
+    font-size: 3vh;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
@@ -35,7 +35,7 @@
     border: none;
     background: none;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 3vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,4 +48,7 @@
 .green{
     color:#00AF70;
 
+}
+.addSubBut:hover{
+    background-color: none;
 }

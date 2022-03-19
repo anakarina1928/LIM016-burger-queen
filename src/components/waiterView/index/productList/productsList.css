@@ -12,6 +12,7 @@
     align-content: stretch;
     justify-content: space-evenly;
     overflow: scroll;
+    height: -webkit-fill-available;
 }
 @media only screen and (max){
     .productsSection{
