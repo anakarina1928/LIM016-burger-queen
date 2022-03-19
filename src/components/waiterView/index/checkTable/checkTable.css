@@ -76,6 +76,7 @@ input[type=number] {
     padding-left: 10px;
     font-family: 'Montserrat', sans-serif;
     font-size: 2vh;
+    width: 15vw;
 }
 
 
@@ -112,5 +113,11 @@ table tfoot{
 }
 input[type=text] {
     font-size: 2vh;
-    width: clamp(10vw, 90%, 20vw);
+    width: clamp(10vw, 100%, 20vw);
+}
+.bin{
+    width: 5vh;
+}
+.quantityPriceColumn{
+    width: 8vw;
 }
