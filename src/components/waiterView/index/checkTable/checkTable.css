@@ -1,9 +1,9 @@
-.checkTableDiv{
+/* .checkTableDiv{
     display: grid;
     grid-area: table;
     margin-right: 15px;
 
-}
+} */
 .table-flex{
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0px 15px;
-    height: 40px;
+    height: 5.5vh;
     margin-bottom: 2vh
 }
 .checkTableP{
@@ -26,11 +26,11 @@
 }
 .checkTableInp{
     border: none;
-    width: 50px;
-    height: 25px;
-    margin-left: 5px;
+    width: 4vw;
+    height: 4vh;
+    margin-left: 0.5vw;
     text-align: center;
-    font-size: 20px;
+    font-size: 3vh;
 }
 .checkTableInnerDiv{
     display: flex;
@@ -82,7 +82,7 @@ input[type=number] {
 
 .tableFixHead{
     overflow: auto;
-    height: 69vh;
+    height: 57vh;
     background-color: #2E2C2C;
 }
 thead th {
@@ -97,7 +97,10 @@ table tfoot{
 }
 .tableFooter{
     background: #2E2C2C;
-    padding-left: 26.3vw;
+    /* padding-left: 26.3vw; */
     color: white;
     border-top: 1px solid #840A91;
+}
+.checkTableDiv{
+    grid-area: 2/3/4/4;
 }

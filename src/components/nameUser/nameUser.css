@@ -4,12 +4,12 @@
     padding: 0;
   }
 
-  .navUser{
+  /* .navUser{
     display: grid;
     grid-area: header;
     align-items: baseline;
     justify-items: stretch;
-  }
+  } */
   .navFlex{
     display: flex;
     justify-content: space-between;
@@ -30,4 +30,8 @@
     width: 7vmin;
     height: 7vmin;
     border: none;
+}
+
+.navUser{
+  grid-area: 1/1/2/4;
 }

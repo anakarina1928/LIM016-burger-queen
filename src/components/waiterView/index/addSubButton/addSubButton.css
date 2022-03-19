@@ -1,8 +1,8 @@
-.addSubGrid{
+/* .addSubGrid{
     display: grid;
     grid-area: menu;
     position: absolute;
-}
+} */
 .addSubDiv{
     height: 5.6vmin;
     width: 23vmin;

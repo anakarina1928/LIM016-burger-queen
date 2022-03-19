@@ -1,9 +1,9 @@
-.productsSection{
+/* .productsSection{
     width: 95vmin;
     display: grid;
     height: 79vmin;
     
-}
+} */
 .productFlex{
     display: flex;
     flex-wrap: wrap;

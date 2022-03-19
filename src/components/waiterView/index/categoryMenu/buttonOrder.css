@@ -6,12 +6,13 @@
     width: 11vmin;
     height: 9vmin;
     border: none;
-    display: grid;
-    grid-area: boton;
+    /* display: grid;
+    grid-area: boton; */
     font-size: 1.5vmin;
     font-family: "Montserrat", sans-serif;
-    margin-left: 270px;
-    justify-items: center;
+    /* margin-left: 270px; */
+    /* justify-items: center;
     align-content: stretch;
-    align-items: center;
+    align-items: center; */
+    grid-area: 4/3/5/4;
 }

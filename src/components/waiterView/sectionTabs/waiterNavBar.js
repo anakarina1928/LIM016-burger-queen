@@ -14,17 +14,17 @@ export function WaiterNavBar () {
 
     return (
         <div className="waiterNavBar">
-            <div className="waiterFlex">
-                <button className="navButton" data-name="/waiterMain" onClick={viewTab}>
-                    MENÚ
-                </button>
-                <button className="navButton" data-name="/waiterPending" onClick={viewTab}>
-                    PEDIDOS PENDIENTES
-                </button>
-                <button className="navButton" data-name="/waiterDelivered" onClick={viewTab}>
-                    PEDIDOS ENTREGADOS
-                </button>
-            </div>
+            {/* <div className="waiterFlex"> */}
+            <button className="navButton" data-name="/waiterMain" onClick={viewTab}>
+                MENÚ
+            </button>
+            <button className="navButton" data-name="/waiterPending" onClick={viewTab}>
+                PEDIDOS PENDIENTES
+            </button>
+            <button className="navButton" data-name="/waiterDelivered" onClick={viewTab}>
+                PEDIDOS ENTREGADOS
+            </button>
+            {/* </div> */}
         </div>
     )
 }
