@@ -10,7 +10,7 @@
     align-content: stretch;
     justify-content: center;
     overflow: scroll;
-    height: -webkit-fill-available;
+    height: 61.4vh;
 }
 /* @media only screen and (max){
     .productsSection{

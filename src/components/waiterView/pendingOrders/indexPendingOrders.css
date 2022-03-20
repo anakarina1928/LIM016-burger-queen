@@ -8,7 +8,11 @@
     gap: 1%;
 }
 .ordersSection{
-    grid-area: 3/1/4/3;
+    grid-area: 3/1/5/3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: auto;
 }
 .ticketDiv{
     grid-area: 2/3/4/4;
@@ -28,4 +32,7 @@
     align-self: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 2vh;
+}
+.marginButton{
+    margin: 1vh;
 }

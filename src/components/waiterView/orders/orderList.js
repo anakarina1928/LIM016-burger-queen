@@ -1,4 +1,5 @@
 import React from "react";
+import { OrderButtons } from "./orderButtons";
 
 const OrderList = () => {
     return(
@@ -6,7 +7,26 @@ const OrderList = () => {
         //     {props.children}
         // </section>
         <section className="ordersSection">
-            wUUU
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+            <OrderButtons/>
+
         </section>
     )
 }
