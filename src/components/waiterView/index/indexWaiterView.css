@@ -3,12 +3,22 @@
     margin: 0;
     padding: 0;
 }
+
+.container{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0fr 43vw 1fr;
+    grid-template-rows: 8vh 6vh 67vh 1fr;
+    padding: 1%;
+    gap: 1%;
+}
+
 .productDiv{
     margin: 0vw 1vw;
     height: 13vh;
     margin-bottom: 10vh;
 }
-
 
 ::-webkit-scrollbar {
     display: none;
@@ -27,13 +37,3 @@
         "foter foter boton";
     margin: 10px 10px 10px 10px;
 } */
-
-.container{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 0fr 43vw 1fr;
-    grid-template-rows: 8vh 6vh 67vh 1fr;
-    padding: 1%;
-    gap: 1%;
-}
