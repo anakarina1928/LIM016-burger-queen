@@ -2,10 +2,14 @@ import {React} from "react"
 import './checkTable.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons'
+import {faMessage} from '@fortawesome/free-solid-svg-icons'
 
 function TableRowFood (props) {
     return(
         <tr>
+            <td>
+                <FontAwesomeIcon icon={faMessage}></FontAwesomeIcon>
+            </td>
             <td className="productColumn">
                 {props.producto}
                 <br></br>
