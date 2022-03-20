@@ -1,8 +1,7 @@
-import React from "react";
+import {React }from "react";
 import { useNavigate } from "react-router-dom";
 
-export function NavKitchen () {
-
+export function NavKitchen () {//Data de firebase
     const Navigate = useNavigate()
 
     const viewTab = (event) => {
@@ -12,6 +11,7 @@ export function NavKitchen () {
     }
 
     return (
+        
         <div className="waiterNavBar">
             <div className="waiterFlex">
                 <button className="navButton" data-name="/kitchenMain" onClick={viewTab}>
