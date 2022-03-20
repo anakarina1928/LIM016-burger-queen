@@ -8,7 +8,7 @@ function TableRowFood (props) {
         <tr>
             <td className="productColumn">
                 {props.producto}
-                <input type="text" />
+                <input type="text" value={props.commentsOnTheOrder} onChange={(event) => props.setCommentsOnTheOrder(event.target.value)}/>
             </td>
             <td>{props.cantidad}</td>
             <td>{props.precio}</td>
