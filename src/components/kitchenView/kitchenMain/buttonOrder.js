@@ -10,11 +10,13 @@ const OrderButton = () => {
         documents.push({ id: doc.id, ...doc.data() });
       });
       console.log(documents,"a ver")
-      return documents;
+      return documents.data();
     });
   };
+  
+  const data = orderData()
 
-  console.log(orderData(), "document 755557");
+  console.log(" me trae las ordenes ? ");
 
   return (
     <button className="product">
