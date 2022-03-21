@@ -3,7 +3,7 @@ import './buttonOrder.css'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ButtonOrder = ({ productSelect, openModal, resetButton }) => {
+const ButtonOrder = ({ productSelect, openModal, resetButton,tableNumber }) => {
 
   const confirmOrder = (productSelect) => {
 
@@ -20,10 +20,28 @@ const ButtonOrder = ({ productSelect, openModal, resetButton }) => {
         type: "default",
         pading: 30
       });
+      return;  
+    } 
 
-    } else {
-      openModal();
+    if(!tableNumber){
+      toast.warn("¡agregar número de mesa!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        type: "default",
+        pading: 30
+      
+      });
+      return;
     }
+
+    openModal();
+    
 
   };
 

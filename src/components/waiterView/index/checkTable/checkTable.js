@@ -5,7 +5,7 @@ import { TableFooter } from './tableFooter'
 import { TablePrice } from './tablePrice'
 import { TableRowFood } from './tableRow'
 
-function CheckTable ({productSelect, sumProduct}) {
+function CheckTable ({productSelect, sumProduct,tableNumber,setTableNumber,commentsOnTheOrder,setCommentsOnTheOrder}) {
 
     
   
@@ -16,7 +16,7 @@ function CheckTable ({productSelect, sumProduct}) {
                 <p className="checkTableP">LISTA DE PEDIDO</p>
                 <div className="checkTableInnerDiv">
                     <p className="checkTableP">MESA #</p>
-                    <input className="checkTableInp" type='number'></input>
+                    <input className="checkTableInp" type='number' value={tableNumber} onChange={(event) => setTableNumber(event.target.value)}></input>
                 </div>
             </div>
             <table>
@@ -28,6 +28,9 @@ function CheckTable ({productSelect, sumProduct}) {
                         producto={order.name}
                         cantidad={order.cantidad}
                         precio={order.total}
+                        setCommentsOnTheOrder={setCommentsOnTheOrder}
+                        commentsOnTheOrder={commentsOnTheOrder}
+
                     />
                     ))}
                 </tbody>
