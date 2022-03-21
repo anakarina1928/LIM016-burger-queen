@@ -12,7 +12,7 @@ const PendingOrders = () => {
 
     const items = useDocsInRealTime(onDataOrderChange('PENDIENTE'));
     const [tableOrder, setTableOrder] = useState(undefined);
-    //const []
+   
 
     const capturingTableWithAnEvent = (index) => {
         console.log("pedido: ", items[index], "posicion: ", index);

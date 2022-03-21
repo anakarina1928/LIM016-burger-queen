@@ -65,7 +65,7 @@ const MenuForAllMeals = () => {
         name: product.name,
         price: product.price,
         cantidad: 1,
-        total: "S/ " + product.price,
+        total: product.price,
       });
     }
 
@@ -102,7 +102,7 @@ const MenuForAllMeals = () => {
       init_time: new Date().toLocaleString("es-PE"),
       //workert:userNameWorker,
       table: tableNumber,
-      total: "S/ " + sumProduct,
+      total: sumProduct,
       comments: commentsOnTheOrder,
       state: "PENDIENTE",
       order: productSelect,
