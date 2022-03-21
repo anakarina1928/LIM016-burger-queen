@@ -8,7 +8,7 @@ import { CheckTable} from "./checkTable/checkTable"
 import "./indexWaiterView.css";
 import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
-import { Modal } from "../modal/modal"
+import { Modal } from "./modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
 
 const MenuForAllMeals = () => {
