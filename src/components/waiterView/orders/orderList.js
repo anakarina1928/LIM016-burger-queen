@@ -6,7 +6,7 @@ const OrderList = () => {
         //     {props.children}
         // </section>
         <section className="ordersSection">
-            wUUU
+           
         </section>
     )
 }

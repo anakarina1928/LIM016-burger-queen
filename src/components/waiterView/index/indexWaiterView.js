@@ -18,8 +18,8 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
-  const [commentsOnTheOrder , setCommentsOnTheOrder ] = useState("");
-    useEffect(() => updateTotalProduct(), [productSelect])
+  const [commentsOnTheOrder, setCommentsOnTheOrder] = useState("");
+  useEffect(() => updateTotalProduct(), [productSelect])
 
   const onClick = (event) => {
     let element;
@@ -91,15 +91,19 @@ const MenuForAllMeals = () => {
   const reset = () => {
     closeModal();
     setProductSelect([]);
+    setTableNumber("");
+    setCommentsOnTheOrder("");
+
   }
   const resetButton = () => setProductSelect([]);
+  
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
       //workert:userNameWorker,
       table: tableNumber,
       total: sumProduct,
-      comments:commentsOnTheOrder,
+      comments: commentsOnTheOrder,
       state: "PENDIENTE",
       order: productSelect,
     }
@@ -107,8 +111,6 @@ const MenuForAllMeals = () => {
     orderToSaveInFirebase(newOrderFirebase);
     reset();
   }
-
-
 
 
   return (
