@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './modal.css'
+import "./modal.css"
 
 const Modal = ({ sendOrderToFireBase, closeModal }) => {
 
@@ -13,11 +13,11 @@ const Modal = ({ sendOrderToFireBase, closeModal }) => {
                 <div className={'button'}>
 
                     <button className="button-modal" onClick={sendOrderToFireBase}>
-                        <img src={process.env.PUBLIC_URL + "/icons/tick.png"}/>
+                        <img src={process.env.PUBLIC_URL + "/icons/tick.png"} alt='accept'/>
                     </button>
                    
                     <button className="button-modal close" onClick={closeModal}>
-                        <img  src={process.env.PUBLIC_URL + "/icons/close.png"}/>
+                        <img  src={process.env.PUBLIC_URL + "/icons/close.png"} alt='close' />
                     </button>
                 </div>
             </div>

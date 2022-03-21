@@ -1,8 +1,13 @@
-.menu-container-father {
+/* .menu-container-father {
     display: grid;
     grid-area: category;
     gap: 6px;
     width: 100%;
     height: fit-content;
     margin-top: 10px;
+} */
+.menu-container-father{
+    grid-area: 3/1/5/2;
+    display: grid;
+    gap: 1px;
 }

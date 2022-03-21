@@ -1,14 +1,22 @@
 import React from "react";
 import { User } from "../../nameUser/nameUser";
 import { NavKitchen } from "../navKitchen/navKitchen";
-import { OrderButton } from "./buttonOrder";
+import { OrderList } from "../../orders/orderList";
+import { OrderButtons } from "../../orders/orderButtons";
+import { Ticket } from "../../ticket/ticket";
 
 const KitchenMain = () => {
+
+  const colorTab = "/kitchenMain"
+
   return (
     <section className="pendingOrders">
       <User />
-      <NavKitchen />
-      <OrderButton/>
+      <NavKitchen colorTab={colorTab} />
+      <OrderList>
+        <OrderButtons/>
+      </OrderList>
+      <Ticket  items={[]}/>
     </section>
   );
 };

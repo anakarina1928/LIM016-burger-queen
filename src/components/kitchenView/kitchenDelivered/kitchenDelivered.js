@@ -1,20 +1,18 @@
 import React from "react";
 import { User } from "../../nameUser/nameUser";
-import { WaiterNavBar } from "../sectionTabs/waiterNavBar";
+import { NavKitchen } from "../navKitchen/navKitchen";
 import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from "../../ticket/ticket";
-import "./indexDeliveredOrders.css"
 
-const DeliveredOrders = () => {
+const KitchenDelivered = () => {
 
-    //const items = useDocsInRealTime(onDataOrderChange('COMPLETADO')); 
-    const colorTab = "/waiterDelivered"
+    const colorTab = "/kitchenDelivered"
 
-    return(
-        <section className="deliveredOrders">
+    return (
+        <section className="pendingOrders">
             <User/>
-            <WaiterNavBar colorTab={colorTab} />
+            <NavKitchen colorTab={colorTab}/>
             <OrderList>
                 <OrderButtons/>
             </OrderList>
@@ -23,4 +21,4 @@ const DeliveredOrders = () => {
     )
 }
 
-export { DeliveredOrders }
+export { KitchenDelivered }

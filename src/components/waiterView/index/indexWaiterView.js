@@ -8,7 +8,7 @@ import { CheckTable } from "./checkTable/checkTable"
 import "./indexWaiterView.css";
 import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
-import { Modal } from "../modal/modal"
+import { Modal } from "./modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
 
 const MenuForAllMeals = () => {
@@ -18,8 +18,8 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
-  const [commentsOnTheOrder, setCommentsOnTheOrder] = useState("");
-  useEffect(() => updateTotalProduct(), [productSelect])
+    useEffect(() => updateTotalProduct(), [productSelect])
+    const colorTab = "/waiterMain"
 
   const onClick = (event) => {
     let element;
@@ -29,6 +29,21 @@ const MenuForAllMeals = () => {
       element = event.target
     }
     setProductActual(element.dataset.name)
+  }
+
+  
+  const setCommentOnProduct = (comment, indexProductList) =>{
+    
+    
+    const nuwProductLIstWithComments = productSelect.map((element , index)=>{
+     
+      if(index === indexProductList) {
+         element.comentario = comment;
+      }
+      return element;
+    })
+   
+    setProductSelect(nuwProductLIstWithComments)
   }
 
 
@@ -92,7 +107,7 @@ const MenuForAllMeals = () => {
     closeModal();
     setProductSelect([]);
     setTableNumber("");
-    setCommentsOnTheOrder("");
+    //setCommentsOnTheOrder("");
 
   }
   const resetButton = () => setProductSelect([]);
@@ -103,20 +118,17 @@ const MenuForAllMeals = () => {
       //workert:userNameWorker,
       table: tableNumber,
       total: sumProduct,
-      comments: commentsOnTheOrder,
       state: "PENDIENTE",
       order: productSelect,
     }
-
     orderToSaveInFirebase(newOrderFirebase);
     reset();
   }
 
-
   return (
     <section className="container">
       <User />
-      <WaiterNavBar />
+      <WaiterNavBar colorTab={colorTab} />
       <MenuBar setMenuValue={setMenuValue} />
       <ProductsList>
         {menuValue.map((product, index) => {
@@ -133,9 +145,8 @@ const MenuForAllMeals = () => {
         sumProduct={sumProduct}
         setTableNumber={setTableNumber}
         tableNumber={tableNumber}
-        commentsOnTheOrder={commentsOnTheOrder}
-        setCommentsOnTheOrder={setCommentsOnTheOrder}
-
+        
+        setCommentOnProduct={setCommentOnProduct}
       />
       <ButtonOrder
         productSelect={productSelect}

@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -20,7 +20,7 @@
         "category menu table"
         "foter foter boton";
     margin: 10px 10px 10px 10px;
-}
+} */
 
 /*.addSubDiv{
     width: 115px;
@@ -33,9 +33,9 @@
     display: flex;
     margin-top: 10px;
 }*/
-.addSubDiv--inv{
+/* .addSubDiv--inv{
     visibility: hidden;
 }
 ::-webkit-scrollbar {
     display: none;
-}
+} */
