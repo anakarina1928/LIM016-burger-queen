@@ -12,9 +12,13 @@ const Modal = ({ sendOrderToFireBase, closeModal }) => {
 
                 <div className={'button'}>
 
-                    <button onClick={sendOrderToFireBase}> √ </button>
-                        {'\n\n\n'}
-                    <button onClick={closeModal}>X</button>
+                    <button className="button-modal" onClick={sendOrderToFireBase}>
+                        <img src={process.env.PUBLIC_URL + "/icons/tick.png"}/>
+                    </button>
+                   
+                    <button className="button-modal close" onClick={closeModal}>
+                        <img  src={process.env.PUBLIC_URL + "/icons/close.png"}/>
+                    </button>
                 </div>
             </div>
         </section>,

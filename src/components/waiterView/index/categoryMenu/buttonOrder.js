@@ -3,7 +3,7 @@ import './buttonOrder.css'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ButtonOrder = ({productSelect, openModal}) => {
+const ButtonOrder = ({ productSelect, openModal, resetButton,tableNumber }) => {
 
   const confirmOrder = (productSelect) => {
 
@@ -18,22 +18,49 @@ const ButtonOrder = ({productSelect, openModal}) => {
         progress: undefined,
         theme: "dark",
         type: "default",
-        pading:30
+        pading: 30
       });
+      return;  
+    } 
 
-    } else{
-      openModal();
-    }
+    if(!tableNumber){
+      toast.warn("¡agregar número de mesa!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        type: "default",
+        pading: 30
       
-};        
- 
+      });
+      return;
+    }
+
+    openModal();
+    
+
+  };
+
+
+
   return (
-    <div className="buttonOrderDiv">
-      <button className="buttonOrder" onClick={() => confirmOrder(productSelect)}>
-      <img src={process.env.PUBLIC_URL + "/icons/checked.png"} alt={"checked"}/>
-      </button>
+    <>
+      <section className="component-father">
+        <div className= 'component-flex'>
+          <button className="buttonOrder" onClick={() => confirmOrder(productSelect)}>
+            <img src={process.env.PUBLIC_URL + "/icons/checked.png"} alt={"checked"} />
+          </button>
+          <button className="buttonOrder" onClick={resetButton}>
+            <img src={process.env.PUBLIC_URL + "/icons/tachito.png"} alt={"checked"} />
+          </button>
+        </div>
+      </section>
       <ToastContainer />
-    </div>
+    </>
   );
 };
 

@@ -3,8 +3,8 @@ import { ButtonOrder } from './categoryMenu/buttonOrder';
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
-import { AddSubButton} from "./addSubButton/addSubButton"
-import { CheckTable} from "./checkTable/checkTable"
+import { AddSubButton } from "./addSubButton/addSubButton"
+import { CheckTable } from "./checkTable/checkTable"
 import "./indexWaiterView.css";
 import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
@@ -12,13 +12,15 @@ import { Modal } from "./modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
 
 const MenuForAllMeals = () => {
-  const [menuValue, setMenuValue] = useState([]); 
+  const [menuValue, setMenuValue] = useState([]);
   const [productSelect, setProductSelect] = useState([]);
-  const [productActual, setProductActual] = useState("")
+  const [productActual, setProductActual] = useState("");
+  const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
-  useEffect(() => updateTotalProduct(), [productSelect])
-  const colorTab = "/waiterMain"
+  const [commentsOnTheOrder , setCommentsOnTheOrder ] = useState("");
+    useEffect(() => updateTotalProduct(), [productSelect])
+    const colorTab = "/waiterMain"
 
   const onClick = (event) => {
     let element;
@@ -38,13 +40,13 @@ const MenuForAllMeals = () => {
     setSumProduct(total)
 
   }
-  
+
   const addProduct = (product) => {
-    
+
     //usamos una variable Flag para saber si un producto existe en la lista de productos agregados, por defecto asumimos que no existe
     let productParaSaberSiExiste = false;
 
-    
+
     const nuevoProduct = productSelect.map((element) => {
       if (element.name === product.name) {
         productParaSaberSiExiste = true; /* verifico si el producto existe por eso cambio el valor
@@ -65,11 +67,11 @@ const MenuForAllMeals = () => {
         price: product.price,
         cantidad: 1,
         total: product.price,
-      });     
+      });
     }
 
     // Actualizamos el estado de la lista de productos y cuando se actualice se ejecutara la funcion callback para actualizar el total
-    setProductSelect(nuevoProduct);   
+    setProductSelect(nuevoProduct);
 
   };
   const subProduct = (product) => {
@@ -77,13 +79,13 @@ const MenuForAllMeals = () => {
       if (element.name === product.name) {
 
         element.cantidad = element.cantidad - 1;
-        element.total = element.cantidad * element.price; 
+        element.total = element.cantidad * element.price;
       }
       if (element.cantidad > 0) acum.push(element);
       return acum;
     }, []);
 
-    setProductSelect(nuevoProduct);    
+    setProductSelect(nuevoProduct);
   };
   const closeModal = () => setShowModal(false);
   const openModal = () => setShowModal(true);
@@ -91,11 +93,14 @@ const MenuForAllMeals = () => {
     closeModal();
     setProductSelect([]);
   }
+  const resetButton = () => setProductSelect([]);
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
       //workert:userNameWorker,
-      //total:sumProduct,
+      table: tableNumber,
+      total: sumProduct,
+      comments:commentsOnTheOrder,
       state: "PENDIENTE",
       order: productSelect,
     }
@@ -122,10 +127,17 @@ const MenuForAllMeals = () => {
       <CheckTable
         productSelect={productSelect}
         sumProduct={sumProduct}
+        setTableNumber={setTableNumber}
+        tableNumber={tableNumber}
+        commentsOnTheOrder={commentsOnTheOrder}
+        setCommentsOnTheOrder={setCommentsOnTheOrder}
+
       />
       <ButtonOrder
         productSelect={productSelect}
         openModal={openModal}
+        resetButton={resetButton}
+        tableNumber={tableNumber}
       />
       {showModal ? <Modal sendOrderToFireBase={sendOrderToFireBase} closeModal={closeModal} /> : ''}
 

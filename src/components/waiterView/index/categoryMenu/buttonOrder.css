@@ -19,3 +19,7 @@
 .buttonOrderDiv{
     grid-area: 4/3/5/4;
 }
+
+.component-flex{
+    display: flex;
+}

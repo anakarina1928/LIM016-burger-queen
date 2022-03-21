@@ -11,8 +11,5 @@ const getAllCategories = () => {
     return menuCategories;
 }
 
-// const getAllProductos = () => {
-//     return menuData;
-// }
 
 export { filterMenuByCategory, getAllCategories };
