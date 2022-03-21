@@ -16,10 +16,16 @@
     align-items: center; */
     grid-area: 4/3/5/4;
 }
-.buttonOrderDiv{
+.component-father{
     grid-area: 4/3/5/4;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .component-flex{
     display: flex;
+    gap: 3.5vw;
+}
+.margin{
+    margin-left: 0.8vw;
 }

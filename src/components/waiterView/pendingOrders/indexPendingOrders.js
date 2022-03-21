@@ -4,7 +4,7 @@ import { WaiterNavBar } from "../sectionTabs/waiterNavBar";
 //import { OrderList } from "../orders/orderList";
 import { useDocsInRealTime } from "../../../api/api";
 import { onDataOrderChange } from "../../../firebase/firestore";
-import { ProductsList } from "../index/productList/productsList";
+//import { ProductsList } from "../index/productList/productsList";
 import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from '../../ticket/ticket'
@@ -27,7 +27,7 @@ const PendingOrders = () => {
         <section className="pendingOrders">
             <User />
             <WaiterNavBar  colorTab={colorTab} />
-            <ProductsList>
+            <OrderList>
                 {items.map((item, index) => {
                     return (
                      <>
@@ -37,15 +37,15 @@ const PendingOrders = () => {
                             text={item.data.table}
                             time={item.data.init_time}
                             onClick={()=> capturingTableWithAnEvent(index)}
-                            className={"product marginButton"}
+                          
 
                         />                        
                       {/*(item.length > 0 && tableOrder===items.data.table) ? <Ticket items={item[index].data.order}/> : ""*/}
                     </>
                     )
                 })}
-            </ProductsList>
-            {  tableOrder != undefined ? <Ticket items={items[tableOrder].data.order}/> : ""  }
+            </OrderList>
+            {  tableOrder !== undefined ? <Ticket items={items[tableOrder].data.order}/> : ""  }
 
 
         </section>

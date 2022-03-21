@@ -1,34 +1,14 @@
 import React from "react";
-import { OrderButtons } from "./orderButtons";
 
-const OrderList = () => {
-    return(
-        // <section className="ordersSection">
-        //     {props.children}
-        // </section>
+
+const OrderList = (props) => {
+    return (
+
         <section className="ordersSection">
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
-            <OrderButtons/>
 
+            {props.children}
         </section>
     )
 }
 
-export {OrderList}
+export { OrderList }

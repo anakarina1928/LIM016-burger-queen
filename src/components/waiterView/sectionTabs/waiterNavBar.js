@@ -21,7 +21,7 @@ export function WaiterNavBar (props) {
                 PEDIDOS PENDIENTES
             </button>
             <button className={`navButton ${props.colorTab === "/waiterDelivered" && 'active'}`} data-name="/waiterDelivered" onClick={viewTab}>
-                PEDIDOS ENTREGADOS
+                PEDIDOS LISTOS
             </button>
         </div>
     )

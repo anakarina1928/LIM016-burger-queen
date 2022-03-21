@@ -1,9 +1,4 @@
-/* .checkTableDiv{
-    display: grid;
-    grid-area: table;
-    margin-right: 15px;
 
-} */
 .table-flex{
     display: flex;
     flex-direction: column;
@@ -26,11 +21,19 @@
 }
 .checkTableInp{
     border: none;
-    width: 4vw;
+    width: 5.5vw;
     height: 4vh;
     margin-left: 0.5vw;
     text-align: center;
     font-size: 3vh;
+    border-radius: 0.8vmin;
+    color: #fff;
+    border: 0.4vmin solid #bc10df;
+    background-color: #2E2C2C;
+}
+.checkTableInp:focus{
+    outline: none;
+
 }
 .checkTableInnerDiv{
     display: flex;
@@ -58,11 +61,7 @@ table{
     box-shadow: 0px 6px 23px -7px rgba(51, 51, 51, 0.25);
     border-radius: 2px;
 }
-/* tbody{
-    overflow: auto;
-    height: 65vmin;
-    display: block;
-} */
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -72,15 +71,13 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 .productColumn{
-    text-align: left;
+   
     font-family: 'Montserrat', sans-serif;
     font-size: 2vh;
     width: 15vw;
     height: 7vmin;
 }
 
-
-/**/
 
 .tableFixHead{
     overflow: auto;
@@ -101,7 +98,6 @@ table tfoot{
 }
 .tableFooter{
     background: #2E2C2C;
-    /* padding-left: 26.3vw; */
     color: white;
     border-top: 1px solid #840A91;
     display: flex;
@@ -115,6 +111,14 @@ table tfoot{
 input[type=text] {
     font-size: 2vh;
     width: clamp(10vw, 100%, 20vw);
+    margin-bottom: 0.5vh;
+    text-align: center;
+    font-size: 3vh;
+    border-radius: 0.8vw;
+    color: #fff;
+    border: 0.2vw solid #bc10df;
+    background-color: #2E2C2C;
+    outline: none;
 }
 .bin{
     width: 5vh;

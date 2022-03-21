@@ -18,7 +18,7 @@ export function NavKitchen (props) {//Data de firebase
                 PEDIDOS PENDIENTES
             </button>
             <button className={`navButton ${props.colorTab === "/kitchenDelivered" && 'active'}`} data-name="/kitchenDelivered" onClick={viewTab}>
-                PEDIDOS ENVIADOS
+                PEDIDOS LISTOS
             </button>
             {/* </div> */}
         </div>
