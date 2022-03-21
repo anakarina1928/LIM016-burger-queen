@@ -1,13 +1,13 @@
-.addSubGrid{
+/* .addSubGrid{
     display: grid;
     grid-area: menu;
     position: absolute;
-}
+} */
 .addSubDiv{
     height: 5.6vmin;
-    width: 23vmin;
+    width: 18vmin;
     display: flex;
-    margin-top: 10px;
+    margin-top: 2vh;
     background-color: #8000802b;
     color: #fff;
     font-size: 1.6vmax;
@@ -22,30 +22,33 @@
     visibility: hidden;
 }
 .addSubSpan{
-    width: 25px;
+    width: 7vw;
     border: none;
     background: none;
-    font-size: 1.8vmax;
+    font-size: 3vh;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
 .addSubBut{
     padding: 0px;
-    width: 25px;
+    width: 3vw;
     border: none;
     background: none;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .red{
     color:#F21616;
-    padding-bottom: 5px;
+    padding-bottom: 1vh;
 
 }
 .green{
     color:#00AF70;
 
+}
+.addSubBut:hover{
+    background-color: none;
 }

@@ -5,7 +5,7 @@ import { PendingOrders } from './components/waiterView/pendingOrders/indexPendin
 import { DeliveredOrders } from './components/waiterView/deliveredOrders/indexDeliveredOrders';
 import { Route, Routes } from 'react-router-dom';
 import { KitchenMain } from './components/kitchenView/kitchenMain/kitchenMain';
-import { KitchenPending } from './components/kitchenView/kitchenPending/kitchenPending';
+import { KitchenDelivered } from './components/kitchenView/kitchenDelivered/kitchenDelivered';
 // import image from './images/hamburguesa.svg'
 
 
@@ -19,7 +19,7 @@ export function App() {
         <Route path= "/waiterPending" element= {<PendingOrders/>}/>
         <Route path= "/waiterDelivered" element= {<DeliveredOrders/>}/>
         <Route path= "/kitchenMain" element= {<KitchenMain/>}/>
-        <Route path= "/kitchenPending" element= {<KitchenPending/>}/>
+        <Route path= "/kitchenDelivered" element= {<KitchenDelivered/>}/>
       </Routes>
     </div>
   );

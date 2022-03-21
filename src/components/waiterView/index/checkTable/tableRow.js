@@ -1,14 +1,27 @@
-import {React} from "react"
+import {React, useState} from "react"
 import './checkTable.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons'
+import {faMessage} from '@fortawesome/free-solid-svg-icons'
 
 function TableRowFood (props) {
+
+    const [renderInput, setRenderInput] = useState(false)
+
+    const onTap = () => {
+        console.log("pasa por onTap")
+        setRenderInput(!renderInput)
+    }
+
     return(
         <tr>
+            <td onClick={onTap} >
+                <FontAwesomeIcon icon={faMessage}></FontAwesomeIcon>
+            </td>
             <td className="productColumn">
                 {props.producto}
-                <input type="text" value={props.commentsOnTheOrder} onChange={(event) => props.setCommentsOnTheOrder(event.target.value)}/>
+                <br></br>
+                {renderInput === true && <input type="text" />}
             </td>
             <td>{props.cantidad}</td>
             <td>{props.precio}</td>
