@@ -26,7 +26,10 @@ export const findingUser = async (userId, colllection) => {
     } catch (error) {
         throw new Error(error);
     }
+
+
 };
+
 
 //traer data de firebase
 export const onDataOrderChange = (state) => {
