@@ -3,18 +3,18 @@ import { onDataDocument } from "../../../firebase/firestore";
 
 const OrderButton = () => {
 
-  const orderData = () => {
+    const orderData = () => {
     onDataDocument((querySnapshot) => {
       const documents = [];
       querySnapshot.forEach((doc) => {
         documents.push({ id: doc.id, ...doc.data() });
       });
       console.log(documents,"a ver")
-      return documents;
+      return
     });
-  };
+   }
+ 
 
-  console.log(orderData(), "document 755557");
 
   return (
     <button className="product">
