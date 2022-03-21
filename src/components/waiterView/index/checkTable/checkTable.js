@@ -4,7 +4,7 @@ import { TableHeader } from './tableHeader'
 import { TableFooter } from './tableFooter'
 import { TableRowFood } from './tableRow'
 
-function CheckTable ({productSelect, sumProduct}) {
+function CheckTable (props) {
 
     
   
@@ -22,19 +22,21 @@ function CheckTable ({productSelect, sumProduct}) {
                 <table>
                     <TableHeader/>
                     <tbody>
-                        {productSelect.map((order, index) => (
+                        {props.productSelect.map((order, index) => (
                         <TableRowFood
                             key={index}
                             producto={order.name}
                             cantidad={order.cantidad}
                             precio={order.total}
+                            onTap={props.onTap}
+                            renderInput={props.renderInput}
                         />
                         ))}
                     </tbody>
                 </table>
             </div>
             <TableFooter
-                sumProduct={sumProduct}
+                sumProduct={props.sumProduct}
             />
             </div>
         </div>

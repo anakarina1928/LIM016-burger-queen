@@ -102,9 +102,7 @@ const MenuForAllMeals = () => {
     reset();
   }
 
-
-
-
+  
   return (
     <section className="container">
       <User />
@@ -127,7 +125,6 @@ const MenuForAllMeals = () => {
       <ButtonOrder
         productSelect={productSelect}
         openModal={openModal}
-
       />
       {showModal ? <Modal sendOrderToFireBase={sendOrderToFireBase} closeModal={closeModal} /> : ''}
 
