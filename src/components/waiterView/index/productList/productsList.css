@@ -1,21 +1,20 @@
 .productsSection{
-    width: 95vmin;
-    display: grid;
-    height: 79vmin;
+    grid-area: 3/2/4/3;
     
 }
 .productFlex{
     display: flex;
     flex-wrap: wrap;
-    margin: 10px;
+    margin: 1vw;
     width: auto;
     align-content: stretch;
-    justify-content: space-evenly;
+    justify-content: center;
     overflow: scroll;
+    height: 61.4vh;
 }
-@media only screen and (max){
+/* @media only screen and (max){
     .productsSection{
         width:95vmin;
         height:79vmin;
     }
-}
+} */

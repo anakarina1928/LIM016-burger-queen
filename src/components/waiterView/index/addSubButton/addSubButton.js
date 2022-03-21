@@ -17,13 +17,13 @@ function AddSubButton ({addProduct,subProduct, item, cant}) {
     // }
 
     return(
-        <div className="addSubGrid">
+        // <div className="addSubGrid">
         <div className="addSubDiv">
             <button onClick={()=>decrement(item)} className={`addSubBut red`}>-</button>
             <span className="addSubSpan">{cant}</span>
             <button onClick={() =>increment(item)} className={`addSubBut green`}>+</button>
-            </div>
         </div>
+        // </div>
     )
 }
 

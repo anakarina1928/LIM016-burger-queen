@@ -8,7 +8,7 @@ import { CheckTable } from "./checkTable/checkTable"
 import "./indexWaiterView.css";
 import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
-import { Modal } from "../modal/modal"
+import { Modal } from "./modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
 
 const MenuForAllMeals = () => {
@@ -20,6 +20,7 @@ const MenuForAllMeals = () => {
   const [sumProduct, setSumProduct] = useState(0);
   const [commentsOnTheOrder , setCommentsOnTheOrder ] = useState("");
     useEffect(() => updateTotalProduct(), [productSelect])
+    const colorTab = "/waiterMain"
 
   const onClick = (event) => {
     let element;
@@ -103,18 +104,15 @@ const MenuForAllMeals = () => {
       state: "PENDIENTE",
       order: productSelect,
     }
-
     orderToSaveInFirebase(newOrderFirebase);
     reset();
   }
 
-
-
-
+  
   return (
     <section className="container">
       <User />
-      <WaiterNavBar />
+      <WaiterNavBar colorTab={colorTab} />
       <MenuBar setMenuValue={setMenuValue} />
       <ProductsList>
         {menuValue.map((product, index) => {

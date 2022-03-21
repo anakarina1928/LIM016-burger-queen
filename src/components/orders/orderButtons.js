@@ -2,13 +2,9 @@ import React from "react";
 
 const OrderButtons = () => {
     return (
-        // <button>
-        //     {props.tableNumber}
-        //     <br></br>
-        //     {props.time}
-        // </button>
-        <button>
+        <button className="product marginButton">
             MESA 4
+            <br></br>
             <br></br>
             30 MIN
         </button>
