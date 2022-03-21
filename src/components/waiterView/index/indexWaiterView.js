@@ -90,6 +90,7 @@ const MenuForAllMeals = () => {
     closeModal();
     setProductSelect([]);
   }
+  const resetButton= () => setProductSelect([]); 
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
@@ -128,7 +129,7 @@ const MenuForAllMeals = () => {
       <ButtonOrder
         productSelect={productSelect}
         openModal={openModal}
-
+        resetButton={resetButton}
       />
       {showModal ? <Modal sendOrderToFireBase={sendOrderToFireBase} closeModal={closeModal} /> : ''}
 
