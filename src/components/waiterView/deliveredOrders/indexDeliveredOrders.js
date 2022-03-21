@@ -6,6 +6,9 @@ import { OrderButtons } from "../orders/orderButtons";
 import { Ticket } from "../ticket/ticket";
 
 const DeliveredOrders = () => {
+
+    //const items = useDocsInRealTime(onDataOrderChange('COMPLETADO')); 
+
     return(
         <section className="deliveredOrders">
             <User/>
@@ -13,7 +16,7 @@ const DeliveredOrders = () => {
             <OrderList>
                 <OrderButtons/>
             </OrderList>
-            <Ticket/>
+            <Ticket items={[]}/>
         </section>
     )
 }

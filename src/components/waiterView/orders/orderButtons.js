@@ -1,16 +1,13 @@
 import React from "react";
 
-const OrderButtons = () => {
+const OrderButtons = ({className, value, text, onClick, time}) => {
+
+
     return (
-        // <button>
-        //     {props.tableNumber}
-        //     <br></br>
-        //     {props.time}
-        // </button>
-        <button>
-            MESA 4
+        <button className={className} value={value} onClick={onClick}>
+           MESA # {text}
             <br></br>
-            30 MIN
+          {time}
         </button>
     )
 }
