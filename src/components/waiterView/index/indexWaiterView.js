@@ -18,6 +18,7 @@ const MenuForAllMeals = () => {
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
   useEffect(() => updateTotalProduct(), [productSelect])
+  const colorTab = "/waiterMain"
 
   const onClick = (event) => {
     let element;
@@ -106,7 +107,7 @@ const MenuForAllMeals = () => {
   return (
     <section className="container">
       <User />
-      <WaiterNavBar />
+      <WaiterNavBar colorTab={colorTab} />
       <MenuBar setMenuValue={setMenuValue} />
       <ProductsList>
         {menuValue.map((product, index) => {

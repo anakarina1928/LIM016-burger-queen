@@ -6,10 +6,13 @@ import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from "../../ticket/ticket";
 
 const KitchenMain = () => {
+
+  const colorTab = "/kitchenMain"
+
   return (
     <section className="pendingOrders">
       <User />
-      <NavKitchen />
+      <NavKitchen colorTab={colorTab} />
       <OrderList>
         <OrderButtons/>
       </OrderList>

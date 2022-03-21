@@ -5,11 +5,14 @@ import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from "../../ticket/ticket";
 
-const KitchenPending = () => {
+const KitchenDelivered = () => {
+
+    const colorTab = "/kitchenDelivered"
+
     return (
         <section className="pendingOrders">
             <User/>
-            <NavKitchen/>
+            <NavKitchen colorTab={colorTab}/>
             <OrderList>
                 <OrderButtons/>
             </OrderList>
@@ -18,4 +21,4 @@ const KitchenPending = () => {
     )
 }
 
-export { KitchenPending }
+export { KitchenDelivered }

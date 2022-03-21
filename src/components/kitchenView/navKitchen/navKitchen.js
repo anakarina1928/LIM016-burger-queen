@@ -1,7 +1,7 @@
 import {React }from "react";
 import { useNavigate } from "react-router-dom";
 
-export function NavKitchen () {//Data de firebase
+export function NavKitchen (props) {//Data de firebase
     const Navigate = useNavigate()
 
     const viewTab = (event) => {
@@ -14,10 +14,10 @@ export function NavKitchen () {//Data de firebase
         
         <div className="waiterNavBar">
             {/* <div className="waiterFlex"> */}
-            <button className="navButton" data-name="/kitchenMain" onClick={viewTab}>
+            <button className={`navButton ${props.colorTab === "/kitchenMain" && 'active'}`} data-name="/kitchenMain" onClick={viewTab}>
                 PEDIDOS PENDIENTES
             </button>
-            <button className="navButton" data-name="/kitchenPending" onClick={viewTab}>
+            <button className={`navButton ${props.colorTab === "/kitchenDelivered" && 'active'}`} data-name="/kitchenDelivered" onClick={viewTab}>
                 PEDIDOS ENVIADOS
             </button>
             {/* </div> */}

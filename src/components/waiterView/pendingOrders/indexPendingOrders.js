@@ -7,10 +7,13 @@ import { Ticket } from '../../ticket/ticket'
 import "./indexPendingOrders.css"
 
 const PendingOrders = () => {
+    
+    const colorTab = "/waiterPending"
+
     return (
         <section className="pendingOrders">
             <User/>
-            <WaiterNavBar/>
+            <WaiterNavBar colorTab={colorTab} />
             <OrderList>
                 <OrderButtons/>
             </OrderList>

@@ -7,10 +7,13 @@ import { Ticket } from "../../ticket/ticket";
 import "./indexDeliveredOrders.css"
 
 const DeliveredOrders = () => {
+
+    const colorTab = "/waiterDelivered"
+
     return(
         <section className="deliveredOrders">
             <User/>
-            <WaiterNavBar/>
+            <WaiterNavBar colorTab={colorTab} />
             <OrderList>
                 <OrderButtons/>
             </OrderList>

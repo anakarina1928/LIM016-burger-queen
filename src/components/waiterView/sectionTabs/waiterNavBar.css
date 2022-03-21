@@ -34,3 +34,7 @@ button:hover{
     display: flex;
     justify-content: space-between;
 }
+
+.active{
+    background: #50105F;
+}
