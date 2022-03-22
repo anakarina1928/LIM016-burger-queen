@@ -10,6 +10,7 @@ import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
 import { Modal } from "./modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
+import { userDataLocally } from "../../../api/api";
 
 const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]);
@@ -18,6 +19,8 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
+  const userSession = userDataLocally();
+  console.log('trae el objeto de user? ', userSession);
     useEffect(() => updateTotalProduct(), [productSelect])
     const colorTab = "/waiterMain"
 
@@ -115,7 +118,7 @@ const MenuForAllMeals = () => {
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
-      //workert:userNameWorker,
+      worker:userSession.nombre,
       table: tableNumber,
       total: sumProduct,
       state: "PENDIENTE",

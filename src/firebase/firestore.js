@@ -1,6 +1,16 @@
 
 import { collection, doc, getDoc, addDoc, query, onSnapshot, orderBy, where } from "@firebase/firestore"
 import { db } from "./config";
+//import { userDataLocally } from "../api/api";
+
+//const user =userDataLocally();
+//console.log('mesero: ', typeof(user.nombre) );
+//const user2 = '"' + `${user.nombre}` + '"'
+
+//console.log(user2);
+//const userSession = JSON.stringify(user);
+//console.log(userSession, 'que nos trae? ')
+
 export const collectionUser = collection(db, 'usuarios');
 
 const collectionOrder = collection(db, 'order');
@@ -26,8 +36,11 @@ export const findingUser = async (userId, colllection) => {
     } catch (error) {
         throw new Error(error);
     }
+
+
 };
 
+//where('worker', '==' , `"${user2}"`),
 //traer data de firebase
 export const onDataOrderChange = (state) => {
     return ( (callback) => {
