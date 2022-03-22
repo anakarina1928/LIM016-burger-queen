@@ -1,14 +1,14 @@
 import React from "react";
 
-const TicketItems = () => {
+const TicketItems = ({item, key}) => {
+    console.log('item: ', item);
+    
     return(
-        <tbody>
-            <tr>
-                <th className="productColumn">PAN CON HUEVO</th>
-                <td>1</td>
-                <td>50.00</td>
-            </tr>
-        </tbody>
+        <tr key={key}>
+            <th>{item.name}</th>
+            <td>{item.cantidad}</td>
+            <td>{item.total}</td>
+        </tr>
     )
 }
 

@@ -10,6 +10,7 @@ import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
 import { Modal } from "./modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
+import { userDataLocally } from "../../../api/api";
 
 const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]);
@@ -18,7 +19,8 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
-  const [commentsOnTheOrder , setCommentsOnTheOrder ] = useState("");
+  const userSession = userDataLocally();
+  console.log('trae el objeto de user? ', userSession);
     useEffect(() => updateTotalProduct(), [productSelect])
     const colorTab = "/waiterMain"
 
@@ -30,6 +32,21 @@ const MenuForAllMeals = () => {
       element = event.target
     }
     setProductActual(element.dataset.name)
+  }
+
+  
+  const setCommentOnProduct = (comment, indexProductList) =>{
+    
+    
+    const nuwProductLIstWithComments = productSelect.map((element , index)=>{
+     
+      if(index === indexProductList) {
+         element.comentario = comment;
+      }
+      return element;
+    })
+   
+    setProductSelect(nuwProductLIstWithComments)
   }
 
 
@@ -92,15 +109,18 @@ const MenuForAllMeals = () => {
   const reset = () => {
     closeModal();
     setProductSelect([]);
+    setTableNumber("");
+    //setCommentsOnTheOrder("");
+
   }
   const resetButton = () => setProductSelect([]);
+  
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
-      //workert:userNameWorker,
+      worker:userSession.nombre,
       table: tableNumber,
       total: sumProduct,
-      comments:commentsOnTheOrder,
       state: "PENDIENTE",
       order: productSelect,
     }
@@ -108,7 +128,6 @@ const MenuForAllMeals = () => {
     reset();
   }
 
-  
   return (
     <section className="container">
       <User />
@@ -129,9 +148,8 @@ const MenuForAllMeals = () => {
         sumProduct={sumProduct}
         setTableNumber={setTableNumber}
         tableNumber={tableNumber}
-        commentsOnTheOrder={commentsOnTheOrder}
-        setCommentsOnTheOrder={setCommentsOnTheOrder}
-
+        
+        setCommentOnProduct={setCommentOnProduct}
       />
       <ButtonOrder
         productSelect={productSelect}

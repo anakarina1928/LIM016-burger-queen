@@ -1,8 +1,8 @@
 import React from "react";
 import { TicketItems } from './ticketItems'
 
-const Ticket = () => {
-    return(
+const Ticket = ({ items }) => {
+    return (
         <div className="ticketDiv">
             <div className="ticketTitle">
                 <p className="ticketP">LISTA DE PEDIDO</p>
@@ -17,7 +17,17 @@ const Ticket = () => {
                             <th>PRECIO</th>
                         </tr>
                     </thead>
-                    <TicketItems/>
+                    {items.map((item, index) => {
+                        return (
+                            <>
+                                <TicketItems
+                                    item={item}
+                                    key={index}
+                                />
+                            </>
+                        )
+                    })
+                    }
                 </table>
             </div>
             <div className="tableFooter">
@@ -28,3 +38,4 @@ const Ticket = () => {
 }
 
 export { Ticket }
+

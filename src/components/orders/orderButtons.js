@@ -1,12 +1,13 @@
 import React from "react";
 
-const OrderButtons = () => {
+const OrderButtons = ({ value, text, onClick, time }) => {
+
+
     return (
-        <button className="product marginButton">
-            MESA 4
+        <button className="product marginButton" value={value} onClick={onClick}>
+            MESA # {text}
             <br></br>
-            <br></br>
-            30 MIN
+            {time}
         </button>
     )
 }

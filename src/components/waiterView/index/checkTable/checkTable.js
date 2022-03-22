@@ -25,13 +25,13 @@ function CheckTable (props) {
                         {props.productSelect.map((order, index) => (
                         <TableRowFood
                             key={index}
+                            index={index}
                             producto={order.name}
                             cantidad={order.cantidad}
                             precio={order.total}
                             onTap={props.onTap}
                             renderInput={props.renderInput}
-                            setCommentsOnTheOrder={props.setCommentsOnTheOrder}
-                            commentsOnTheOrder={props.commentsOnTheOrder}
+                            setCommentOnProduct={props.setCommentOnProduct}
                         />
                         ))}
                     </tbody>

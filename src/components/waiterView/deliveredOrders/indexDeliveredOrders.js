@@ -8,6 +8,7 @@ import "./indexDeliveredOrders.css"
 
 const DeliveredOrders = () => {
 
+    //const items = useDocsInRealTime(onDataOrderChange('COMPLETADO')); 
     const colorTab = "/waiterDelivered"
 
     return(
@@ -17,7 +18,7 @@ const DeliveredOrders = () => {
             <OrderList>
                 <OrderButtons/>
             </OrderList>
-            <Ticket/>
+            <Ticket items={[]}/>
         </section>
     )
 }

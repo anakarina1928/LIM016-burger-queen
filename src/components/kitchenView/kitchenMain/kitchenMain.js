@@ -16,7 +16,7 @@ const KitchenMain = () => {
       <OrderList>
         <OrderButtons/>
       </OrderList>
-      <Ticket/>
+      <Ticket  items={[]}/>
     </section>
   );
 };

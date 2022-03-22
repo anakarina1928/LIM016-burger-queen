@@ -55,7 +55,7 @@ const ButtonOrder = ({ productSelect, openModal, resetButton,tableNumber }) => {
             <img src={process.env.PUBLIC_URL + "/icons/checked.png"} alt={"checked"} />
           </button>
           <button className="buttonOrder" onClick={resetButton}>
-            <img src={process.env.PUBLIC_URL + "/icons/tachito.png"} alt={"checked"} />
+            <img  className="margin"src={process.env.PUBLIC_URL + "/icons/tachito.png"} alt={"checked"} />
           </button>
         </div>
       </section>
