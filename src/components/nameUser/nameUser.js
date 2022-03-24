@@ -14,15 +14,13 @@ import { Holis } from "../../context/context.js";
 
 
 export function User(){
-    const [userName, setUserName] = useState("");
-    const [userCargo, setUserCargo] = useState("");
+   // const [userName, setUserName] = useState("");
+   // const [userCargo, setUserCargo] = useState("");
     const Navigate = useNavigate()
      let {user} =useContext(Holis)
-     console.log(user.nombre, "servira???????")
-
-  
+     //console.log(user.nombre, "servira???????")
    
-  
+  /*
       useEffect(() => {    
         const userId = auth.currentUser.uid;
         findingUser(userId, collectionUser).then((res) =>
@@ -36,7 +34,7 @@ export function User(){
             setUserCargo(res.cargo)
         )
       }, [])
-      
+      */
       const logOutSesion=()=>{
         logOut(auth).then(()=>{
           Navigate("/")
@@ -48,8 +46,8 @@ export function User(){
     return(
         <div className="navUser">
           <div className="navFlex">
-    <p className="dataUser">{userName}</p>
-    <p className="dataUser">{userCargo}</p>
+    <p className="dataUser">{user.nombre}</p>
+    <p className="dataUser">{user.cargo}</p>
     <ButtonClose className="btnLogOut" src={'/icons/stand-by.png'} onClick={logOutSesion}  alt="cerrar sesion" />
     </div>
     </div>
