@@ -53,9 +53,9 @@ export const onDataOrderChange = (state) => {
     })
 };
 
-export const onDataOrderChangeByWorker = (state, workerEmail) => {
+export const onDataOrderChangeByWorker = (state, workerNombre) => {
     return ( (callback) => {        
-        const q = query(collectionOrder, where('state', '==', state), where('worker', '==', workerEmail), orderBy('init_time', "desc"));
+        const q = query(collectionOrder, where('state', '==', state), where('worker', '==', workerNombre), orderBy('init_time', "desc"));
         onSnapshot(q, callback);
     })
 };

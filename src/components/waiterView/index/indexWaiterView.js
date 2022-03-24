@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ButtonOrder } from '../../buttonOpenModal-close/buttonOrder';
@@ -12,7 +12,7 @@ import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
 import { Modal } from "../../modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
-import { userDataLocally } from "../../../api/api";
+import { Holis } from "../../../context/context";
 
 const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]);
@@ -21,10 +21,10 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
-  const userSession = userDataLocally();
-  console.log('trae el objeto de user? ', userSession);
+ 
   useEffect(() => updateTotalProduct(), [productSelect])
   const colorTab = "/waiterMain"
+  const {user} = useContext(Holis);
 
   const onClick = (event) => {
     let element;
@@ -124,7 +124,7 @@ const MenuForAllMeals = () => {
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
-      worker: userSession.correo,
+      worker: user.nombre,
       table: tableNumber,
       total: sumProduct,
       state: "PENDIENTE",

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState,useContext } from "react";
 import { User } from '../../nameUser/nameUser'
 import { WaiterNavBar } from "../sectionTabs/waiterNavBar";
 //import { OrderList } from "../orders/orderList";
@@ -8,13 +8,14 @@ import { onDataOrderChangeByWorker } from "../../../firebase/firestore";
 import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from '../../ticket/ticket';
-import { userDataLocally } from "../../../api/api";
+import { Holis } from "../../../context/context";
 import "./indexPendingOrders.css"
 
 const PendingOrders = () => {
 
-    const userSession = userDataLocally();
-    const items = useDocsInRealTime(onDataOrderChangeByWorker('PENDIENTE', userSession.correo));
+    
+    const {user}=useContext(Holis);
+    const items = useDocsInRealTime(onDataOrderChangeByWorker('PENDIENTE', user.nombre));
     const [tableOrder, setTableOrder] = useState(undefined);
     const colorTab = "/waiterPending"
 
@@ -24,7 +25,7 @@ const PendingOrders = () => {
         setTableOrder(index);
     }
 
-    // {items.length > 0 ? <Ticket items={items[0].data.order}/> : ""}
+    
     return (
         <section className="pendingOrders">
             <User />
@@ -40,7 +41,6 @@ const PendingOrders = () => {
                             time={item.data.init_time}
                             onClick={()=> capturingTableWithAnEvent(index)}
                           
-
                         />                        
                       
                     </>
