@@ -9,6 +9,7 @@ const TicketItems = ({item, key}) => {
             <td>{item.cantidad}</td>
             <td>{item.total}</td>
         </tr>
+        
     )
 }
 

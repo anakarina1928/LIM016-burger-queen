@@ -1,7 +1,7 @@
 import React from "react";
 import { TicketItems } from './ticketItems'
 
-const Ticket = ({ items }) => {
+const Ticket = ({items}) => {
     return (
         <div className="ticketDiv">
             <div className="ticketTitle">
@@ -17,13 +17,14 @@ const Ticket = ({ items }) => {
                             <th>PRECIO</th>
                         </tr>
                     </thead>
-                    {items.map((item, index) => {
+                    {items.order.map((item, index) => {
                         return (
                             <>
                                 <TicketItems
                                     item={item}
                                     key={index}
                                 />
+                
                             </>
                         )
                     })
@@ -31,7 +32,10 @@ const Ticket = ({ items }) => {
                 </table>
             </div>
             <div className="tableFooter">
-                <div>TOTAL<br></br>S/. Esta caro</div>
+
+                 <div>TOTAL<br></br>{items.total}</div>
+                   
+              
             </div>
         </div>
     )

@@ -8,7 +8,7 @@ import "./indexDeliveredOrders.css"
 
 const DeliveredOrders = () => {
 
-    //const items = useDocsInRealTime(onDataOrderChange('COMPLETADO')); 
+  
     const colorTab = "/waiterDelivered"
 
     return(
