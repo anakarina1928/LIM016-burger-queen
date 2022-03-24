@@ -1,10 +1,11 @@
-import { React, useState /*useEffect*/ } from "react";
+import { React, useState, useContext /*useEffect*/ } from "react";
 import InputForm from "./input.js";
 import { Button, Error } from "./button.js";
 import { loginWithEmailAndPassword } from "../../firebase/auth";
 import { findingUser, collectionUser } from "../../firebase/firestore.js";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import {Holis} from "../../context/context"
 
 function Login() {
   let Navigate = useNavigate();
@@ -19,6 +20,7 @@ function Login() {
   const changeInputsHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+  const {setUser} = useContext(Holis)
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -35,6 +37,8 @@ function Login() {
       );
 
       const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
+        setUser(dataUser) 
+      
       const userToCreate = {
         nombre: dataUser.nombre,
         correo: dataUser.correo,
@@ -43,7 +47,7 @@ function Login() {
       sessionStorage.clear();
       sessionStorage.setItem("user", JSON.stringify(userToCreate));
       if (userToCreate.cargo === "MESERO") {
-        Navigate("/waiterMain");
+        setTimeout(()=>{ Navigate("/waiterMain")})
       } else if (userToCreate.cargo === "JEFE DE COCINA") {
         Navigate("/kitchenMain");
       }
