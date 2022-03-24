@@ -3,16 +3,18 @@ import { User } from '../../nameUser/nameUser'
 import { WaiterNavBar } from "../sectionTabs/waiterNavBar";
 //import { OrderList } from "../orders/orderList";
 import { useDocsInRealTime } from "../../../api/api";
-import { onDataOrderChange } from "../../../firebase/firestore";
+import { onDataOrderChangeByWorker } from "../../../firebase/firestore";
 //import { ProductsList } from "../index/productList/productsList";
 import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
-import { Ticket } from '../../ticket/ticket'
+import { Ticket } from '../../ticket/ticket';
+import { userDataLocally } from "../../../api/api";
 import "./indexPendingOrders.css"
 
 const PendingOrders = () => {
 
-    const items = useDocsInRealTime(onDataOrderChange('PENDIENTE'));
+    const userSession = userDataLocally();
+    const items = useDocsInRealTime(onDataOrderChangeByWorker('PENDIENTE', userSession.correo));
     const [tableOrder, setTableOrder] = useState(undefined);
     const colorTab = "/waiterPending"
 
@@ -40,12 +42,12 @@ const PendingOrders = () => {
                           
 
                         />                        
-                      {/*(item.length > 0 && tableOrder===items.data.table) ? <Ticket items={item[index].data.order}/> : ""*/}
+                      
                     </>
                     )
                 })}
             </OrderList>
-            {  tableOrder !== undefined ? <Ticket items={items[tableOrder].data.order}/> : ""  }
+            {  tableOrder !== undefined ? <Ticket items={items[tableOrder].data}/> : ""  }
 
 
         </section>
