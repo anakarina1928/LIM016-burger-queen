@@ -5,6 +5,11 @@ import {ButtonClose} from "./buttonClose"
 import {logOut} from "../../firebase/auth.js";
 import { useNavigate } from "react-router-dom";
 import "./nameUser.css"
+//import { contenido } from "../../context/context.js";
+import { useContext } from "react";
+import { Holis } from "../../context/context.js";
+
+
 
 
 
@@ -12,7 +17,12 @@ export function User(){
     const [userName, setUserName] = useState("");
     const [userCargo, setUserCargo] = useState("");
     const Navigate = useNavigate()
+     let {user} =useContext(Holis)
+     console.log(user.nombre, "servira???????")
 
+  
+   
+  
       useEffect(() => {    
         const userId = auth.currentUser.uid;
         findingUser(userId, collectionUser).then((res) =>
