@@ -1,5 +1,7 @@
-import { React, useState, useEffect } from "react";
-import { ButtonOrder } from './categoryMenu/buttonOrder';
+import { React, useState, useEffect, useContext } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ButtonOrder } from '../../buttonOpenModal-close/buttonOrder';
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
@@ -8,9 +10,9 @@ import { CheckTable } from "./checkTable/checkTable"
 import "./indexWaiterView.css";
 import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
-import { Modal } from "./modal/modal"
+import { Modal } from "../../modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
-import { userDataLocally } from "../../../api/api";
+import { Holis } from "../../../context/context";
 
 const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]);
@@ -19,10 +21,10 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
-  const userSession = userDataLocally();
-  console.log('trae el objeto de user? ', userSession);
-    useEffect(() => updateTotalProduct(), [productSelect])
-    const colorTab = "/waiterMain"
+ 
+  useEffect(() => updateTotalProduct(), [productSelect])
+  const colorTab = "/waiterMain"
+  const {user} = useContext(Holis);
 
   const onClick = (event) => {
     let element;
@@ -34,18 +36,18 @@ const MenuForAllMeals = () => {
     setProductActual(element.dataset.name)
   }
 
-  
-  const setCommentOnProduct = (comment, indexProductList) =>{
-    
-    
-    const nuwProductLIstWithComments = productSelect.map((element , index)=>{
-     
-      if(index === indexProductList) {
-         element.comentario = comment;
+
+  const setCommentOnProduct = (comment, indexProductList) => {
+
+
+    const nuwProductLIstWithComments = productSelect.map((element, index) => {
+
+      if (index === indexProductList) {
+        element.comentario = comment;
       }
       return element;
     })
-   
+
     setProductSelect(nuwProductLIstWithComments)
   }
 
@@ -113,12 +115,16 @@ const MenuForAllMeals = () => {
     //setCommentsOnTheOrder("");
 
   }
-  const resetButton = () => setProductSelect([]);
-  
+  const resetButton = () => {
+    setProductSelect([]);
+    setTableNumber("");
+
+  }
+
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
-      worker:userSession.nombre,
+      worker: user.nombre,
       table: tableNumber,
       total: sumProduct,
       state: "PENDIENTE",
@@ -128,38 +134,81 @@ const MenuForAllMeals = () => {
     reset();
   }
 
-  return (
-    <section className="container">
-      <User />
-      <WaiterNavBar colorTab={colorTab} />
-      <MenuBar setMenuValue={setMenuValue} />
-      <ProductsList>
-        {menuValue.map((product, index) => {
-          const cant = productSelect.find((el) => el.name === product.name)?.cantidad;
-          return (
-            <div className="productDiv">
-              <Product key={index} item={product} onClick={onClick} />
-              {productActual === product.name && <AddSubButton item={product} addProduct={addProduct} subProduct={subProduct} cant={cant} />}
-            </div>)
-        })}
-      </ProductsList>
-      <CheckTable
-        productSelect={productSelect}
-        sumProduct={sumProduct}
-        setTableNumber={setTableNumber}
-        tableNumber={tableNumber}
-        
-        setCommentOnProduct={setCommentOnProduct}
-      />
-      <ButtonOrder
-        productSelect={productSelect}
-        openModal={openModal}
-        resetButton={resetButton}
-        tableNumber={tableNumber}
-      />
-      {showModal ? <Modal sendOrderToFireBase={sendOrderToFireBase} closeModal={closeModal} /> : ''}
+  const confirmOrder = () => {
 
-    </section>
+    if (productSelect.length === 0) {
+      toast.warn("¡Orden vacía!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        type: "default",
+        pading: 30
+      });
+      return;
+    }
+
+    if (!tableNumber) {
+      toast.warn("¡agregar número de mesa!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        type: "default",
+        pading: 30
+
+      });
+      return;
+    }
+
+    openModal();
+
+
+  };
+
+
+  return (
+    <>
+      <section className="container">
+        <User />
+        <WaiterNavBar colorTab={colorTab} />
+        <MenuBar setMenuValue={setMenuValue} />
+        <ProductsList>
+          {menuValue.map((product, index) => {
+            const cant = productSelect.find((el) => el.name === product.name)?.cantidad;
+            return (
+              <div className="productDiv">
+                <Product key={index} item={product} onClick={onClick} />
+                {productActual === product.name && <AddSubButton item={product} addProduct={addProduct} subProduct={subProduct} cant={cant} />}
+              </div>)
+          })}
+        </ProductsList>
+        <CheckTable
+          productSelect={productSelect}
+          sumProduct={sumProduct}
+          setTableNumber={setTableNumber}
+          tableNumber={tableNumber}
+
+          setCommentOnProduct={setCommentOnProduct}
+        />
+        <ButtonOrder
+          resetButton={resetButton}
+          onClick={confirmOrder}
+
+        />
+        {showModal ? <Modal onClick={sendOrderToFireBase} closeModalMenu={closeModal} text={'¿Enviar pedido a cocina?'} /> : ''}
+
+      </section>
+      <ToastContainer />
+    </>
   );
 };
 

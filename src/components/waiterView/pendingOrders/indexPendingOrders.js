@@ -1,18 +1,21 @@
-import { React, useState } from "react";
+import { React, useState,useContext } from "react";
 import { User } from '../../nameUser/nameUser'
 import { WaiterNavBar } from "../sectionTabs/waiterNavBar";
 //import { OrderList } from "../orders/orderList";
 import { useDocsInRealTime } from "../../../api/api";
-import { onDataOrderChange } from "../../../firebase/firestore";
+import { onDataOrderChangeByWorker } from "../../../firebase/firestore";
 //import { ProductsList } from "../index/productList/productsList";
 import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
-import { Ticket } from '../../ticket/ticket'
+import { Ticket } from '../../ticket/ticket';
+import { Holis } from "../../../context/context";
 import "./indexPendingOrders.css"
 
 const PendingOrders = () => {
 
-    const items = useDocsInRealTime(onDataOrderChange('PENDIENTE'));
+    
+    const {user}=useContext(Holis);
+    const items = useDocsInRealTime(onDataOrderChangeByWorker('PENDIENTE', user.nombre));
     const [tableOrder, setTableOrder] = useState(undefined);
     const colorTab = "/waiterPending"
 
@@ -22,7 +25,7 @@ const PendingOrders = () => {
         setTableOrder(index);
     }
 
-    // {items.length > 0 ? <Ticket items={items[0].data.order}/> : ""}
+    
     return (
         <section className="pendingOrders">
             <User />
@@ -38,14 +41,13 @@ const PendingOrders = () => {
                             time={item.data.init_time}
                             onClick={()=> capturingTableWithAnEvent(index)}
                           
-
                         />                        
-                      {/*(item.length > 0 && tableOrder===items.data.table) ? <Ticket items={item[index].data.order}/> : ""*/}
+                      
                     </>
                     )
                 })}
             </OrderList>
-            {  tableOrder !== undefined ? <Ticket items={items[tableOrder].data.order}/> : ""  }
+            {  tableOrder !== undefined ? <Ticket items={items[tableOrder].data}/> : ""  }
 
 
         </section>

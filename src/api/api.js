@@ -18,19 +18,19 @@ const useDocsInRealTime = (onDataChangeFunc) => {
     const [documents, setDocs] = useState([]);
 
     useEffect(() => {
-       
+
         const setDocsOnQuerySnapshot = (querySnapshot) => {
-             
+
             const newDocs = querySnapshot.docs.map(doc => {
-               return {
-                   id: doc.id,
-                   data: doc.data()
-               } 
+                return {
+                    id: doc.id,
+                    data: doc.data()
+                }
             });
             setDocs(newDocs);
         }
 
-        
+
         onDataChangeFunc(setDocsOnQuerySnapshot);
 
     }, [])//colocamos un arreglo vacio para cuando queramos que useEffect se ejecute una sola vez
@@ -39,28 +39,18 @@ const useDocsInRealTime = (onDataChangeFunc) => {
 
 }
 
-export const userDataLocally = () => {
+const userDataLocally = () => {
     const userSession = sessionStorage.getItem('user');
     const userSessionObjet = JSON.parse(userSession);
     return userSessionObjet;
-  }
+}
 
 
-export { filterMenuByCategory, getAllCategories, useDocsInRealTime };
+export {
+    filterMenuByCategory,
+    getAllCategories,
+    useDocsInRealTime,
+    userDataLocally
+};
 
 
-
-// const orderData = async () => {
-//     return onDataDocument((querySnapshot) => {
-//       const documents = [];
-//       querySnapshot.forEach((doc) => {
-//         documents.push({ id: doc.id, ...doc.data() });
-//       });
-//       console.log(documents,"a ver")
-//       return documents;
-//     });
-//   };
-
-//   orderData().then(orders => {
-//       console.log(orders, "ordenes de firebase");
-//   })
