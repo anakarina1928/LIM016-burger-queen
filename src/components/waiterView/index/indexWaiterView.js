@@ -21,10 +21,9 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
- 
-  useEffect(() => updateTotalProduct(), [productSelect])
   const colorTab = "/waiterMain"
   const {user} = useContext(Holis);
+  useEffect(() => updateTotalProduct(), [productSelect]);
 
   const onClick = (event) => {
     let element;
@@ -36,9 +35,7 @@ const MenuForAllMeals = () => {
     setProductActual(element.dataset.name)
   }
 
-
   const setCommentOnProduct = (comment, indexProductList) => {
-
 
     const nuwProductLIstWithComments = productSelect.map((element, index) => {
 
@@ -50,7 +47,6 @@ const MenuForAllMeals = () => {
 
     setProductSelect(nuwProductLIstWithComments)
   }
-
 
   const updateTotalProduct = () => {
     console.log("products: ", productSelect);
