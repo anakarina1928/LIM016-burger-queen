@@ -1,7 +1,7 @@
 
-import { collection, doc, getDoc, addDoc, query, onSnapshot, orderBy, where,updateDoc} from "@firebase/firestore"
+import { collection, doc, getDoc, addDoc, query, onSnapshot, orderBy, where,updateDoc, deleteDoc} from "@firebase/firestore"
 import { db } from "./config";
-import { userDataLocally } from "../api/api";
+
 
 
 //Ref users
@@ -57,8 +57,7 @@ export const findingUser = async (userId, colllection) => {
 export const onDataOrderChange = (state) => {
 
     return ( (callback) => {
-        //console.log("string mesero user 2",user2);
-        // console.log('mesero: ', user.nombre);
+    
         const q = query(collectionOrder, where('state', '==', state), orderBy('init_time', "desc"));
 
         onSnapshot(q, callback);
@@ -82,3 +81,9 @@ export const updateOrder = (documentId, data) => {
   
   };
 
+export const deleteOrder = (documentId) =>{
+    const ref = doc(collectionOrder, documentId);
+    const deleteDocCollectionOrder= deleteDoc(ref)
+    return deleteDocCollectionOrder;
+
+}
