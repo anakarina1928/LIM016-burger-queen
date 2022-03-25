@@ -1,6 +1,5 @@
-import { React, useState, useEffect, useReducer } from "react";
+import { React } from "react";
 import { auth } from "../../firebase/auth.js";
-import { findingUser, collectionUser } from "../../firebase/firestore";
 import {ButtonClose} from "./buttonClose"
 import {logOut} from "../../firebase/auth.js";
 import { useNavigate } from "react-router-dom";
@@ -14,30 +13,9 @@ import { Holis } from "../../context/context.js";
 
 
 export function User(){
-    const [userName, setUserName] = useState("");
-    const [userCargo, setUserCargo] = useState("");
     const Navigate = useNavigate()
      let {user} =useContext(Holis)
-     console.log("user",user)
-    //  console.log(user.nombre, "servira???????")
-
-  
-   
-  
-    //   useEffect(() => {    
-    //     const userId = auth.currentUser.uid;
-    //     findingUser(userId, collectionUser).then((res) =>
-    //         setUserName(res.nombre)
-    //         )
-    //   }, [])
-
-    //  useEffect(() => {    
-    //     const userId = auth.currentUser.uid;
-    //     findingUser(userId, collectionUser).then((res) =>
-    //         setUserCargo(res.cargo)
-    //     )
-    //   }, [])
-      
+     console.log("user",user)    
       const logOutSesion=()=>{
         logOut(auth).then(()=>{
           Navigate("/")
