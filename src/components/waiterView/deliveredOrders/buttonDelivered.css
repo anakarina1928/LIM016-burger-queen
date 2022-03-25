@@ -16,7 +16,7 @@
 .component-father-DerDelivered{
     grid-area: 4/3/5/4;
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
 }
 
 .component-flex-DerDelivered{

@@ -26,7 +26,28 @@ const KitchenMain = () => {
   const openModal = () => setShowModalCompleted(true);
   const closeModal = () => setShowModalCompleted(false);
 
-  const firebaseCollectionStatusChange = () => openModal();
+  const firebaseCollectionStatusChange = () =>{
+    
+    if(tableOrderKitchen === undefined){
+      toast.error("selecciona algun pedido", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        type: "default",
+        pading: 30
+      });
+      return;
+    }
+    
+    
+    openModal();
+
+  }
 
 
   const completed = () => {

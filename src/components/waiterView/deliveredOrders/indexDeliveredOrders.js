@@ -25,7 +25,23 @@ const DeliveredOrders = () => {
 
     const orderDeleveredModal = () => {
 
-        toast.warn("¡GRACIAS POR TU BUEN TRABAJO!", {
+        if(tableOrderKitchen === undefined){
+            toast.error("selecciona algun pedido", {
+              position: "top-center",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              type: "default",
+              pading: 30
+            });
+            return;
+          }
+
+        toast.warn("¡Servicio completado!", {
             position: "top-center",
             autoClose: 2000,
             hideProgressBar: false,
