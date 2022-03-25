@@ -12,7 +12,7 @@ const Ticket = ({items}) => {
                 <table>
                     <thead>
                         <tr>
-                            <th className="productColumn">PRODUCTO</th>
+                            <th className="productColumn productMargin">PRODUCTO</th>
                             <th>CANT.</th>
                             <th>PRECIO</th>
                         </tr>

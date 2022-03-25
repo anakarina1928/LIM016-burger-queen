@@ -5,7 +5,7 @@ const TicketItems = ({item, key}) => {
     
     return(
         <tr key={key}>
-            <th>{item.name}</th>
+            <th className="productColumn productMargin">{item.name}</th>
             <td>{item.cantidad}</td>
             <td>{item.total}</td>
         </tr>

@@ -17,7 +17,7 @@ const DeliveredOrders = () => {
     const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined);
     const capturingTableToDisplayOrderInTable = (index) => setTableOrderKitchen(index);
     const [modalDeleteOrder, setModalDeleteOrder] = useState(false);
-    const colorTab = "/kitchenDelivered"
+    const colorTab = "/waiterDelivered"
 
     const openModal = () => setModalDeleteOrder(true);
     const closeModal = () => setModalDeleteOrder(false);
