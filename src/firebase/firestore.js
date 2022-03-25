@@ -1,5 +1,5 @@
 
-import { collection, doc, getDoc, addDoc, query, onSnapshot, orderBy, where } from "@firebase/firestore"
+import { collection, doc, getDoc, addDoc, query, onSnapshot, orderBy, where,updateDoc} from "@firebase/firestore"
 import { db } from "./config";
 import { userDataLocally } from "../api/api";
 
@@ -53,3 +53,19 @@ export const onDataOrderChange = (state) => {
     })
 };
 
+export const onDataOrderChangeByWorker = (state, workerNombre) => {
+    return ( (callback) => {        
+        const q = query(collectionOrder, where('state', '==', state), where('worker', '==', workerNombre), orderBy('init_time', "desc"));
+        onSnapshot(q, callback);
+    })
+};
+
+export const updateOrder = (documentId, data) => {
+    //updateDoc: para actualizar campos de un doc sin reemplazarlo por completo
+    const ref = doc(collectionOrder, documentId);
+    updateDoc(ref, {
+      ...data,
+      update_time: new Date().toLocaleString("es-PE"),
+    });
+  
+  };
