@@ -1,7 +1,5 @@
 import { React, useState, useEffect, useContext } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { ButtonOrder } from '../../buttonOpenModal-close/buttonOrder';
+import { ButtonOrder } from "../../buttonOpenModal-close/buttonOrder"
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
@@ -12,6 +10,8 @@ import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
 import { Modal } from "../../modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Holis } from "../../../context/context";
 
 const MenuForAllMeals = () => {
@@ -21,10 +21,11 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
- 
-  useEffect(() => updateTotalProduct(), [productSelect])
-  const colorTab = "/waiterMain"
-  const {user} = useContext(Holis);
+  const {user} = useContext(Holis)
+  // const userSession = userDataLocally();
+  // console.log('trae el objeto de user? ', userSession);
+    useEffect(() => updateTotalProduct(), [productSelect])
+    const colorTab = "/waiterMain"
 
   const onClick = (event) => {
     let element;
@@ -132,6 +133,20 @@ const MenuForAllMeals = () => {
     }
     orderToSaveInFirebase(newOrderFirebase);
     reset();
+
+    toast.success("¡Pedido enviado!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      type: "default",
+      pading: 30
+    });
+
   }
 
   const confirmOrder = () => {

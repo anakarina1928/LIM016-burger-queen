@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useReducer } from "react";
 import { auth } from "../../firebase/auth.js";
 import { findingUser, collectionUser } from "../../firebase/firestore";
 import {ButtonClose} from "./buttonClose"
@@ -18,24 +18,25 @@ export function User(){
     const [userCargo, setUserCargo] = useState("");
     const Navigate = useNavigate()
      let {user} =useContext(Holis)
-     console.log(user.nombre, "servira???????")
+     console.log("user",user)
+    //  console.log(user.nombre, "servira???????")
 
   
    
   
-      useEffect(() => {    
-        const userId = auth.currentUser.uid;
-        findingUser(userId, collectionUser).then((res) =>
-            setUserName(res.nombre)
-            )
-      }, [])
+    //   useEffect(() => {    
+    //     const userId = auth.currentUser.uid;
+    //     findingUser(userId, collectionUser).then((res) =>
+    //         setUserName(res.nombre)
+    //         )
+    //   }, [])
 
-     useEffect(() => {    
-        const userId = auth.currentUser.uid;
-        findingUser(userId, collectionUser).then((res) =>
-            setUserCargo(res.cargo)
-        )
-      }, [])
+    //  useEffect(() => {    
+    //     const userId = auth.currentUser.uid;
+    //     findingUser(userId, collectionUser).then((res) =>
+    //         setUserCargo(res.cargo)
+    //     )
+    //   }, [])
       
       const logOutSesion=()=>{
         logOut(auth).then(()=>{
@@ -48,11 +49,11 @@ export function User(){
     return(
         <div className="navUser">
           <div className="navFlex">
-    <p className="dataUser">{userName}</p>
-    <p className="dataUser">{userCargo}</p>
-    <ButtonClose className="btnLogOut" src={'/icons/stand-by.png'} onClick={logOutSesion}  alt="cerrar sesion" />
-    </div>
-    </div>
+            <p className="dataUser">{user.nombre}</p>
+            <p className="dataUser">{user.cargo}</p>
+            <ButtonClose className="btnLogOut" src={'/icons/stand-by.png'} onClick={logOutSesion}  alt="cerrar sesion" />
+          </div>
+        </div>
   )
 }
 

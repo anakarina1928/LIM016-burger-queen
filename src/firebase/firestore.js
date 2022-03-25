@@ -4,55 +4,67 @@ import { db } from "./config";
 import { userDataLocally } from "../api/api";
 
 
-//const userSession = JSON.stringify(user);
-//console.log(userSession, 'que nos trae? ')
-
+//Ref users
 export const collectionUser = collection(db, 'usuarios');
 
+//Ref orders
 const collectionOrder = collection(db, 'order');
 
+//Guarda las ordenes en Firestore
 export const orderToSaveInFirebase = async (newOrder) => {
+
     try {
+
         const savingOrder = await addDoc(collectionOrder, newOrder)
         return savingOrder;
 
     } catch (error) {
+
         console.log('error al guardar pedido del cliente en firebase');
         throw new Error(error);
+
     }
 
 };
 
+//Consigue la data del usuario
 export const findingUser = async (userId, colllection) => {
+
     try {
+
         const documentUserRef = doc(colllection, userId);
         const userDocument = await getDoc(documentUserRef);
         const user = userDocument.data()
-        return user;
-    } catch (error) {
-        throw new Error(error);
-        
-    }
 
+        return user;
+
+    } catch (error) {
+
+        throw new Error(error);
+
+    }
 
 };
 
+//Trae las ordenes segun su estado en orden descendente del tiempo
 //where('worker', '==' , `"${user2}"`),
 //traer data de firebase
-const user =userDataLocally();
+// const user =userDataLocally();
 
 //const user2 =user.nombre
 //, where('worker', '==' , user2)
 
 export const onDataOrderChange = (state) => {
+
     return ( (callback) => {
         //console.log("string mesero user 2",user2);
-        console.log('mesero: ', user.nombre);
+        // console.log('mesero: ', user.nombre);
         const q = query(collectionOrder, where('state', '==', state), orderBy('init_time', "desc"));
-        onSnapshot(q, callback);
-    })
-};
 
+        onSnapshot(q, callback);
+
+    })
+}
 export const onDataOrderChangeByWorker = (state, workerNombre) => {
     return ( (callback) => {        
         const q = query(collectionOrder, where('state', '==', state), where('worker', '==', workerNombre), orderBy('init_time', "desc"));
@@ -69,3 +81,4 @@ export const updateOrder = (documentId, data) => {
     });
   
   };
+
