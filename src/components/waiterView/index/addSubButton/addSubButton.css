@@ -43,12 +43,20 @@
 .red{
     color:#F21616;
     padding-bottom: 1vh;
+    font-size: 3vw;
 
 }
 .green{
     color:#00AF70;
+    font-size: 3vw;
 
 }
 .addSubBut:hover{
     background-color: none;
 }
+.green:active{
+   font-size: 4vw;
+}
+.red:active{
+    font-size: 4vw;
+ }

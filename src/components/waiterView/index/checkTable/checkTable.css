@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 .checkTableTitle{
-    background-color: #2E2C2C;
+    background-color: #2c2739;
     border-radius: 2px;
     box-shadow: 0px -1px 117px 0px rgba(90, 12, 108, 1) inset;
     display: flex;
@@ -56,7 +56,7 @@ td{
 }
 table{
     width: 100%;
-    background-color: #2E2C2C;
+    background-color: #2c2739;
     border-collapse: collapse;
     box-shadow: 0px 6px 23px -7px rgba(51, 51, 51, 0.25);
     border-radius: 2px;
@@ -82,22 +82,22 @@ input[type=number] {
 .tableFixHead{
     overflow: auto;
     height: 57vh;
-    background-color: #2E2C2C;
+    background-color: #2c2739;
 }
 thead th {
     inset-block-start: 0;
     position: sticky;
-    background-color: #2E2C2C;
+    background-color: #2c2739;
     font-size: 2vh;
     font-weight: bold;
 }
 table tfoot{
     inset-block-end: 0;
     position: sticky;
-    background-color: #2E2C2C;
+    background-color: #2c2739;
 }
 .tableFooter{
-    background: #2E2C2C;
+    background: #2c2739;
     color: white;
     border-top: 1px solid #840A91;
     display: flex;
@@ -117,7 +117,7 @@ input[type=text] {
     border-radius: 0.8vw;
     color: #fff;
     border: 0.2vw solid #bc10df;
-    background-color: #2E2C2C;
+    background-color: #2c2739;
     outline: none;
     font-family: 'Montserrat';
 }
