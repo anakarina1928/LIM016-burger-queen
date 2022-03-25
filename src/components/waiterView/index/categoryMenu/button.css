@@ -1,5 +1,5 @@
 .btnMenuOption{
-    background: #2E2C2C;
+    background: #2c2739;
     box-shadow: 0px 6px 23px -7px rgb(51 51 51 / 25%);
     border-radius: 4px;
     font-size: 1vw;
@@ -15,5 +15,12 @@ img{
     height: 60%;
     width: 60%;
 
+}
+.btnMenuOption:hover{
+    box-shadow: 0px 6px 23px -7px rgba(51, 51, 51, 0.25), inset 0px -1px 117px #50105F;
+}
+.btnMenuOption:active{
+    width: 14.5vmin;
+    height: 14.5vmin;
 }
 
