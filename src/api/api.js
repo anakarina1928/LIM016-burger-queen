@@ -40,11 +40,11 @@ const useDocsInRealTime = (onDataChangeFunc) => {
 }
 
 //Retorna la informacion del usuario de la sesion
-export const userDataLocally = () => {
-    const userSession = sessionStorage.getItem('user');
-    const userSessionObjet = JSON.parse(userSession);
-    return userSessionObjet;
-}
+// export const userDataLocally = () => {
+//     const userSession = sessionStorage.getItem('user');
+//     const userSessionObjet = JSON.parse(userSession);
+//     return userSessionObjet;
+// }
 
 
 export { filterMenuByCategory, getAllCategories, useDocsInRealTime };

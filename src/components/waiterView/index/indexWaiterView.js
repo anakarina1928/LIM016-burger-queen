@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { ButtonOrder } from './categoryMenu/buttonOrder';
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
@@ -11,6 +11,9 @@ import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
 import { Modal } from "./modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
 import { userDataLocally } from "../../../api/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Holis } from "../../../context/context";
 
 const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]);
@@ -19,8 +22,9 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
-  const userSession = userDataLocally();
-  console.log('trae el objeto de user? ', userSession);
+  const {user} = useContext(Holis)
+  // const userSession = userDataLocally();
+  // console.log('trae el objeto de user? ', userSession);
     useEffect(() => updateTotalProduct(), [productSelect])
     const colorTab = "/waiterMain"
 
@@ -118,7 +122,7 @@ const MenuForAllMeals = () => {
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString("es-PE"),
-      worker:userSession.nombre,
+      worker: user.nombre,
       table: tableNumber,
       total: sumProduct,
       state: "PENDIENTE",
@@ -126,6 +130,20 @@ const MenuForAllMeals = () => {
     }
     orderToSaveInFirebase(newOrderFirebase);
     reset();
+
+    toast.success("¡Pedido enviado!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      type: "default",
+      pading: 30
+    });
+
   }
 
   return (

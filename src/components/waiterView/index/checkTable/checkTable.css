@@ -127,3 +127,6 @@ input[type=text] {
 .quantityPriceColumn{
     width: 8vw;
 }
+.productMargin{
+    width: 18vw
+}

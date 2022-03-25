@@ -20,7 +20,8 @@ function Login() {
   const changeInputsHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-  const {setUser} = useContext(Holis)
+  // const {setUser} = useContext(Holis)
+  // const {setUid} = useContext(Holis)
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -37,7 +38,8 @@ function Login() {
       );
 
       const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
-        setUser(dataUser) 
+        // setUser(dataUser)
+        // setUid(userFirebase.user.uid)
       
       const userToCreate = {
         nombre: dataUser.nombre,

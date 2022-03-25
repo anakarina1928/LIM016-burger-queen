@@ -49,7 +49,7 @@ export const findingUser = async (userId, colllection) => {
 //Trae las ordenes segun su estado en orden descendente del tiempo
 //where('worker', '==' , `"${user2}"`),
 //traer data de firebase
-const user =userDataLocally();
+// const user =userDataLocally();
 
 //const user2 =user.nombre
 //, where('worker', '==' , user2)
@@ -58,7 +58,7 @@ export const onDataOrderChange = (state) => {
 
     return ( (callback) => {
         //console.log("string mesero user 2",user2);
-        console.log('mesero: ', user.nombre);
+        // console.log('mesero: ', user.nombre);
         const q = query(collectionOrder, where('state', '==', state), orderBy('init_time', "desc"));
 
         onSnapshot(q, callback);
