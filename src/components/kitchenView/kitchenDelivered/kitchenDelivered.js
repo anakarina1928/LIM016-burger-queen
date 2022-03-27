@@ -6,6 +6,7 @@ import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from "../../ticket/ticket";
 import { useDocsInRealTime } from "../../../api/api";
 import { onDataOrderChange } from "../../../firebase/firestore";
+import { SelectAnOrder } from "../../selectItem.js/selectOrder";
 
 const KitchenDelivered = () => {
     const items = useDocsInRealTime(onDataOrderChange('COMPLETADO'))
@@ -37,7 +38,7 @@ const KitchenDelivered = () => {
 
           })}
             </OrderList>
-            {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : ""}
+            {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : <SelectAnOrder/>}
         </section>
     )
 }
