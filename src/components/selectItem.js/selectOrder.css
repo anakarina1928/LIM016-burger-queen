@@ -1,0 +1,12 @@
+.textToActive{
+    color: #ffff;
+    text-align: center;
+    padding-top: 15vw;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+}
+.father-flex{
+    display: flex;
+    justify-content: center;
+}
