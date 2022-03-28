@@ -1,11 +1,12 @@
-import { React, useState,useEffect } from "react";
+import { React, useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { User } from "../../nameUser/nameUser";
 import { NavKitchen } from "../navKitchen/navKitchen";
 import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from "../../ticket/ticket";
 import { onDataOrderChange } from "../../../firebase/firestore";
-import { useDocsInRealTime } from "../../../api/api";
+import { useDocsInRealTime/*, useOrderTime*/ } from "../../../api/api";
 import { ButtonOrder } from "../../buttonOpenModal-close/buttonOrder";
 import { Modal } from "../../modal/modal";
 import { updateOrder } from "../../../firebase/firestore";
@@ -15,63 +16,113 @@ const KitchenMain = () => {
   const colorTab = "/kitchenMain"
   const items = useDocsInRealTime(onDataOrderChange('PENDIENTE'));
   const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined);
-  //const [table,setTable] =useState();
   const [showModalCompleted, setShowModalCompleted] = useState(false);
+  // const [timer, setTimer] = useState(0)
+
   const capturingTableKitchenWithAnEvent = (index) => {
-    console.log("pedido: ", items[index], "posicion: ", index);
+    // const minutes = ((Date.now()/1000)-items[index].data.init_time)/60
+    // console.log(Math.floor(minutes))
     setTableOrderKitchen(index);
   }
+
+  // const timerUpdate = (date) => {
+  //   const minutes = Math.floor(((Date.now()/1000)-date)/60)
+  //   return(minutes)
+  // }
 
   const openModal = () => setShowModalCompleted(true);
   const closeModal = () => setShowModalCompleted(false);
 
-  const firebaseCollectionStatusChange = () => openModal();
-  
- 
-  const completed =() =>{
+  const firebaseCollectionStatusChange = () =>{
     
-    updateOrder(items[tableOrderKitchen].id , {
+    if(tableOrderKitchen === undefined){
+      toast.error("selecciona algun pedido", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        type: "default",
+        pading: 30
+      });
+      return;
+    }
+    
+    openModal();
+
+  }
+
+
+  const completed = () => {
+
+    toast.warn("¡La orden se envio a pedidos listos!", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      type: "default",
+      pading: 30
+    });
+
+    updateOrder(items[tableOrderKitchen].id, {
       state: 'COMPLETADO'
     })
     closeModal();
-    
-  } 
+
+
+  }
 
 
 
   return (
-    <section className="pendingOrders">
-      <User />
-      <NavKitchen colorTab={colorTab} />
-      <OrderList>
-        {items.map((item, index) => {
-          return (
-            <>
-              <OrderButtons
-                key={index}
-                value={item.data.table}
-                text={item.data.table}
-                time={item.data.init_time}
-                onClick={() => capturingTableKitchenWithAnEvent(index)}
-               
-              />
-         
-       
-            </>
-             
-          )
-         
-        })}
-      </OrderList>
-      {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data}  /> : ""}
+    <>
+      <section className="pendingOrders">
+        <User />
+        <NavKitchen colorTab={colorTab} />
+        <OrderList>
+          {items.map((item, index) => {
+            // console.log(Date.now()/1000)
+            // console.log(item.data.init_time)
+            // console.log(item.data)
+            // console.log(Math.floor((Date.now()/1000-item.data.init_time)/60))
+            return (
+              <>
+                <OrderButtons
+                  key={index}
+                  value={item.data.table}
+                  text={item.data.table}
+                  item={item}
+                  // orderTimer={orderTimer}
+                  // time={() => useOrderTime(item.data.init_time)}
+                  onClick={() => capturingTableKitchenWithAnEvent(index)}
 
-      <ButtonOrder
-        onClick={firebaseCollectionStatusChange}
-      />
+                />
 
-      {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={`¿El pedido de la mesa x esta listo?`} /> : ''}
 
-    </section>
+              </>
+
+            )
+
+          })}
+        </OrderList>
+        {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : ""}
+
+        <ButtonOrder
+          onClick={firebaseCollectionStatusChange}
+        />
+
+        {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={`¿El pedido de la mesa ${items[tableOrderKitchen].data.table} esta listo?`} /> : ''}
+
+      </section>
+      <ToastContainer />
+    </>
   )
 };
 

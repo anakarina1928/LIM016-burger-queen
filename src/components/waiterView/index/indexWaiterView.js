@@ -1,7 +1,5 @@
 import { React, useState, useEffect, useContext } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { ButtonOrder } from '../../buttonOpenModal-close/buttonOrder';
+import { ButtonOrder } from "../../buttonOpenModal-close/buttonOrder"
 import { MenuBar } from "./categoryMenu/menu";
 import { ProductsList } from "./productList/productsList.js";
 import { Product } from "./productList/product.js";
@@ -12,6 +10,8 @@ import { User } from "../../nameUser/nameUser";
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar'
 import { Modal } from "../../modal/modal"
 import { orderToSaveInFirebase } from "../../../firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Holis } from "../../../context/context";
 
 const MenuForAllMeals = () => {
@@ -21,10 +21,9 @@ const MenuForAllMeals = () => {
   const [tableNumber, setTableNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sumProduct, setSumProduct] = useState(0);
- 
-  useEffect(() => updateTotalProduct(), [productSelect])
   const colorTab = "/waiterMain"
   const {user} = useContext(Holis);
+  useEffect(() => updateTotalProduct(), [productSelect]);
 
   const onClick = (event) => {
     let element;
@@ -36,9 +35,7 @@ const MenuForAllMeals = () => {
     setProductActual(element.dataset.name)
   }
 
-
   const setCommentOnProduct = (comment, indexProductList) => {
-
 
     const nuwProductLIstWithComments = productSelect.map((element, index) => {
 
@@ -50,7 +47,6 @@ const MenuForAllMeals = () => {
 
     setProductSelect(nuwProductLIstWithComments)
   }
-
 
   const updateTotalProduct = () => {
     console.log("products: ", productSelect);
@@ -123,7 +119,8 @@ const MenuForAllMeals = () => {
 
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
-      init_time: new Date().toLocaleString("es-PE"),
+      // init_time: new Date().toLocaleString("es-PE"),
+      init_time: new Date()/1000,//para obtener los segundos, es mucho mas manejable para hacer calculos
       worker: user.nombre,
       table: tableNumber,
       total: sumProduct,
@@ -132,6 +129,20 @@ const MenuForAllMeals = () => {
     }
     orderToSaveInFirebase(newOrderFirebase);
     reset();
+
+    toast.success("¡Pedido enviado!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      type: "default",
+      pading: 30
+    });
+
   }
 
   const confirmOrder = () => {
@@ -153,7 +164,7 @@ const MenuForAllMeals = () => {
     }
 
     if (!tableNumber) {
-      toast.warn("¡agregar número de mesa!", {
+      toast.warn("¡Agregar número de mesa!", {
         position: "top-center",
         autoClose: 1000,
         hideProgressBar: false,

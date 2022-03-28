@@ -10,9 +10,11 @@ const ButtonOrder = ({ onClick , resetButton}) => {
         <div className= 'component-flex'>
           <button className="buttonOrder" onClick={onClick}>
             <img src={process.env.PUBLIC_URL + "/icons/checked.png"} alt={"checked"} />
+            ENVIAR
           </button>
           <button className="buttonOrder" onClick={resetButton}>
             <img  className="margin"src={process.env.PUBLIC_URL + "/icons/tachito.png"} alt={"checked"} />
+            BORRAR
           </button>
         </div>
       </section>
