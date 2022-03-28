@@ -32,6 +32,7 @@ function CheckTable (props) {
                             onTap={props.onTap}
                             renderInput={props.renderInput}
                             setCommentOnProduct={props.setCommentOnProduct}
+                            deleteProduct={()=>props.deleteProduct(index)}
                         />
                         ))}
                     </tbody>
