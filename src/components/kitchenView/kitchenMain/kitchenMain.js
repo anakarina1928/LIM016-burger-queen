@@ -108,7 +108,7 @@ const KitchenMain = () => {
           onClick={firebaseCollectionStatusChange}
         />
 
-        {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={`¿El pedido de la mesa ${items[tableOrderKitchen].table} esta listo?`} /> : ''}
+        {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={`¿El pedido de la mesa ${items[tableOrderKitchen].data.table} esta listo?`} /> : ''}
 
       </section>
       <ToastContainer />
