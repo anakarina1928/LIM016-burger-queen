@@ -1,19 +1,13 @@
-import { React, useState, useEffect } from "react";
+import React from "react";
 
-const OrderButtons = ({value, onClick, text, item}) => {
+const OrderButtons = ({ value, text, onClick, time }) => {
 
-    let minutes = Math.floor((Date.now()/1000-item.data.init_time)/60)
-    const [timer, setTimer] = useState(minutes)
-
-    useEffect(() => {
-        setTimeout(() => setTimer(timer+1), 60000)
-    }, [timer])
 
     return (
         <button className="product marginButton" value={value} onClick={onClick}>
             MESA # {text}
             <br></br>
-            {timer} minutos
+            {time}
         </button>
     )
 }

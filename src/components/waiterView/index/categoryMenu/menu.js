@@ -7,11 +7,12 @@ const MenuBar = ({ setMenuValue }) => {
 
     const onSearchValueChange = (event) => {
         let element;
-        if (event.target.nodeName ==="IMG"){
-            element = event.target.parentNode
-         } else{
-            element = event.target
-        }
+        // if (event.target.nodeName ==="IMG"){
+        //     element = event.target.parentNode
+        //  } else{
+            element = event.currentTarget
+            console.log(element)
+        // }
         //Prevenimos el comportamiento por defecto del button
         event.preventDefault();
         const newMenu = filterMenuByCategory(element.value);
@@ -25,7 +26,7 @@ const MenuBar = ({ setMenuValue }) => {
                 {
                     getAllCategories().map((category, index) => {
                         return <Button
-                            onClick={onSearchValueChange} 
+                            clickHandler={onSearchValueChange} 
                             key={index}
                             className={"btnMenuOption"}
                             value={category.categoryName}                            

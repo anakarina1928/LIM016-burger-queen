@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { User } from "../../nameUser/nameUser";
 import { NavKitchen } from "../navKitchen/navKitchen";
 import { OrderList } from "../../orders/orderList";
-import { OrderButtons } from "../../orders/orderButtons";
+import { OrderButtonsTimer } from "../../orders/orderButtonTimer";
 import { Ticket } from "../../ticket/ticket";
 import { onDataOrderChange } from "../../../firebase/firestore";
 import { useDocsInRealTime/*, useOrderTime*/ } from "../../../api/api";
@@ -88,28 +88,19 @@ const KitchenMain = () => {
         <NavKitchen colorTab={colorTab} />
         <OrderList>
           {items.map((item, index) => {
-            // console.log(Date.now()/1000)
-            // console.log(item.data.init_time)
-            // console.log(item.data)
-            // console.log(Math.floor((Date.now()/1000-item.data.init_time)/60))
+            console.log(item.data.seconds)
             return (
               <>
-                <OrderButtons
-                  key={index}
+                <OrderButtonsTimer
+                  key={item.data.init_time}
                   value={item.data.table}
                   text={item.data.table}
-                  item={item}
-                  // orderTimer={orderTimer}
-                  // time={() => useOrderTime(item.data.init_time)}
+                  seconds={item.data.seconds}
+                  time={item.data.init_time}
                   onClick={() => capturingTableKitchenWithAnEvent(index)}
-
                 />
-
-
               </>
-
             )
-
           })}
         </OrderList>
         {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : ""}

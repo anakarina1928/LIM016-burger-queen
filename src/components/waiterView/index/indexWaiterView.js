@@ -119,8 +119,8 @@ const MenuForAllMeals = () => {
 
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
-      // init_time: new Date().toLocaleString("es-PE"),
-      init_time: new Date()/1000,//para obtener los segundos, es mucho mas manejable para hacer calculos
+      init_time: new Date().toLocaleString("es-PE"),
+      seconds: new Date()/1000,//para obtener los segundos, es mucho mas manejable para hacer calculos
       worker: user.nombre,
       table: tableNumber,
       total: sumProduct,
