@@ -1,14 +1,13 @@
-import { createContext } from "react";
+import { createContext } from 'react'
 // import { onAuthStateChanged } from "@firebase/auth"
 // import { auth } from "../firebase/auth";
 // import { useNavigate } from "react-router-dom";
 // import { onAuth } from "../firebase/auth";
 
-export const Holis = createContext({
-    user:{},
-    setUser: (useAuth) =>{}
+export const AuthSession = createContext({
+  user: {},
+  setUser: (useAuth) => {}
 })
-
 
 // export const Holis = createContext()
 
@@ -28,7 +27,7 @@ export const Holis = createContext({
 //                 Navigate("/")
 //             }
 //           });
-      
+
 //           return () => unsubcribe();
 //         }, []);
 

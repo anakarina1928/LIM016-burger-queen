@@ -1,37 +1,33 @@
-import { React, useEffect, useState } from "react"
+import { React, useEffect, useState } from 'react'
 import './checkTable.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import { faMessage } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan, faMessage } from '@fortawesome/free-solid-svg-icons'
 
-function TableRowFood(props) {
+function TableRowFood (props) {
+  const [renderInput, setRenderInput] = useState(false)
+  const [commentInput, setCommentInput] = useState('')
 
-    const [renderInput, setRenderInput] = useState(false)
-    const [commentInput, setCommentInput] = useState('');
+  const onSetComment = (event) => {
+    const comment = event.target.value
+    updateCommentOnProduct(comment)
+  }
 
-    const onSetComment = (event) => {
-        const comment = event.target.value;
-        updateCommentOnProduct(comment);
+  const updateCommentOnProduct = (comment) => {
+    setCommentInput(comment)
+    props.setCommentOnProduct(comment, props.index)
+  }
+
+  useEffect(() => {
+    if (!renderInput) {
+      updateCommentOnProduct('')
     }
-  
-    const updateCommentOnProduct = (comment) => {
-        setCommentInput(comment);
-        props.setCommentOnProduct(comment, props.index);
-    }
-   
-    useEffect(() => {
-        if (!renderInput) {
-            updateCommentOnProduct('');
-        }
-    }, [renderInput])
+  }, [renderInput])
 
-    const onTap = () => {
-        setRenderInput(!renderInput)
-    }
+  const onTap = () => {
+    setRenderInput(!renderInput)
+  }
 
-
-
-    return (
+  return (
         <tr key={props.key}>
             <td onClick={onTap} >
                 <FontAwesomeIcon icon={faMessage}></FontAwesomeIcon>
@@ -47,7 +43,7 @@ function TableRowFood(props) {
                 <FontAwesomeIcon onClick={props.close} icon={faTrashCan}></FontAwesomeIcon>
             </td>
         </tr>
-    )
+  )
 }
 
 export { TableRowFood }

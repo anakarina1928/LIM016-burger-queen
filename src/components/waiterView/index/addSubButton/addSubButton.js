@@ -1,30 +1,30 @@
-import {React} from "react"
+import { React } from 'react'
 import './addSubButton.css'
 
-function AddSubButton ({addProduct,subProduct, item, cant}) {
-   // const [counter, setCounter] = useState()
-    let increment = (item) => {
-        
-        //setCounter(counter + 1)
-        addProduct(item)}
+function AddSubButton ({ addProduct, subProduct, item, cant }) {
+  // const [counter, setCounter] = useState()
+  const increment = (item) => {
+    // setCounter(counter + 1)
+    addProduct(item)
+  }
 
-    let decrement = (item) =>{
-   // setCounter(counter - 1)
+  const decrement = (item) => {
+    // setCounter(counter - 1)
     subProduct(item)
-    }
-    // if(counter<1){
-    //     cambiamos la visibilidad
-    // }
+  }
+  // if(counter<1){
+  //     cambiamos la visibilidad
+  // }
 
-    return(
+  return (
         // <div className="addSubGrid">
         <div className="addSubDiv">
-            <button onClick={()=>decrement(item)} className={`addSubBut red`}>-</button>
+            <button onClick={() => decrement(item)} className={'addSubBut red'}>-</button>
             <span className="addSubSpan">{cant}</span>
-            <button onClick={() =>increment(item)} className={`addSubBut green`}>+</button>
+            <button onClick={() => increment(item)} className={'addSubBut green'}>+</button>
         </div>
         // </div>
-    )
+  )
 }
 
 export { AddSubButton }

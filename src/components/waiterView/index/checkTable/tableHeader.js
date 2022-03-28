@@ -1,8 +1,8 @@
-import {React} from "react"
+import { React } from 'react'
 import './checkTable.css'
 
 function TableHeader () {
-    return(
+  return (
         <thead>
             <tr>
                 <th className="bin"></th>
@@ -12,7 +12,7 @@ function TableHeader () {
                 <th className="bin"></th>
             </tr>
         </thead>
-    )
+  )
 }
 
 export { TableHeader }

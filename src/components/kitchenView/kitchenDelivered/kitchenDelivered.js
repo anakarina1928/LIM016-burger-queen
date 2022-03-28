@@ -1,27 +1,26 @@
-import { React, useState } from "react";
-import { User } from "../../nameUser/nameUser";
-import { NavKitchen } from "../navKitchen/navKitchen";
-import { OrderList } from "../../orders/orderList";
-import { OrderButtons } from "../../orders/orderButtons";
-import { Ticket } from "../../ticket/ticket";
-import { useDocsInRealTime } from "../../../api/api";
-import { onDataOrderChange } from "../../../firebase/firestore";
+import { React, useState } from 'react'
+import { User } from '../../nameUser/nameUser'
+import { NavKitchen } from '../navKitchen/navKitchen'
+import { OrderList } from '../../orders/orderList'
+import { OrderButtons } from '../../orders/orderButtons'
+import { Ticket } from '../../ticket/ticket'
+import { useDocsInRealTime } from '../../../api/api'
+import { onDataOrderChange } from '../../../firebase/firestore'
 
 const KitchenDelivered = () => {
-    const items = useDocsInRealTime(onDataOrderChange('COMPLETADO'))
-    const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined);
-    const capturingTableToDisplayOrderInTable = (index) =>  setTableOrderKitchen(index);
-      
+  const items = useDocsInRealTime(onDataOrderChange('COMPLETADO'))
+  const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined)
+  const capturingTableToDisplayOrderInTable = (index) => setTableOrderKitchen(index)
 
-    const colorTab = "/kitchenDelivered"
+  const colorTab = '/kitchenDelivered'
 
-    return (
+  return (
         <section className="pendingOrders">
             <User/>
             <NavKitchen colorTab={colorTab}/>
             <OrderList>
                {items.map((item, index) => {
-            return (
+                 return (
               <>
                 <OrderButtons
                   key={index}
@@ -29,17 +28,16 @@ const KitchenDelivered = () => {
                   text={item.data.table}
                   time={item.data.init_time}
                   onClick={() => capturingTableToDisplayOrderInTable(index)}
-                
+
                 />
               </>
 
-            )
-
-          })}
+                 )
+               })}
             </OrderList>
-            {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : ""}
+            {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : ''}
         </section>
-    )
+  )
 }
 
 export { KitchenDelivered }

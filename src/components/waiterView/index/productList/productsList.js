@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 import './productsList.css'
 
-const ProductsList = (props) =>{
-   return(
+const ProductsList = (props) => {
+  return (
    <>
       <section className="productsSection">
          <div className="productFlex">
@@ -10,9 +10,7 @@ const ProductsList = (props) =>{
          </div>
       </section>
    </>
-   )
+  )
 }
 
-
-export {ProductsList}
-
+export { ProductsList }

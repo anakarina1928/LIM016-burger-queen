@@ -1,10 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import "./modal.css"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './modal.css'
 
-const Modal = ({ onClick, closeModalMenu, text, }) => {
-
-    return ReactDOM.createPortal(
+const Modal = ({ onClick, closeModalMenu, text }) => {
+  return ReactDOM.createPortal(
 
         <section className={'modal-father'}>
             <div className={'container-modal'}>
@@ -13,17 +12,17 @@ const Modal = ({ onClick, closeModalMenu, text, }) => {
                 <div className={'button'}>
 
                     <button className="button-modal" onClick={onClick}>
-                        <img src={process.env.PUBLIC_URL + "/icons/tick.png"} alt='accept'/>
+                        <img src={process.env.PUBLIC_URL + '/icons/tick.png'} alt='accept'/>
                     </button>
-                   
+
                     <button className="button-modal close" onClick={closeModalMenu}>
-                        <img  src={process.env.PUBLIC_URL + "/icons/close.png"} alt='close' />
+                        <img src={process.env.PUBLIC_URL + '/icons/close.png'} alt='close' />
                     </button>
                 </div>
             </div>
         </section>,
         document.getElementById('modal')
-    );
-};
+  )
+}
 
-export { Modal };
+export { Modal }
