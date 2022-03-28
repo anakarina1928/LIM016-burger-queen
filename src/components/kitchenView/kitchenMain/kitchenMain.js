@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { User } from "../../nameUser/nameUser";
 import { NavKitchen } from "../navKitchen/navKitchen";
@@ -6,7 +6,7 @@ import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from "../../ticket/ticket";
 import { onDataOrderChange } from "../../../firebase/firestore";
-import { useDocsInRealTime } from "../../../api/api";
+import { useDocsInRealTime/*, useOrderTime*/ } from "../../../api/api";
 import { ButtonOrder } from "../../buttonOpenModal-close/buttonOrder";
 import { Modal } from "../../modal/modal";
 import { updateOrder } from "../../../firebase/firestore";
@@ -16,12 +16,19 @@ const KitchenMain = () => {
   const colorTab = "/kitchenMain"
   const items = useDocsInRealTime(onDataOrderChange('PENDIENTE'));
   const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined);
-  //const [table,setTable] =useState();
   const [showModalCompleted, setShowModalCompleted] = useState(false);
+  // const [timer, setTimer] = useState(0)
+
   const capturingTableKitchenWithAnEvent = (index) => {
-    console.log("pedido: ", items[index], "posicion: ", index);
+    // const minutes = ((Date.now()/1000)-items[index].data.init_time)/60
+    // console.log(Math.floor(minutes))
     setTableOrderKitchen(index);
   }
+
+  // const timerUpdate = (date) => {
+  //   const minutes = Math.floor(((Date.now()/1000)-date)/60)
+  //   return(minutes)
+  // }
 
   const openModal = () => setShowModalCompleted(true);
   const closeModal = () => setShowModalCompleted(false);
@@ -43,7 +50,6 @@ const KitchenMain = () => {
       });
       return;
     }
-    
     
     openModal();
 
@@ -82,13 +88,19 @@ const KitchenMain = () => {
         <NavKitchen colorTab={colorTab} />
         <OrderList>
           {items.map((item, index) => {
+            // console.log(Date.now()/1000)
+            // console.log(item.data.init_time)
+            // console.log(item.data)
+            // console.log(Math.floor((Date.now()/1000-item.data.init_time)/60))
             return (
               <>
                 <OrderButtons
                   key={index}
                   value={item.data.table}
                   text={item.data.table}
-                  time={item.data.init_time}
+                  item={item}
+                  // orderTimer={orderTimer}
+                  // time={() => useOrderTime(item.data.init_time)}
                   onClick={() => capturingTableKitchenWithAnEvent(index)}
 
                 />
@@ -106,7 +118,7 @@ const KitchenMain = () => {
           onClick={firebaseCollectionStatusChange}
         />
 
-        {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={`¿El pedido de la mesa x esta listo?`} /> : ''}
+        {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={`¿El pedido de la mesa ${items[tableOrderKitchen].data.table} esta listo?`} /> : ''}
 
       </section>
       <ToastContainer />

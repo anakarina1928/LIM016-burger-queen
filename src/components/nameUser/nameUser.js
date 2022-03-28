@@ -12,7 +12,7 @@ export function User(){
    
     const Navigate = useNavigate()
      let {user} =useContext(Holis)
-     console.log("user",user)
+    //  console.log("user",user)
   
       
       const logOutSesion=()=>{
