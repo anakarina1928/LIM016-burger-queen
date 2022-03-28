@@ -24,6 +24,7 @@
   width: 7vmin;
     height: 7vmin;
     border: none;
+    box-shadow: 1px 1px 5px;
 }
 
 .navUser{

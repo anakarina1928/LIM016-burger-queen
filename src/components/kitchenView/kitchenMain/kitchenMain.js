@@ -10,6 +10,8 @@ import { useDocsInRealTime } from '../../../api/api'
 import { ButtonOrder } from '../../buttonOpenModal-close/buttonOrder'
 import { Modal } from '../../modal/modal'
 
+import { SelectAnOrder } from '../../selectItem.js/selectOrder'
+
 const KitchenMain = () => {
   const colorTab = '/kitchenMain'
   const items = useDocsInRealTime(onDataOrderChange('PENDIENTE'))
@@ -61,6 +63,7 @@ const KitchenMain = () => {
     updateOrder(items[tableOrderKitchen].id, {
       state: 'COMPLETADO'
     })
+    setTableOrderKitchen(undefined)
     closeModal()
   }
 
@@ -87,13 +90,13 @@ const KitchenMain = () => {
             )
           })}
         </OrderList>
-        {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : ''}
+        {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : <SelectAnOrder/>}
 
         <ButtonOrder
           onClick={firebaseCollectionStatusChange}
         />
 
-        {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={'¿El pedido de la mesa x esta listo?'} /> : ''}
+        {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={`¿El pedido de la mesa ${items[tableOrderKitchen].data.table} esta listo?`} /> : ''}
 
       </section>
       <ToastContainer />
