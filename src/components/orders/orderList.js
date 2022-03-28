@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const OrderList = (props) => {
   return (
@@ -7,7 +7,7 @@ const OrderList = (props) => {
 
             {props.children}
         </section>
-  )
-}
+  );
+};
 
-export { OrderList }
+export { OrderList };

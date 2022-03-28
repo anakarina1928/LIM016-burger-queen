@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const OrderButtons = ({ value, text, onClick, time }) => {
   return (
@@ -7,7 +7,7 @@ const OrderButtons = ({ value, text, onClick, time }) => {
             <br></br>
             {time}
         </button>
-  )
-}
+  );
+};
 
-export { OrderButtons }
+export { OrderButtons };

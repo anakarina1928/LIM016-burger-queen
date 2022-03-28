@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import './waiterNavBar.css'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './waiterNavBar.css';
 
 export function WaiterNavBar (props) {
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
 
   const viewTab = (event) => {
-    const element = event.target
-    const elementPath = element.dataset.name
-    Navigate(elementPath)
-  }
+    const element = event.target;
+    const elementPath = element.dataset.name;
+    Navigate(elementPath);
+  };
 
   return (
         <div className="waiterNavBar">
@@ -24,5 +24,5 @@ export function WaiterNavBar (props) {
                 PEDIDOS LISTOS
             </button>
         </div>
-  )
+  );
 }

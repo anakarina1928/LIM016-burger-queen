@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './modal.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './modal.css';
 
 const Modal = ({ onClick, closeModalMenu, text }) => {
   return ReactDOM.createPortal(
@@ -22,7 +22,7 @@ const Modal = ({ onClick, closeModalMenu, text }) => {
             </div>
         </section>,
         document.getElementById('modal')
-  )
-}
+  );
+};
 
-export { Modal }
+export { Modal };

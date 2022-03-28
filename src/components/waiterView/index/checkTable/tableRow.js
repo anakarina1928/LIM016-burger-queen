@@ -1,31 +1,31 @@
-import { React, useEffect, useState } from 'react'
-import './checkTable.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashCan, faMessage } from '@fortawesome/free-solid-svg-icons'
+import { React, useEffect, useState } from 'react';
+import './checkTable.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan, faMessage } from '@fortawesome/free-solid-svg-icons';
 
 function TableRowFood (props) {
-  const [renderInput, setRenderInput] = useState(false)
-  const [commentInput, setCommentInput] = useState('')
+  const [renderInput, setRenderInput] = useState(false);
+  const [commentInput, setCommentInput] = useState('');
 
   const onSetComment = (event) => {
-    const comment = event.target.value
-    updateCommentOnProduct(comment)
-  }
+    const comment = event.target.value;
+    updateCommentOnProduct(comment);
+  };
 
   const updateCommentOnProduct = (comment) => {
-    setCommentInput(comment)
-    props.setCommentOnProduct(comment, props.index)
-  }
+    setCommentInput(comment);
+    props.setCommentOnProduct(comment, props.index);
+  };
 
   useEffect(() => {
     if (!renderInput) {
-      updateCommentOnProduct('')
+      updateCommentOnProduct('');
     }
-  }, [renderInput])
+  }, [renderInput]);
 
   const onTap = () => {
-    setRenderInput(!renderInput)
-  }
+    setRenderInput(!renderInput);
+  };
 
   return (
         <tr key={props.key}>
@@ -43,7 +43,7 @@ function TableRowFood (props) {
                 <FontAwesomeIcon onClick={props.close} icon={faTrashCan}></FontAwesomeIcon>
             </td>
         </tr>
-  )
+  );
 }
 
-export { TableRowFood }
+export { TableRowFood };

@@ -1,5 +1,5 @@
-import React from 'react'
-import { TicketItems } from './ticketItems'
+import React from 'react';
+import { TicketItems } from './ticketItems';
 
 const Ticket = ({ items }) => {
   return (
@@ -26,7 +26,7 @@ const Ticket = ({ items }) => {
                                 />
 
                             </>
-                      )
+                      );
                     })
                     }
                 </table>
@@ -37,7 +37,7 @@ const Ticket = ({ items }) => {
 
             </div>
         </div>
-  )
-}
+  );
+};
 
-export { Ticket }
+export { Ticket };

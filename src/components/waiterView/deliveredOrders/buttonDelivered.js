@@ -1,5 +1,5 @@
-import React from 'react'
-import './buttonDelivered.css'
+import React from 'react';
+import './buttonDelivered.css';
 
 const ButtonOrderDelivered = ({ onClick }) => {
   return (
@@ -13,7 +13,7 @@ const ButtonOrderDelivered = ({ onClick }) => {
         </div>
       </section>
 
-  )
-}
+  );
+};
 
-export { ButtonOrderDelivered }
+export { ButtonOrderDelivered };

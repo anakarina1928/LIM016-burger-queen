@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react'
-import './App.css'
-import Login from '../src/components/login/index.js'
-import { MenuForAllMeals } from '../src/components/waiterView/index/indexWaiterView'
-import { PendingOrders } from './components/waiterView/pendingOrders/indexPendingOrders'
-import { DeliveredOrders } from './components/waiterView/deliveredOrders/indexDeliveredOrders'
-import { Route, Routes, useNavigate } from 'react-router-dom'
-import { KitchenMain } from './components/kitchenView/kitchenMain/kitchenMain'
-import { KitchenDelivered } from './components/kitchenView/kitchenDelivered/kitchenDelivered'
-import { AuthSession } from './context/context'
-import { useAuth } from './firebase/auth'
+import React, { useEffect } from 'react';
+import './App.css';
+import Login from '../src/components/login/index.js';
+import { MenuForAllMeals } from '../src/components/waiterView/index/indexWaiterView';
+import { PendingOrders } from './components/waiterView/pendingOrders/indexPendingOrders';
+import { DeliveredOrders } from './components/waiterView/deliveredOrders/indexDeliveredOrders';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { KitchenMain } from './components/kitchenView/kitchenMain/kitchenMain';
+import { KitchenDelivered } from './components/kitchenView/kitchenDelivered/kitchenDelivered';
+import { AuthSession } from './context/context';
+import { useAuth } from './firebase/auth';
 
 export function App () {
-  const user = useAuth() // Custom hook de manejo de autenticacion
-  const Navigate = useNavigate()
+  const user = useAuth(); // Custom hook de manejo de autenticacion
+  const Navigate = useNavigate();
 
   useEffect(() => {
     if (!user.authenticated && !user.isLoading) {
-      Navigate('/')
+      Navigate('/');
     } else {
       if (user.cargo === 'MESERO') {
-        Navigate('/waiterMain')
+        Navigate('/waiterMain');
       } else if (user.cargo === 'JEFE DE COCINA') {
-        Navigate('/kitchenMain')
+        Navigate('/kitchenMain');
       }
     }
-  }, [user])
+  }, [user]);
 
   return (
   <AuthSession.Provider value={{ user }}>
@@ -41,7 +41,7 @@ export function App () {
         : ''/* aca puede ir el loader? */}
     </div>
     </AuthSession.Provider>
-  )
+  );
 }
 
-export default App
+export default App;

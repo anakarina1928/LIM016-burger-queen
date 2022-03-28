@@ -1,5 +1,5 @@
-import React from 'react'
-import './buttonOrder.css'
+import React from 'react';
+import './buttonOrder.css';
 
 const ButtonOrder = ({ onClick, resetButton }) => {
   return (
@@ -18,7 +18,7 @@ const ButtonOrder = ({ onClick, resetButton }) => {
       </section>
 
     </>
-  )
-}
+  );
+};
 
-export { ButtonOrder }
+export { ButtonOrder };

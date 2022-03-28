@@ -1,5 +1,5 @@
-import React from 'react'
-import './login.css'
+import React from 'react';
+import './login.css';
 
 function InputForm ({ name, label, placeholder, type, onChange }) {
   return (
@@ -8,7 +8,7 @@ function InputForm ({ name, label, placeholder, type, onChange }) {
         <input type={type} className="form-input" id={name} placeholder= {placeholder} onChange={onChange} name={name} autoComplete="off">
         </input>
     </div>
-  )
+  );
 }
 
-export default InputForm
+export default InputForm;

@@ -1,14 +1,14 @@
-import { React } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { React } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function NavKitchen (props) { // Data de firebase
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
 
   const viewTab = (event) => {
-    const element = event.target
-    const elementPath = element.dataset.name
-    Navigate(elementPath)
-  }
+    const element = event.target;
+    const elementPath = element.dataset.name;
+    Navigate(elementPath);
+  };
 
   return (
 
@@ -22,5 +22,5 @@ export function NavKitchen (props) { // Data de firebase
             </button>
             {/* </div> */}
         </div>
-  )
+  );
 }

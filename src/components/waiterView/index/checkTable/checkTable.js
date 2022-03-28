@@ -1,8 +1,8 @@
-import { React } from 'react'
-import './checkTable.css'
-import { TableHeader } from './tableHeader'
-import { TableFooter } from './tableFooter'
-import { TableRowFood } from './tableRow'
+import { React } from 'react';
+import './checkTable.css';
+import { TableHeader } from './tableHeader';
+import { TableFooter } from './tableFooter';
+import { TableRowFood } from './tableRow';
 
 function CheckTable (props) {
   return (
@@ -39,7 +39,7 @@ function CheckTable (props) {
             />
             </div>
         </div>
-  )
+  );
 }
 
-export { CheckTable }
+export { CheckTable };

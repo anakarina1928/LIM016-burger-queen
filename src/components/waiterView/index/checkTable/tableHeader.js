@@ -1,5 +1,5 @@
-import { React } from 'react'
-import './checkTable.css'
+import { React } from 'react';
+import './checkTable.css';
 
 function TableHeader () {
   return (
@@ -12,7 +12,7 @@ function TableHeader () {
                 <th className="bin"></th>
             </tr>
         </thead>
-  )
+  );
 }
 
-export { TableHeader }
+export { TableHeader };

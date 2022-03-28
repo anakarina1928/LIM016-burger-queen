@@ -1,19 +1,19 @@
-import { React, useState } from 'react'
-import { User } from '../../nameUser/nameUser'
-import { NavKitchen } from '../navKitchen/navKitchen'
-import { OrderList } from '../../orders/orderList'
-import { OrderButtons } from '../../orders/orderButtons'
-import { Ticket } from '../../ticket/ticket'
-import { useDocsInRealTime } from '../../../api/api'
-import { onDataOrderChange } from '../../../firebase/firestore'
-import { SelectAnOrder } from '../../selectItem.js/selectOrder'
+import { React, useState } from 'react';
+import { User } from '../../nameUser/nameUser';
+import { NavKitchen } from '../navKitchen/navKitchen';
+import { OrderList } from '../../orders/orderList';
+import { OrderButtons } from '../../orders/orderButtons';
+import { Ticket } from '../../ticket/ticket';
+import { useDocsInRealTime } from '../../../api/api';
+import { onDataOrderChange } from '../../../firebase/firestore';
+import { SelectAnOrder } from '../../selectItem.js/selectOrder';
 
 const KitchenDelivered = () => {
-  const items = useDocsInRealTime(onDataOrderChange('COMPLETADO'))
-  const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined)
-  const capturingTableToDisplayOrderInTable = (index) => setTableOrderKitchen(index)
+  const items = useDocsInRealTime(onDataOrderChange('COMPLETADO'));
+  const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined);
+  const capturingTableToDisplayOrderInTable = (index) => setTableOrderKitchen(index);
 
-  const colorTab = '/kitchenDelivered'
+  const colorTab = '/kitchenDelivered';
 
   return (
         <section className="pendingOrders">
@@ -33,12 +33,12 @@ const KitchenDelivered = () => {
                 />
               </>
 
-                 )
+                 );
                })}
             </OrderList>
             {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : <SelectAnOrder/>}
         </section>
-  )
-}
+  );
+};
 
-export { KitchenDelivered }
+export { KitchenDelivered };

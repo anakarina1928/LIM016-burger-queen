@@ -2,7 +2,8 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
+    jest: true
   },
   extends: ['plugin:react/recommended', 'standard'],
   parserOptions: {
@@ -14,6 +15,8 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/react-in-jsx-scope': 'off'
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    semi: ['error', 'always']
   }
-}
+};

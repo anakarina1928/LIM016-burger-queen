@@ -1,17 +1,17 @@
-import { React } from 'react'
-import './addSubButton.css'
+import { React } from 'react';
+import './addSubButton.css';
 
 function AddSubButton ({ addProduct, subProduct, item, cant }) {
   // const [counter, setCounter] = useState()
   const increment = (item) => {
     // setCounter(counter + 1)
-    addProduct(item)
-  }
+    addProduct(item);
+  };
 
   const decrement = (item) => {
     // setCounter(counter - 1)
-    subProduct(item)
-  }
+    subProduct(item);
+  };
   // if(counter<1){
   //     cambiamos la visibilidad
   // }
@@ -24,7 +24,7 @@ function AddSubButton ({ addProduct, subProduct, item, cant }) {
             <button onClick={() => increment(item)} className={'addSubBut green'}>+</button>
         </div>
         // </div>
-  )
+  );
 }
 
-export { AddSubButton }
+export { AddSubButton };

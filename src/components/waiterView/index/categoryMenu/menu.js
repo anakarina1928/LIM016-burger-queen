@@ -1,23 +1,23 @@
-import React from 'react'
-import './menu.css'
-import { Button } from './button'
-import { filterMenuByCategory, getAllCategories } from '../../../../api/api'
+import React from 'react';
+import './menu.css';
+import { Button } from './button';
+import { filterMenuByCategory, getAllCategories } from '../../../../api/api';
 
 const MenuBar = ({ setMenuValue }) => {
   const onSearchValueChange = (event) => {
-    let element
+    let element;
     if (event.target.nodeName === 'IMG') {
-      element = event.target.parentNode
+      element = event.target.parentNode;
     } else {
-      element = event.target
+      element = event.target;
     }
     // Prevenimos el comportamiento por defecto del button
-    event.preventDefault()
-    const newMenu = filterMenuByCategory(element.value)
+    event.preventDefault();
+    const newMenu = filterMenuByCategory(element.value);
 
     // Notificamos al componente padre una actualizacion de estado
-    setMenuValue(newMenu)
-  }
+    setMenuValue(newMenu);
+  };
   return (
         <>
             <section className="menu-container-father">
@@ -31,13 +31,13 @@ const MenuBar = ({ setMenuValue }) => {
                             text={category.categoryText}
                             src={category.photo}
                             alt={category.categoryName}
-                        />
+                        />;
                     })
                 }
 
             </section>
         </>
-  )
-}
+  );
+};
 
-export { MenuBar }
+export { MenuBar };

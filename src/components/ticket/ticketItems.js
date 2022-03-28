@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const TicketItems = ({ item, key }) => {
-  console.log('item: ', item)
+  console.log('item: ', item);
 
   return (
         <tr key={key}>
@@ -10,7 +10,7 @@ const TicketItems = ({ item, key }) => {
             <td>{item.total}</td>
         </tr>
 
-  )
-}
+  );
+};
 
-export { TicketItems }
+export { TicketItems };

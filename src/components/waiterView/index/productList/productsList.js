@@ -1,5 +1,5 @@
-import React from 'react'
-import './productsList.css'
+import React from 'react';
+import './productsList.css';
 
 const ProductsList = (props) => {
   return (
@@ -10,7 +10,7 @@ const ProductsList = (props) => {
          </div>
       </section>
    </>
-  )
-}
+  );
+};
 
-export { ProductsList }
+export { ProductsList };
