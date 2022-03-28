@@ -6,9 +6,10 @@ import { OrderList } from "../../orders/orderList";
 import { OrderButtons } from "../../orders/orderButtons";
 import { Ticket } from "../../ticket/ticket";
 import { useDocsInRealTime } from "../../../api/api";
-import { onDataOrderChange, deleteOrder } from "../../../firebase/firestore";
+import { onDataOrderChange, updateOrder } from "../../../firebase/firestore";
 import { ButtonOrderDelivered } from "./buttonDelivered";
 import { Modal } from "../../modal/modal";
+import { SelectAnOrder } from "../../selectItem.js/selectOrder";
 import "./indexDeliveredOrders.css"
 
 const DeliveredOrders = () => {
@@ -21,12 +22,10 @@ const DeliveredOrders = () => {
 
     const openModal = () => setModalDeleteOrder(true);
     const closeModal = () => setModalDeleteOrder(false);
-    const modalDeleteOrderFirebase = () => openModal();
-
-    const orderDeleveredModal = () => {
-
+    const modalDeleteOrderFirebase = () => {
+        
         if(tableOrderKitchen === undefined){
-            toast.error("selecciona algun pedido", {
+            toast.error("NO TIENES PEDIDOS LISTOS", {
               position: "top-center",
               autoClose: 2000,
               hideProgressBar: false,
@@ -41,6 +40,13 @@ const DeliveredOrders = () => {
             return;
           }
 
+        
+        
+        openModal();}
+
+    const orderDeleveredModal = () => {
+
+
         toast.warn("¡Servicio completado!", {
             position: "top-center",
             autoClose: 2000,
@@ -54,8 +60,11 @@ const DeliveredOrders = () => {
             pading: 30
         });
 
-        deleteOrder(items[tableOrderKitchen].id)
+        updateOrder(items[tableOrderKitchen].id, {
+            state: 'ENTREGADO'
+          })
 
+        setTableOrderKitchen(undefined);
         closeModal();
 
 
@@ -84,7 +93,7 @@ const DeliveredOrders = () => {
 
                     })}
                 </OrderList>
-                {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : ""}
+                {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : <SelectAnOrder/>}
 
                 <ButtonOrderDelivered
                     onClick={modalDeleteOrderFirebase}
