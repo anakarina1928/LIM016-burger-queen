@@ -6,7 +6,7 @@ const Ticket = ({items}) => {
         <div className="ticketDiv">
             <div className="ticketTitle">
                 <p className="ticketP">LISTA DE PEDIDO</p>
-                <p className="ticketP">MESA # 5</p>
+                <p className="ticketP"> MESA: N°{items.table}</p>
             </div>
             <div className="tableFixHead">
                 <table>

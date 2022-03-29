@@ -9,6 +9,7 @@ import { OrderList } from "../../orders/orderList";
 import { OrderButtonsTimer } from "../../../components/orders/orderButtonTimer"
 import { Ticket } from '../../ticket/ticket';
 import { Holis } from "../../../context/context";
+import { SelectAnOrder } from "../../selectItem.js/selectOrder";
 import "./indexPendingOrders.css"
 
 const PendingOrders = () => {
@@ -48,7 +49,7 @@ const PendingOrders = () => {
                     )
                 })}
             </OrderList>
-            {  tableOrder !== undefined ? <Ticket items={items[tableOrder].data}/> : ""  }
+            {  tableOrder !== undefined ? <Ticket items={items[tableOrder].data}/> : <SelectAnOrder/> }
 
 
         </section>

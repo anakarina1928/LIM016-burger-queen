@@ -10,6 +10,7 @@ import { useDocsInRealTime/*, useOrderTime*/ } from "../../../api/api";
 import { ButtonOrder } from "../../buttonOpenModal-close/buttonOrder";
 import { Modal } from "../../modal/modal";
 import { updateOrder } from "../../../firebase/firestore";
+import { SelectAnOrder } from "../../selectItem.js/selectOrder";
 
 const KitchenMain = () => {
 
@@ -74,6 +75,7 @@ const KitchenMain = () => {
     updateOrder(items[tableOrderKitchen].id, {
       state: 'COMPLETADO'
     })
+    setTableOrderKitchen(undefined);
     closeModal();
 
 
@@ -103,7 +105,7 @@ const KitchenMain = () => {
             )
           })}
         </OrderList>
-        {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : ""}
+        {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : <SelectAnOrder/>}
 
         <ButtonOrder
           onClick={firebaseCollectionStatusChange}
