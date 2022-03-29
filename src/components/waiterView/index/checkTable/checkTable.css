@@ -131,3 +131,7 @@ input[type=text] {
 .productMargin{
     width: 18vw
 }
+.margin-total{
+    margin: 0.8vw;
+    text-align: center;
+}

@@ -90,7 +90,9 @@ function Login () {
         {errMsg ? <Error msg={errMsg} /> : null}
         <Button />
       </form>
+
       <h1> &lt;BurgerLab/&gt; </h1>
+
     </div>
   );
 }
