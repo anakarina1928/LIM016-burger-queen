@@ -5,26 +5,22 @@ import { filterMenuByCategory, getAllCategories } from '../../../../api/api';
 
 const MenuBar = ({ setMenuValue }) => {
   const onSearchValueChange = (event) => {
-    let element;
-    if (event.target.nodeName === 'IMG') {
-      element = event.target.parentNode;
-    } else {
-      element = event.target;
-    }
-    // Prevenimos el comportamiento por defecto del button
+    const element = event.currentTarget;
+    console.log(element);
+
     event.preventDefault();
     const newMenu = filterMenuByCategory(element.value);
 
-    // Notificamos al componente padre una actualizacion de estado
     setMenuValue(newMenu);
   };
+
   return (
         <>
             <section className="menu-container-father">
                 {
                     getAllCategories().map((category, index) => {
                       return <Button
-                            onClick={onSearchValueChange}
+                            clickHandler={onSearchValueChange}
                             key={index}
                             className={'btnMenuOption'}
                             value={category.categoryName}

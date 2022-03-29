@@ -110,6 +110,7 @@ const MenuForAllMeals = () => {
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
       init_time: new Date().toLocaleString('es-PE'),
+      seconds: new Date() / 1000, // para obtener los segundos, es mucho mas manejable para hacer calculos
       worker: user.nombre,
       table: tableNumber,
       total: sumProduct,
@@ -151,7 +152,7 @@ const MenuForAllMeals = () => {
     }
 
     if (!tableNumber) {
-      toast.warn('¡agregar número de mesa!', {
+      toast.warn('¡Agregar número de mesa!', {
         position: 'top-center',
         autoClose: 1000,
         hideProgressBar: false,

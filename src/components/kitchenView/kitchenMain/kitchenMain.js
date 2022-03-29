@@ -3,10 +3,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { User } from '../../nameUser/nameUser';
 import { NavKitchen } from '../navKitchen/navKitchen';
 import { OrderList } from '../../orders/orderList';
-import { OrderButtons } from '../../orders/orderButtons';
+import { OrderButtonsTimer } from '../../orders/orderButtonTimer';
 import { Ticket } from '../../ticket/ticket';
 import { onDataOrderChange, updateOrder } from '../../../firebase/firestore';
-import { useDocsInRealTime } from '../../../api/api';
+import { useDocsInRealTime/*, useOrderTime */ } from '../../../api/api';
 import { ButtonOrder } from '../../buttonOpenModal-close/buttonOrder';
 import { Modal } from '../../modal/modal';
 
@@ -16,12 +16,19 @@ const KitchenMain = () => {
   const colorTab = '/kitchenMain';
   const items = useDocsInRealTime(onDataOrderChange('PENDIENTE'));
   const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined);
-  // const [table,setTable] =useState();
   const [showModalCompleted, setShowModalCompleted] = useState(false);
+  // const [timer, setTimer] = useState(0)
+
   const capturingTableKitchenWithAnEvent = (index) => {
-    console.log('pedido: ', items[index], 'posicion: ', index);
+    // const minutes = ((Date.now()/1000)-items[index].data.init_time)/60
+    // console.log(Math.floor(minutes))
     setTableOrderKitchen(index);
   };
+
+  // const timerUpdate = (date) => {
+  //   const minutes = Math.floor(((Date.now()/1000)-date)/60)
+  //   return(minutes)
+  // }
 
   const openModal = () => setShowModalCompleted(true);
   const closeModal = () => setShowModalCompleted(false);
@@ -74,15 +81,16 @@ const KitchenMain = () => {
         <NavKitchen colorTab={colorTab} />
         <OrderList>
           {items.map((item, index) => {
+            console.log(item.data.seconds);
             return (
               <>
-                <OrderButtons
-                  key={index}
+                <OrderButtonsTimer
+                  key={item.data.init_time}
                   value={item.data.table}
                   text={item.data.table}
+                  seconds={item.data.seconds}
                   time={item.data.init_time}
                   onClick={() => capturingTableKitchenWithAnEvent(index)}
-
                 />
 
               </>

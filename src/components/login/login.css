@@ -10,7 +10,7 @@ h1{
   color: #fff;
   position: absolute;
   width: 100%;
-  margin-top: 80vh;
+  /* margin-top: 80vh; */
   text-shadow:
       0 0 7px #fff,
       0 0 10px #fff,
@@ -20,9 +20,10 @@ h1{
       0 0 92px #5271ff,
       0 0 102px #5271ff,
       0 0 151px #5271ff;
-      font-size: 10vmin;
+      font-size: 12vmin;
   animation: flicker 1.5s infinite alternate;
   font-family: 'Codystar', cursive;
+  bottom: 9vh;
 }
 /* Flickering animation */
 @keyframes flicker {
@@ -49,13 +50,21 @@ h1{
 .div-form{
   height: 100%;
   width: 100%;
-  background-image: url("./fontLogin.png");
+  background-image: url("./burgerlab.png");
   background-size: cover;
-  background-position: center center;
+  background-position: bottom;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
 }
+
+/* .div-form::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+} */
 
 form {
   width: 80vw;
@@ -107,9 +116,13 @@ form {
   justify-content: space-around;
 }
 
+.button-login:hover{
+  background-color: #bc10df;
+}
+
 .p-form{
   /* font-size: 2.5vmax; */
-  font-size: 3vw;
+  font-size: 3vmax;
   text-align: center;
   position: relative;
   color: #fff;
@@ -125,9 +138,9 @@ form {
 }
 .form-label{
   text-align: left;
-  margin-left: 1vh;
+  margin-left: 1vw;
   color: whitesmoke;
-  font-size: 1.5vw;
+  font-size: 2vmax;
 }
 .input-container{
   justify-items: center;
@@ -147,10 +160,10 @@ form {
  color: rgb(36, 36, 36);
 }
 .error{
-    font-size: 2vw;
+    font-size: 2.5vmax;
     color: mediumvioletred;
     margin-top: 2vh;
-    /* margin-bottom: 2vh; */
+    font-weight: bolder;
 }
 
 @media only screen and (orientation: landscape) {

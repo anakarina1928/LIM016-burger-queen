@@ -34,6 +34,16 @@ const useDocsInRealTime = (onDataChangeFunc) => {
   return documents;
 };
 
+// export const useOrderTime = (date) => {
+//     const [timer, setTimer] = useState(Math.floor((Date.now()/1000-date)/60))
+
+//     useEffect(() => {
+//         setTimeout(() => setTimer(timer+1), 60000)
+//     }, [timer])
+
+//     return timer
+// }
+
 // Retorna la informacion del usuario de la sesion
 // export const userDataLocally = () => {
 //     const userSession = sessionStorage.getItem('user');

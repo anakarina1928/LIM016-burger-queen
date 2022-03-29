@@ -33,7 +33,7 @@ const Ticket = ({ items }) => {
             </div>
             <div className="tableFooter">
 
-                 <div>TOTAL<br></br>{items.total}</div>
+                 <div>TOTAL<br></br>S/. {items.total}</div>
 
             </div>
         </div>
