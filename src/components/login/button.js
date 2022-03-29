@@ -12,7 +12,6 @@ export function Button (){
 }
 
 
-
 export function Error({msg}){
     return(
     <p className="error"> {msg}</p>
