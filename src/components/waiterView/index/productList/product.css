@@ -7,8 +7,7 @@
     width: 18vmin;
     font-family: 'Montserrat', sans-serif;
     font-size: 2vmin;
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -17,6 +16,17 @@
     outline: none !important;
     border-color: #b22ee6;
     box-shadow: 0 0px 9px 2px #b22ee6db;
-  
-  }
+}
+.productText{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vmin;
+}
 
+.productRed{
+    color: red;
+    font-weight: bolder;
+}
+.tableMarginBottom{
+    margin-bottom: 1vh;
+}

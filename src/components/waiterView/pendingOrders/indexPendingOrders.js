@@ -6,7 +6,7 @@ import { useDocsInRealTime } from "../../../api/api";
 import { onDataOrderChangeByWorker } from "../../../firebase/firestore";
 //import { ProductsList } from "../index/productList/productsList";
 import { OrderList } from "../../orders/orderList";
-import { OrderButtons } from "../../orders/orderButtons";
+import { OrderButtonsTimer } from "../../../components/orders/orderButtonTimer"
 import { Ticket } from '../../ticket/ticket';
 import { Holis } from "../../../context/context";
 import { SelectAnOrder } from "../../selectItem.js/selectOrder";
@@ -35,11 +35,12 @@ const PendingOrders = () => {
                 {items.map((item, index) => {
                     return (
                      <>
-                        <OrderButtons
-                            key={index}
+                        <OrderButtonsTimer
+                            key={item.data.init_time}
                             value={item.data.table}
                             text={item.data.table}
                             time={item.data.init_time}
+                            seconds={item.data.seconds}
                             onClick={()=> capturingTableWithAnEvent(index)}
                           
                         />                        
