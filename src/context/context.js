@@ -1,8 +1,7 @@
 import { createContext } from "react";
 
-export const Holis = createContext({
-    user:{},
-    setUser: (useAuth) =>{}
-})
-
+export const AuthSession = createContext({
+  user: {},
+  setUser: (useAuth) => {}
+});
 

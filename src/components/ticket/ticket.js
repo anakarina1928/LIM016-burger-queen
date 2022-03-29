@@ -1,8 +1,8 @@
-import React from "react";
-import { TicketItems } from './ticketItems'
+import React from 'react';
+import { TicketItems } from './ticketItems';
 
-const Ticket = ({items}) => {
-    return (
+const Ticket = ({ items }) => {
+  return (
         <div className="ticketDiv">
             <div className="ticketTitle">
                 <p className="ticketP">LISTA DE PEDIDO</p>
@@ -18,15 +18,15 @@ const Ticket = ({items}) => {
                         </tr>
                     </thead>
                     {items.order.map((item, index) => {
-                        return (
+                      return (
                             <>
                                 <TicketItems
                                     item={item}
                                     key={index}
                                 />
-                
+
                             </>
-                        )
+                      );
                     })
                     }
                 </table>
@@ -38,8 +38,7 @@ const Ticket = ({items}) => {
               
             </div>
         </div>
-    )
-}
+  );
+};
 
-export { Ticket }
-
+export { Ticket };

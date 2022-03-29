@@ -1,50 +1,54 @@
 import menuData from '../menu.json';
 import menuCategories from '../menu_categories.json';
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-/*el api es el que me sirve para la manupulacion de los datos (interca de datos)*/
+/* el api es el que me sirve para la manupulacion de los datos (interca de datos) */
 
-
-//Filtra para obtener los items segun categoria
+// Filtra para obtener los items segun categoria
 const filterMenuByCategory = (category) => {
-    return menuData.menu.items.filter(item => item.category === category);
+  return menuData.menu.items.filter(item => item.category === category);
 };
 
-//Retorna todas las categorias con su info respectiva
+// Retorna todas las categorias con su info respectiva
 const getAllCategories = () => {
-    return menuCategories;
-}
+  return menuCategories;
+};
 
 //
 const useDocsInRealTime = (onDataChangeFunc) => {
-    const [documents, setDocs] = useState([]);
+  const [documents, setDocs] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
+    const setDocsOnQuerySnapshot = (querySnapshot) => {
+      const newDocs = querySnapshot.docs.map(doc => {
+        return {
+          id: doc.id,
+          data: doc.data()
+        };
+      });
+      setDocs(newDocs);
+    };
 
-        const setDocsOnQuerySnapshot = (querySnapshot) => {
+    onDataChangeFunc(setDocsOnQuerySnapshot);
+  }, []);// colocamos un arreglo vacio para cuando queramos que useEffect se ejecute una sola vez, retornamos el estado interno
+  return documents;
+};
 
-            const newDocs = querySnapshot.docs.map(doc => {
-                return {
-                    id: doc.id,
-                    data: doc.data()
-                }
-            });
-            setDocs(newDocs);
-        }
+// export const useOrderTime = (date) => {
+//     const [timer, setTimer] = useState(Math.floor((Date.now()/1000-date)/60))
 
-        onDataChangeFunc(setDocsOnQuerySnapshot);
+//     useEffect(() => {
+//         setTimeout(() => setTimer(timer+1), 60000)
+//     }, [timer])
 
-    }, [])//colocamos un arreglo vacio para cuando queramos que useEffect se ejecute una sola vez, retornamos el estado interno
-    return documents;
+//     return timer
+// }
 
-}
-
-//Retorna la informacion del usuario de la sesion
+// Retorna la informacion del usuario de la sesion
 // export const userDataLocally = () => {
 //     const userSession = sessionStorage.getItem('user');
 //     const userSessionObjet = JSON.parse(userSession);
 //     return userSessionObjet;
 // }
-
 
 export { filterMenuByCategory, getAllCategories, useDocsInRealTime };
