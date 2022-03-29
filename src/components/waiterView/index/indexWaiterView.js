@@ -95,8 +95,6 @@ const MenuForAllMeals = () => {
     setProductSelect(nuevoProduct);
   };
 
-  
-
   const closeModal = () => setShowModal(false);
   const openModal = () => setShowModal(true);
   const reset = () => {
@@ -108,7 +106,6 @@ const MenuForAllMeals = () => {
     setProductSelect([]);
     setTableNumber('');
   };
-
 
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
@@ -173,11 +170,11 @@ const MenuForAllMeals = () => {
 
     openModal();
   };
-  const deleteProduct= (index) => {
-   /*El método splice() cambia el contenido de un array eliminando elementos
-    existentes y/o agregando nuevos elementos.*/ 
-    productSelect.splice(index, 1); //obtengo el indicece de un caracter de un string
-    //const newProducts = productSelect.filter((elem, idx) => idx != index);
+  const deleteProduct = (index) => {
+    /* El método splice() cambia el contenido de un array eliminando elementos
+    existentes y/o agregando nuevos elementos. */
+    productSelect.splice(index, 1); // obtengo el indicece de un caracter de un string
+    // const newProducts = productSelect.filter((elem, idx) => idx != index);
     setProductSelect([...productSelect]);
   };
 

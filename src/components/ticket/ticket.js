@@ -34,8 +34,7 @@ const Ticket = ({ items }) => {
             <div className="tableFooter">
 
                  <div className="margin-total">TOTAL<br></br> S/. {items.total}</div>
-                   
-              
+
             </div>
         </div>
   );
