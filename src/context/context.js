@@ -1,7 +1,6 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export const AuthSession = createContext({
   user: {},
   setUser: (useAuth) => {}
 });
-

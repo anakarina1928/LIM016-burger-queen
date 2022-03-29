@@ -23,7 +23,7 @@ h1{
       font-size: 12vmin;
   animation: flicker 1.5s infinite alternate;
   font-family: 'Codystar', cursive;
-  bottom: 9vh;
+  bottom: 5vh;
 }
 /* Flickering animation */
 @keyframes flicker {
