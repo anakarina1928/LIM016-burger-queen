@@ -77,6 +77,7 @@ const DeliveredOrders = () => {
                                     value={item.data.table}
                                     text={item.data.table}
                                     time={item.data.init_time}
+                                    seconds={item.data.seconds}
                                     onClick={() => capturingTableToDisplayOrderInTable(index)}
 
                                 />

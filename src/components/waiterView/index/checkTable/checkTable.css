@@ -109,11 +109,12 @@ table tfoot{
     grid-area: 2/3/4/4;
 }
 input[type=text] {
-    font-size: 2vh;
+    /* font-size: 2vh; */
     width: clamp(10vw, 100%, 20vw);
-    margin-bottom: 0.5vh;
+    margin-bottom: 0.8vh;
+    margin-top: 0.5vh;
     text-align: center;
-    font-size: 3vh;
+    font-size: 2vmin;
     border-radius: 0.8vw;
     color: #fff;
     border: 0.2vw solid #bc10df;
@@ -129,4 +130,8 @@ input[type=text] {
 }
 .productMargin{
     width: 18vw
+}
+.margin-total{
+    margin: 0.8vw;
+    text-align: center;
 }

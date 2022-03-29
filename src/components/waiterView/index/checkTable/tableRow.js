@@ -18,7 +18,7 @@ function TableRowFood (props) {
   };
 
   useEffect(() => {
-    if (!renderInput) {
+    if (renderInput) {
       updateCommentOnProduct('');
     }
   }, [renderInput]);
@@ -38,9 +38,9 @@ function TableRowFood (props) {
                 {renderInput === true && <input type="text" defaultValue={commentInput} onBlur={onSetComment} />}
             </td>
             <td>{props.cantidad}</td>
-            <td>{props.precio}</td>
+            <td>S/. {props.precio}</td>
             <td>
-                <FontAwesomeIcon onClick={props.close} icon={faTrashCan}></FontAwesomeIcon>
+                <FontAwesomeIcon onClick={props.deleteProduct} icon={faTrashCan}></FontAwesomeIcon>
             </td>
         </tr>
   );
