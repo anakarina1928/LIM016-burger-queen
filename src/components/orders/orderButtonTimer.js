@@ -12,11 +12,7 @@ const OrderButtonsTimer = ({value, onClick, seconds, text }) => {
 
     return (
         <button className="product marginButton" value={value} onClick={onClick} timer={timer}>
-            {/* MESA # {text} */}
-            {/* // <br></br> */}
-            {/* // {timer} MIN */}
-            <p className="productText">MESA # {text}</p>
-            {/* {'\n'} */}
+            <p className="productText tableMarginBottom">MESA # {text}</p>
             <p className={`productText ${timer>14 && 'productRed'}`}>{timer} MIN</p>
         </button>
     )

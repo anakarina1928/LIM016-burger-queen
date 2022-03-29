@@ -24,6 +24,9 @@
 }
 
 .productRed{
-    color: mediumvioletred;
+    color: red;
+    font-weight: bolder;
 }
-
+.tableMarginBottom{
+    margin-bottom: 1vh;
+}
