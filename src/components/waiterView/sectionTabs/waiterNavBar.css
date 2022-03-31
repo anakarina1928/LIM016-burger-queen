@@ -36,3 +36,15 @@
 .active{
     background: #50105F;
 }
+
+.roundCounter{
+    background: white;
+    border-radius: 50%;
+    height: 2.5vmin;
+    width: 2.6vmin;
+    line-height: 2.7vmin;
+    display: inline-block;
+    text-align: center;
+    color: #2c2739;
+    font-weight: bolder;
+}

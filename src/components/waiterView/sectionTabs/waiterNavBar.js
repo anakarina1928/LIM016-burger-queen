@@ -25,10 +25,10 @@ export function WaiterNavBar (props) {
                 MENÚ
             </button>
             <button className={`navButton ${props.colorTab === '/waiterPending' && 'active'}`} data-name="/waiterPending" onClick={viewTab}>
-                PEDIDOS PENDIENTES {pendingNum}
+                PEDIDOS PENDIENTES {pendingNum > 0 && <span className='roundCounter'>{pendingNum}</span>}
             </button>
             <button className={`navButton ${props.colorTab === '/waiterDelivered' && 'active'}`} data-name="/waiterDelivered" onClick={viewTab}>
-                PEDIDOS LISTOS {readyNum}
+                PEDIDOS LISTOS {readyNum > 0 && <span className='roundCounter'>{readyNum}</span>}
             </button>
         </div>
   );
