@@ -13,6 +13,7 @@ import { orderToSaveInFirebase } from '../../../firebase/firestore';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthSession } from '../../../context/context';
+import { orderNumber } from '../../../api/api';
 
 const MenuForAllMeals = () => {
   const [menuValue, setMenuValue] = useState([]);
@@ -109,6 +110,7 @@ const MenuForAllMeals = () => {
 
   const sendOrderToFireBase = () => {
     const newOrderFirebase = {
+      orderNum: orderNumber(),
       init_time: new Date().toLocaleString('es-PE'),
       seconds: new Date() / 1000, // para obtener los segundos, es mucho mas manejable para hacer calculos
       worker: user.nombre,
