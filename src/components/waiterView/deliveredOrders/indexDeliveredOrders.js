@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { User } from '../../nameUser/nameUser';
 import { WaiterNavBar } from '../sectionTabs/waiterNavBar';
@@ -6,14 +6,17 @@ import { OrderList } from '../../orders/orderList';
 import { OrderButtons } from '../../orders/orderButtons';
 import { Ticket } from '../../ticket/ticket';
 import { useDocsInRealTime } from '../../../api/api';
-import { onDataOrderChange, updateOrder } from '../../../firebase/firestore';
+import { onDataOrderChangeByWorker, updateOrder } from '../../../firebase/firestore';
 import { ButtonOrderDelivered } from './buttonDelivered';
 import { Modal } from '../../modal/modal';
 import { SelectAnOrder } from '../../selectItem.js/selectOrder';
+import { AuthSession } from '../../../context/context';
 import './indexDeliveredOrders.css';
 
 const DeliveredOrders = () => {
-  const items = useDocsInRealTime(onDataOrderChange('COMPLETADO'));
+  const { user } = useContext(AuthSession);
+  const items = useDocsInRealTime(onDataOrderChangeByWorker('COMPLETADO', user.nombre));
+  console.log('wooooo', items);
   const [tableOrderKitchen, setTableOrderKitchen] = useState(undefined);
   const capturingTableToDisplayOrderInTable = (index) => setTableOrderKitchen(index);
   const [modalDeleteOrder, setModalDeleteOrder] = useState(false);

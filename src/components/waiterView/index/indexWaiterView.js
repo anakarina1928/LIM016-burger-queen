@@ -172,6 +172,7 @@ const MenuForAllMeals = () => {
 
     openModal();
   };
+
   const deleteProduct = (index) => {
     /* El método splice() cambia el contenido de un array eliminando elementos
     existentes y/o agregando nuevos elementos. */
