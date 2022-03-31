@@ -9,7 +9,6 @@ import { KitchenMain } from './components/kitchenView/kitchenMain/kitchenMain';
 import { KitchenDelivered } from './components/kitchenView/kitchenDelivered/kitchenDelivered';
 import { AuthSession } from './context/context';
 import { useAuth } from './firebase/auth';
-import { Loading } from './components/loading/loading';
 
 export function App () {
   const user = useAuth(); // Custom hook de manejo de autenticacion
@@ -39,7 +38,7 @@ export function App () {
         <Route path= "/kitchenMain" element= {<KitchenMain/>}/>
         <Route path= "/kitchenDelivered" element= {<KitchenDelivered/>}/>
       </Routes>
-        : <Loading/>/* aca puede ir el loader? */}
+        : ''}
     </div>
     </AuthSession.Provider>
   );
