@@ -175,3 +175,7 @@ form {
     grid-gap: 0vh;
   }
 }
+
+.burgerLogin{
+  height: 1.7vmax;;
+}

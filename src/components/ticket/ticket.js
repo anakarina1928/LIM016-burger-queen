@@ -5,7 +5,7 @@ const Ticket = ({ items }) => {
   return (
         <div className="ticketDiv">
             <div className="ticketTitle">
-                <p className="ticketP">LISTA DE PEDIDO</p>
+                <p className="ticketP">ORDEN: {items.orderNum} </p>
                 <p className="ticketP"> MESA: N°{items.table}</p>
             </div>
             <div className="tableFixHead">
