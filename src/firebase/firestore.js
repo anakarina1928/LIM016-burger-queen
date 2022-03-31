@@ -32,14 +32,7 @@ export const findingUser = async (userId, colllection) => {
   }
 };
 
-// Trae las ordenes segun su estado en orden descendente del tiempo
-// where('worker', '==' , `"${user2}"`),
-// traer data de firebase
-// const user =userDataLocally();
-
-// const user2 =user.nombre
-//, where('worker', '==' , user2)
-
+// Trae pedidos por estado
 export const onDataOrderChange = (state) => {
   return (callback) => {
     const q = query(collectionOrder, where('state', '==', state), orderBy('init_time', 'desc'));
@@ -47,6 +40,8 @@ export const onDataOrderChange = (state) => {
     onSnapshot(q, callback);
   };
 };
+
+// Trae pedidos por estado segun el trabajador
 export const onDataOrderChangeByWorker = (state, workerNombre) => {
   return (callback) => {
     const q = query(collectionOrder, where('state', '==', state), where('worker', '==', workerNombre), orderBy('init_time', 'desc'));
@@ -54,6 +49,7 @@ export const onDataOrderChangeByWorker = (state, workerNombre) => {
   };
 };
 
+// Actualiza el estado de la orden
 export const updateOrder = (documentId, data) => {
   // updateDoc: para actualizar campos de un doc sin reemplazarlo por completo
   const ref = doc(collectionOrder, documentId);
@@ -63,6 +59,7 @@ export const updateOrder = (documentId, data) => {
   });
 };
 
+// Elimina la orden
 export const deleteOrder = (documentId) => {
   const ref = doc(collectionOrder, documentId);
   const deleteDocCollectionOrder = deleteDoc(ref);

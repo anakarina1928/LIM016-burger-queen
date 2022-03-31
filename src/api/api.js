@@ -34,21 +34,11 @@ const useDocsInRealTime = (onDataChangeFunc) => {
   return documents;
 };
 
-// export const useOrderTime = (date) => {
-//     const [timer, setTimer] = useState(Math.floor((Date.now()/1000-date)/60))
+function orderNumber () {
+  const now = Date.now().toString();
+  const orderNum = now.substring(6, 12);
 
-//     useEffect(() => {
-//         setTimeout(() => setTimer(timer+1), 60000)
-//     }, [timer])
+  return orderNum;
+}
 
-//     return timer
-// }
-
-// Retorna la informacion del usuario de la sesion
-// export const userDataLocally = () => {
-//     const userSession = sessionStorage.getItem('user');
-//     const userSessionObjet = JSON.parse(userSession);
-//     return userSessionObjet;
-// }
-
-export { filterMenuByCategory, getAllCategories, useDocsInRealTime };
+export { filterMenuByCategory, getAllCategories, useDocsInRealTime, orderNumber };

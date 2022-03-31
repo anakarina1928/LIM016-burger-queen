@@ -39,8 +39,8 @@ function TableRowFood (props) {
             </td>
             <td>{props.cantidad}</td>
             <td>S/. {props.precio}</td>
-            <td>
-                <FontAwesomeIcon onClick={props.deleteProduct} icon={faTrashCan}></FontAwesomeIcon>
+            <td onClick={props.deleteProduct}>
+                <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
             </td>
         </tr>
   );
