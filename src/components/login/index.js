@@ -70,7 +70,7 @@ function Login () {
   return (
     <div className="div-form">
       <form onSubmit={submitHandler}>
-        <p className="p-form">Bienvenidx de vuelta!</p>
+        <p className="p-form">Bienvenid<img alt='burger' src={process.env.PUBLIC_URL + '/icons/oburger.png'} className="burgerLogin" /> de vuelta!</p>
         <div className="input-container">
           <InputForm
             label="Correo"
