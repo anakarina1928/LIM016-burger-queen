@@ -7,7 +7,8 @@ import { OrderButtonsTimer } from '../../orders/orderButtonTimer';
 import { Ticket } from '../../ticket/ticket';
 import { onDataOrderChange, updateOrder } from '../../../firebase/firestore';
 import { useDocsInRealTime/*, useOrderTime */ } from '../../../api/api';
-import { ButtonOrder } from '../../buttonOpenModal-close/buttonOrder';
+// import { ButtonOrder } from '../../buttonOpenModal-close/buttonOrder';
+import { ButtonOrderDelivered } from '../../waiterView/deliveredOrders/buttonDelivered';
 import { Modal } from '../../modal/modal';
 
 import { SelectAnOrder } from '../../selectItem.js/selectOrder';
@@ -100,8 +101,9 @@ const KitchenMain = () => {
         </OrderList>
         {tableOrderKitchen !== undefined ? <Ticket items={items[tableOrderKitchen].data} /> : <SelectAnOrder/>}
 
-        <ButtonOrder
+        <ButtonOrderDelivered
           onClick={firebaseCollectionStatusChange}
+          text="LISTO"
         />
 
         {showModalCompleted ? <Modal onClick={completed} closeModalMenu={closeModal} text={`¿El pedido de la mesa ${items[tableOrderKitchen].data.table} esta listo?`} /> : ''}
