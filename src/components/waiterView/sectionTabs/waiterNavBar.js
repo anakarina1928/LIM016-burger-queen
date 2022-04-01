@@ -19,7 +19,7 @@ export function WaiterNavBar (props) {
 
   useEffect(() => {
     vibration();
-    console.log('112121');
+    console.log(readyNum);
   }, [readyNum]);
 
   const viewTab = (event) => {

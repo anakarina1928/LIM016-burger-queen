@@ -16,6 +16,10 @@
     align-items: center; */
     grid-area: 4/3/5/4;
 }
+.buttonOrder:active{
+    width: 10.5vmin;
+    height: 8.5vmin
+}
 .component-father{
     grid-area: 4/3/5/4;
     display: flex;

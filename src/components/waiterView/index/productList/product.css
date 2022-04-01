@@ -15,8 +15,13 @@
 .product:focus{
     outline: none !important;
     border-color: #b22ee6;
-    box-shadow: 0 0px 9px 2px #b22ee6db;
+    box-shadow: 0 0px 9px 5px #b22ee6db;
 }
+.product:active{
+    width: 18.5vmin;
+    height: 12.5vmin;
+}
+
 .productText{
     color: white;
     font-family: 'Montserrat', sans-serif;

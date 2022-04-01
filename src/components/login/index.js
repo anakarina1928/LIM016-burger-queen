@@ -35,16 +35,11 @@ function Login () {
       );
 
       const dataUser = await findingUser(userFirebase.user.uid, collectionUser);
-      // setUser(dataUser)
-      // setUid(userFirebase.user.uid)
-
       const userToCreate = {
         nombre: dataUser.nombre,
         correo: dataUser.correo,
         cargo: dataUser.cargo
       };
-      sessionStorage.clear();
-      sessionStorage.setItem('user', JSON.stringify(userToCreate));
       if (userToCreate.cargo === 'MESERO') {
         setTimeout(() => {
           Navigate('/waiterMain');
