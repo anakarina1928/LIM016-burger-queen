@@ -140,9 +140,12 @@ input[type=text] {
     width: 8vw;
 }
 .productMargin{
-    width: 18vw
+    width: 18vw;
 }
 .margin-total{
     margin: 0.8vw;
     text-align: center;
+}
+.commentSize{
+    word-break: break-all;
 }

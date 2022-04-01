@@ -106,6 +106,18 @@ const MenuForAllMeals = () => {
   const resetButton = () => {
     setProductSelect([]);
     setTableNumber('');
+    toast.warn('Pedido vacío', {
+      position: 'top-center',
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark',
+      type: 'default',
+      pading: 30
+    });
   };
 
   const sendOrderToFireBase = () => {
