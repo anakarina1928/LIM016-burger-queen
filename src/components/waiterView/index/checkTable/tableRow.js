@@ -30,7 +30,7 @@ function TableRowFood (props) {
   return (
         <tr key={props.key}>
             <td onClick={onTap} >
-                <FontAwesomeIcon icon={faMessage}></FontAwesomeIcon>
+                <FontAwesomeIcon className="comment" icon={faMessage}></FontAwesomeIcon>
             </td>
             <td className="productColumn">
                 {props.producto}

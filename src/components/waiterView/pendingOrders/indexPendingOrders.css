@@ -39,3 +39,17 @@
     padding: 1.5vw;
 }
 
+.modalPortrait{
+   z-index: -2;
+}
+
+@media only screen and (orientation: portrait) {
+    .modalPortrait{
+        z-index: 3;
+        background-color: red;
+    }
+    .pendingOrders{
+        visibility: hidden;
+    }
+}
+

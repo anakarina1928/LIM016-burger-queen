@@ -109,15 +109,22 @@ form {
   width: 30%;
   cursor: pointer;
   font-family: sans-serif;
-  border: 2.5px solid #bc10df;
+  border: none;
   box-sizing: border-box;
   border-radius: 8px;
   margin-top: 2vh;
   justify-content: space-around;
+  background-color: #a310df;
 }
 
 .button-login:hover{
-  background-color: #bc10df;
+  box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 .5rem #bc13fe,
+    0 0 0.9rem #bc13fe,
+    0 0 2rem #bc13fe,
+    inset 0 0 1.3rem #bc13fe;
+  
 }
 
 .p-form{
@@ -128,6 +135,7 @@ form {
   color: #fff;
   font-family: sans-serif;
   padding-bottom: 3vh;
+  text-shadow: 0 0 0.15em #1da9cc;
 }
 ::placeholder{
   color:rgb(0, 0, 0);
@@ -177,5 +185,5 @@ form {
 }
 
 .burgerLogin{
-  height: 1.7vmax;;
+  height: 1.7vmax;
 }
