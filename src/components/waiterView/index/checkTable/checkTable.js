@@ -12,7 +12,7 @@ function CheckTable (props) {
                 <p className="checkTableP">LISTA DE PEDIDO</p>
                 <div className="checkTableInnerDiv">
                     <p className="checkTableP">MESA #</p>
-                    <input className="checkTableInp" type='number' value={props.tableNumber} onChange={(event) => props.setTableNumber(event.target.value)}></input>
+                    <input className="checkTableInp" placeholder="00"type='number' value={props.tableNumber} onChange={(event) => props.setTableNumber(event.target.value)}></input>
                 </div>
             </div>
             <div className="tableFixHead">
