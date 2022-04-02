@@ -36,7 +36,7 @@ const KitchenMain = () => {
 
   const firebaseCollectionStatusChange = () => {
     if (tableOrderKitchen === undefined) {
-      toast.error('selecciona algun pedido', {
+      toast.error('Selecciona algun pedido', {
         position: 'top-center',
         autoClose: 2000,
         hideProgressBar: false,
