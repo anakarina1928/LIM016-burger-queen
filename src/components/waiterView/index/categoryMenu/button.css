@@ -15,7 +15,7 @@ img{
     height: 60%;
 
 }
-.btnMenuOption:hover{
+.btnMenuOption:focus-within{
     box-shadow: 0 0 0.1rem #fff,
      0 0 0.2rem #fff,
      0 0 2rem #bc13fe,
