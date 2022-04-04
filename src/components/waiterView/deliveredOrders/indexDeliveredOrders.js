@@ -93,6 +93,7 @@ const DeliveredOrders = () => {
 
                 <ButtonOrderDelivered
                     onClick={modalDeleteOrderFirebase}
+                    text="ENTREGADO"
                 />
                 {modalDeleteOrder ? <Modal onClick={orderDeleveredModal} closeModalMenu={closeModal} text={`¿segurx que el pedido de la mesa ${items[tableOrderKitchen].data.table} fue entregado?`} /> : ''}
             </section>
