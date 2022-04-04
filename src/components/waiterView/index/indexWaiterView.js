@@ -108,7 +108,7 @@ const MenuForAllMeals = () => {
     setTableNumber('');
     toast.warn('Pedido vacío', {
       position: 'top-center',
-      autoClose: 1000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -136,7 +136,7 @@ const MenuForAllMeals = () => {
 
     toast.success('¡Pedido enviado!', {
       position: 'top-center',
-      autoClose: 1000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -152,7 +152,7 @@ const MenuForAllMeals = () => {
     if (productSelect.length === 0) {
       toast.warn('¡Orden vacía!', {
         position: 'top-center',
-        autoClose: 1000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -168,7 +168,7 @@ const MenuForAllMeals = () => {
     if (!tableNumber) {
       toast.warn('¡Agregar número de mesa!', {
         position: 'top-center',
-        autoClose: 1000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
