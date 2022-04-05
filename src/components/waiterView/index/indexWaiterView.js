@@ -140,7 +140,7 @@ const MenuForAllMeals = () => {
     if (productSelect.length === 0) {
       toast.warn('¡Orden vacía!', {
         position: 'top-center',
-        autoClose: 1000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
