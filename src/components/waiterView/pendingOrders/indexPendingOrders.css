@@ -36,6 +36,20 @@
 }
 .marginButton{
     margin: 1vh;
-    padding: 1.5vw;
+    padding: 0vw 1.4vw;
+}
+
+.modalPortrait{
+   z-index: -2;
+}
+
+@media only screen and (orientation: portrait) {
+    .modalPortrait{
+        z-index: 3;
+        background-color: red;
+    }
+    .pendingOrders{
+        visibility: hidden;
+    }
 }
 

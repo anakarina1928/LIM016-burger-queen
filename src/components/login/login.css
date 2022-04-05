@@ -94,6 +94,8 @@ form {
   text-indent: 1vw;
   margin: 2%;
   font-size: 2.6vmin;
+  color: #fff;
+  font-family: 'Montserrat';
 }
 .form-input:focus{
   outline: none !important;
@@ -104,20 +106,28 @@ form {
 .button-login{
   background-color: #8000802b;
   color: #fff;
-  font-size: 1.6vmax;
-  padding: 1.2% 1%;
-  width: 30%;
+  font-size: 3vmin;
+  width: 27vmin;
   cursor: pointer;
   font-family: sans-serif;
-  border: 2.5px solid #bc10df;
+  border: none;
   box-sizing: border-box;
   border-radius: 8px;
   margin-top: 2vh;
   justify-content: space-around;
+  background-color: #a310df;
+  font-family: 'Montserrat';
+  height: 6.3vmin;
 }
 
 .button-login:hover{
-  background-color: #bc10df;
+  box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 .5rem #bc13fe,
+    0 0 0.9rem #bc13fe,
+    0 0 2rem #bc13fe,
+    inset 0 0 1.3rem #bc13fe;
+  
 }
 
 .p-form{
@@ -126,8 +136,9 @@ form {
   text-align: center;
   position: relative;
   color: #fff;
-  font-family: sans-serif;
+  font-family: 'Montserrat';
   padding-bottom: 3vh;
+  text-shadow: 0 0 0.15em #1da9cc;
 }
 ::placeholder{
   color:rgb(0, 0, 0);
@@ -177,5 +188,5 @@ form {
 }
 
 .burgerLogin{
-  height: 1.7vmax;;
+  height: 1.7vmax;
 }

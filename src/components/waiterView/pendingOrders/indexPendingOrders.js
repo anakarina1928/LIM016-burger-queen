@@ -24,30 +24,33 @@ const PendingOrders = () => {
   };
 
   return (
-        <section className="pendingOrders">
-            <User />
-            <WaiterNavBar colorTab={colorTab} />
-            <OrderList>
-                {items.map((item, index) => {
-                  return (
-                     <>
-                        <OrderButtonsTimer
-                            key={item.data.init_time}
-                            value={item.data.table}
-                            text={item.data.table}
-                            time={item.data.init_time}
-                            seconds={item.data.seconds}
-                            onClick={() => capturingTableWithAnEvent(index)}
 
-                        />
+    <div className='modalPortrait'>
+      <section className="pendingOrders">
+          <User />
+          <WaiterNavBar colorTab={colorTab} />
+          <OrderList>
+              {items.map((item, index) => {
+                return (
+                    <>
+                      <OrderButtonsTimer
+                          key={item.data.init_time}
+                          value={item.data.table}
+                          text={item.data.table}
+                          time={item.data.init_time}
+                          seconds={item.data.seconds}
+                          onClick={() => capturingTableWithAnEvent(index)}
 
-                    </>
-                  );
-                })}
-            </OrderList>
-            { tableOrder !== undefined ? <Ticket items={items[tableOrder].data}/> : <SelectAnOrder/> }
+                      />
 
-        </section>
+                  </>
+                );
+              })}
+          </OrderList>
+          { tableOrder !== undefined ? <Ticket items={items[tableOrder].data}/> : <SelectAnOrder/> }
+
+      </section>
+    </div>
   );
 };
 
